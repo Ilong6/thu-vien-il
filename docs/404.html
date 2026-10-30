@@ -1,5 +1,17 @@
 <!doctype html>
 <html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Thư viện IL</title>
-<script>location.replace('/thu-vien-il/');</script>
+<script>
+// GitHub Pages has no routes, so old /s/<token> or /s/<slug> share links land here.
+(function(){
+  var base='/thu-vien-il/', m=location.pathname.match(/\/s\/([^\/?#]+)/), slug=null;
+  if(m){
+    var key=decodeURIComponent(m[1]);
+    try{ var sh=JSON.parse(localStorage.getItem('tvcl-share'))||{};
+      for(var k in sh){ if(sh[k] && sh[k].token===key) slug=k; } }catch(e){}
+    if(!slug && /^[a-z0-9-]+$/.test(key) && key.indexOf('-')>0) slug=key;
+  }
+  location.replace(base+(slug?'?s='+encodeURIComponent(slug):''));
+})();
+</script>
 </head><body style="background:#0E0C14;color:#fff;font-family:system-ui,sans-serif"><p style="padding:16px">Đang chuyển về <a style="color:#FF8A5B" href="/thu-vien-il/">Thư viện IL</a>…</p></body></html>
