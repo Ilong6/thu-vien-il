@@ -359,319 +359,6 @@ body.share .brand{cursor:default}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <!-- demo sources kept as plain text so they need no escaping -->
-<script type="text/plain" id="src-vinh-quang-no1-html">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap">
-<div class="scene" id="scene">
-  <div class="bg"></div>
-  <div class="reveal-rim"></div>
-  <div class="reveal"></div>
-  <div class="godrays"><i></i><i></i><i></i><i></i></div>
-  <div class="rays"></div>
-  <svg class="cup" viewBox="0 0 200 220" aria-hidden="true">
-    <defs>
-      <linearGradient id="cupG" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="#6B3A14"/><stop offset=".3" stop-color="#E8B868"/><stop offset=".45" stop-color="#FFF0C8"/>
-        <stop offset=".6" stop-color="#D49A48"/><stop offset="1" stop-color="#5A3010"/>
-      </linearGradient>
-    </defs>
-    <ellipse cx="100" cy="18" rx="90" ry="10" fill="#FFE2A0" opacity=".7"/>
-    <path d="M10 18 H190 C188 78 150 112 112 118 V150 C112 160 124 166 136 170 V182 H64 V170 C76 166 88 160 88 150 V118 C50 112 12 78 10 18 Z" fill="url(#cupG)"/>
-    <rect x="44" y="182" width="112" height="16" rx="4" fill="url(#cupG)"/>
-    <rect x="30" y="198" width="140" height="14" rx="4" fill="#7A4A22"/>
-  </svg>
-
-  <div class="crest">
-    <div class="sunburst"></div>
-    <div class="halo"></div>
-    <div class="ring"></div>
-    <svg class="wing left" viewBox="0 0 120 140" aria-hidden="true"><use href="#wingShape" transform="translate(120 0) scale(-1 1)"/></svg>
-    <svg class="wing right" viewBox="0 0 120 140" aria-hidden="true"><use href="#wingShape"/></svg>
-    <div class="badge">
-      <svg viewBox="0 0 160 200" aria-label="Hạng nhất">
-        <defs>
-          <linearGradient id="shieldG" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#FFF8DF"/><stop offset=".4" stop-color="#F6D689"/><stop offset=".75" stop-color="#D9A24E"/><stop offset="1" stop-color="#A86C26"/>
-          </linearGradient>
-          <linearGradient id="rimG" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#FFF1C4"/><stop offset=".5" stop-color="#C98A3A"/><stop offset="1" stop-color="#6E4214"/>
-          </linearGradient>
-          <linearGradient id="featherG" x1="1" y1="0" x2="0" y2="0">
-            <stop offset="0" stop-color="#FFF0C4"/><stop offset=".55" stop-color="#E7B25C"/><stop offset="1" stop-color="#9A6020" stop-opacity=".2"/>
-          </linearGradient>
-          <g id="wingShape" stroke="#8C5A1E" stroke-width="1" fill="url(#featherG)">
-            <path d="M118 48 C92 28 54 8 4 2 C38 22 80 44 118 60 Z"/>
-            <path d="M118 58 C88 44 50 30 8 28 C44 46 84 62 118 70 Z"/>
-            <path d="M118 68 C90 62 54 56 16 58 C52 72 88 80 118 80 Z"/>
-            <path d="M118 78 C92 80 62 86 28 98 C62 98 92 92 118 90 Z"/>
-            <path d="M118 88 C96 96 72 108 46 126 C76 116 100 104 118 100 Z"/>
-          </g>
-        </defs>
-        <path d="M6 6 H154 V140 C154 162 112 178 80 196 C48 178 6 162 6 140 Z" fill="url(#rimG)"/>
-        <path d="M16 16 H144 V136 C144 154 108 168 80 184 C52 168 16 154 16 136 Z" fill="url(#shieldG)"/>
-        <path d="M24 24 H136 V133 C136 148 104 161 80 175 C56 161 24 148 24 133 Z" fill="none" stroke="#A8702C" stroke-width="1.2" opacity=".7"/>
-        <path d="M80 6 L88 14 L80 22 L72 14 Z" fill="#FFF6DA" stroke="#8C5A1E" stroke-width="1"/>
-        <path d="M44 150 C52 162 66 168 80 170 M116 150 C108 162 94 168 80 170" fill="none" stroke="#9A6424" stroke-width="2" stroke-linecap="round"/>
-        <text x="80" y="58" text-anchor="middle" class="no">NO.</text>
-        <text x="80" y="138" text-anchor="middle" class="one">1</text>
-      </svg>
-      <div class="shine"></div>
-    </div>
-    <span class="glint g1"></span><span class="glint g2"></span><span class="glint g3"></span><span class="glint g4"></span><span class="glint g5"></span>
-  </div>
-
-  <div class="flash"></div>
-  <div class="streak"></div>
-  <div class="orbs"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-  <canvas class="sparks" id="sparks"></canvas>
-  <div class="vignette"></div>
-  <div class="score"><small>XẾP HẠNG</small><b>1 / 50</b></div>
-  <div class="panel">
-    <div class="tabs"><span></span><span></span><span></span></div>
-    <div class="slots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <div class="cta">Tiếp tục</div>
-  </div>
-</div>
-<button class="replay" id="replay" type="button">Phát lại</button>
-</script>
-<script type="text/plain" id="src-vinh-quang-no1-css">
-html,body{margin:0;height:100%;background:#000;overflow:hidden;font-family:"Be Vietnam Pro",system-ui,sans-serif}
-.scene{position:fixed;inset:0;overflow:hidden;--badge:min(20vw,32vh)}
-.scene > *{position:absolute}
-
-/* 1. argyle background */
-.bg{inset:0;opacity:0;background:
-  radial-gradient(ellipse at 50% 45%,rgba(255,236,190,.35),transparent 60%),
-  repeating-conic-gradient(from 45deg,#F3A848 0 25%,#E0852C 0 50%) 0 0/56px 56px}
-/* 2. diamond window, with a bright rim drawn by a slightly larger diamond behind it */
-.reveal,.reveal-rim{inset:0;clip-path:polygon(50% 50%,50% 50%,50% 50%,50% 50%)}
-.reveal-rim{background:#FFE7AE;filter:blur(2px)}
-.reveal{background:radial-gradient(ellipse at 50% 58%,#F2BE6E 0%,#B87634 38%,#6B3B16 78%,#3E1F0A 100%)}
-.reveal::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 90%,rgba(255,220,150,.6),transparent 55%)}
-/* 3. light from above and slow rays */
-.godrays{inset:0;opacity:0;mix-blend-mode:screen;pointer-events:none}
-.godrays i{position:absolute;top:-20%;width:14vw;height:140%;transform-origin:50% 0;filter:blur(18px);
-  background:linear-gradient(180deg,rgba(255,236,190,.55),rgba(255,210,140,.15) 55%,transparent)}
-.godrays i:nth-child(1){left:22%;transform:rotate(14deg)}
-.godrays i:nth-child(2){left:40%;width:9vw;transform:rotate(6deg)}
-.godrays i:nth-child(3){left:56%;width:11vw;transform:rotate(-5deg)}
-.godrays i:nth-child(4){left:72%;transform:rotate(-13deg)}
-.rays{left:50%;top:44%;width:180vmax;height:180vmax;margin:-90vmax 0 0 -90vmax;opacity:0;mix-blend-mode:screen;
-  background:repeating-conic-gradient(rgba(255,226,160,.28) 0 5deg,transparent 5deg 15deg);
-  -webkit-mask:radial-gradient(circle,#000 0,transparent 45%);mask:radial-gradient(circle,#000 0,transparent 45%);
-  animation:spin 46s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-/* 4. metallic trophy behind the crest */
-.cup{left:50%;top:50%;width:min(44vw,62vh);transform:translate(-50%,-52%);opacity:0;filter:drop-shadow(0 0 30px rgba(255,200,110,.45))}
-
-/* 5. crest: everything that belongs to the badge moves together */
-.crest{left:50%;top:44%;width:var(--badge);aspect-ratio:160/200;transform:translate(-50%,-50%)}
-.crest > *{position:absolute}
-.sunburst{left:50%;top:50%;width:340%;aspect-ratio:1;transform:translate(-50%,-50%);opacity:0;mix-blend-mode:screen;
-  background:repeating-conic-gradient(from 0deg,rgba(255,248,220,.9) 0 .6deg,transparent .6deg 7.5deg);
-  -webkit-mask:radial-gradient(circle,#000 8%,rgba(0,0,0,.5) 22%,transparent 50%);mask:radial-gradient(circle,#000 8%,rgba(0,0,0,.5) 22%,transparent 50%);
-  animation:spin 70s linear infinite reverse}
-.halo{left:50%;top:50%;width:260%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;opacity:0;
-  background:radial-gradient(circle,rgba(255,244,210,.95) 0%,rgba(255,206,120,.45) 28%,rgba(255,170,70,.12) 50%,transparent 68%)}
-.ring{left:50%;top:50%;width:120%;aspect-ratio:1;margin:-60% 0 0 -60%;border-radius:50%;opacity:0;
-  border:3px solid rgba(255,236,180,.95);box-shadow:0 0 24px rgba(255,210,130,.9),inset 0 0 24px rgba(255,210,130,.7)}
-.wing{top:12%;width:78%;height:auto;opacity:0;filter:drop-shadow(0 0 10px rgba(255,210,130,.55))}
-.wing.right{left:84%;transform-origin:0 50%}
-.wing.left{right:84%;transform-origin:100% 50%}
-.badge{inset:0;opacity:0}
-.badge svg{display:block;width:100%;height:auto;filter:drop-shadow(0 0 18px rgba(255,214,140,.85)) drop-shadow(0 8px 14px rgba(80,35,0,.5))}
-.badge .no{font:700 22px Cinzel,Georgia,serif;fill:#5A3216;letter-spacing:2px}
-.badge .one{font:900 92px Cinzel,Georgia,serif;fill:#3B1E0A}
-.shine{inset:0;pointer-events:none;mix-blend-mode:screen;
-  background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.9) 50%,transparent 62%) 160% 0/260% 100% no-repeat;
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 200'%3E%3Cpath d='M6 6 H154 V140 C154 162 112 178 80 196 C48 178 6 162 6 140 Z'/%3E%3C/svg%3E") 0 0/100% 100%;
-  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 200'%3E%3Cpath d='M6 6 H154 V140 C154 162 112 178 80 196 C48 178 6 162 6 140 Z'/%3E%3C/svg%3E") 0 0/100% 100%}
-.glint{width:22%;aspect-ratio:1;opacity:0;background:#FFFBEA;filter:drop-shadow(0 0 6px #FFE9B0) drop-shadow(0 0 14px #FFC86A);
-  clip-path:polygon(50% 0,56% 44%,100% 50%,56% 56%,50% 100%,44% 56%,0 50%,44% 44%)}
-.g1{left:-18%;top:-8%}.g2{left:92%;top:4%;width:16%}.g3{left:96%;top:70%;width:20%}.g4{left:-14%;top:66%;width:14%}.g5{left:40%;top:-22%;width:12%}
-
-/* 6. flash, lens streak, bokeh, sparks, vignette */
-.flash{left:50%;top:44%;width:120vmax;height:120vmax;margin:-60vmax 0 0 -60vmax;border-radius:50%;opacity:0;mix-blend-mode:screen;
-  background:radial-gradient(circle,#fff 0%,rgba(255,244,214,.9) 16%,rgba(255,206,130,.35) 36%,transparent 62%)}
-.streak{left:-10%;right:-10%;top:44%;height:3px;margin-top:-1.5px;opacity:0;mix-blend-mode:screen;
-  background:linear-gradient(90deg,transparent,rgba(255,236,190,.9) 30%,#fff 50%,rgba(255,236,190,.9) 70%,transparent);
-  box-shadow:0 0 18px 6px rgba(255,214,140,.6),0 0 60px 18px rgba(255,190,100,.3)}
-.orbs{inset:0;pointer-events:none;mix-blend-mode:screen}
-.orbs i{position:absolute;border-radius:50%;opacity:0;filter:blur(1.5px);
-  background:radial-gradient(circle,rgba(255,255,255,.55) 0%,rgba(255,226,170,.35) 48%,rgba(255,190,220,.45) 62%,rgba(190,160,255,.35) 68%,transparent 72%)}
-.orbs i:nth-child(1){left:24%;top:30%;width:18vmin;height:18vmin}
-.orbs i:nth-child(2){left:60%;top:16%;width:10vmin;height:10vmin}
-.orbs i:nth-child(3){left:64%;top:48%;width:24vmin;height:24vmin}
-.orbs i:nth-child(4){left:16%;top:56%;width:12vmin;height:12vmin}
-.orbs i:nth-child(5){left:44%;top:8%;width:7vmin;height:7vmin}
-.orbs i:nth-child(6){left:80%;top:30%;width:14vmin;height:14vmin}
-.orbs i:nth-child(7){left:34%;top:62%;width:9vmin;height:9vmin}
-.sparks{inset:0;width:100%;height:100%;pointer-events:none}
-.vignette{inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 45%,rgba(40,14,0,.55) 100%)}
-
-/* 7. result UI that slides in at the end */
-.score{left:24px;top:20px;color:#FFF2D6;opacity:0;text-shadow:0 1px 4px rgba(60,20,0,.6)}
-.score small{display:block;font-size:11px;letter-spacing:.14em;opacity:.8}
-.score b{font-size:26px}
-.panel{left:0;right:0;bottom:0;height:34%;padding:18px 6vw 20px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:16px;
-  background:linear-gradient(180deg,rgba(40,20,8,0),rgba(40,20,8,.82) 18%,rgba(28,14,6,.95));transform:translateY(100%)}
-.panel .tabs{display:flex;gap:10px;width:100%}
-.panel .tabs span{flex:1;height:12px;border-radius:3px;background:rgba(255,220,160,.18);border:1px solid rgba(255,200,120,.35)}
-.panel .slots{display:flex;gap:12px}
-.panel .slots i{width:min(6vw,40px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#FFE7A8,#B9802F 60%,#6A4114)}
-.panel .cta{margin-top:auto;padding:6px 26px;border:1px solid rgba(255,220,160,.6);border-radius:3px;color:#FFE7A8;font-size:13px;letter-spacing:.08em}
-.replay{position:fixed;right:14px;bottom:12px;z-index:5;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.35);color:#fff;border-radius:999px;padding:6px 14px;font:600 12px "Be Vietnam Pro",system-ui,sans-serif;cursor:pointer}
-@media (prefers-reduced-motion:reduce){.rays,.sunburst{animation:none}}
-</script>
-<script type="text/plain" id="src-vinh-quang-no1-js">
-// Victory "NO.1" reveal — timeline in ms, built on the Web Animations API (no library)
-var $ = function (s) { return document.querySelector(s); };
-var $$ = function (s) { return document.querySelectorAll(s); };
-var anims = [], timers = [];
-var EASE_OUT = "cubic-bezier(.2,.8,.2,1)";
-var STAMP = "cubic-bezier(.3,1.4,.5,1)";
-
-// later passes on an element use fill "forwards" so they do not override the earlier pass while waiting
-function A(el, keyframes, delay, duration, easing, fill, extra) {
-  var opt = { delay: delay, duration: duration, easing: easing || EASE_OUT, fill: fill || "both" };
-  for (var k in extra) opt[k] = extra[k];
-  var a = el.animate(keyframes, opt);
-  anims.push(a);
-  return a;
-}
-function at(ms, fn) { timers.push(setTimeout(fn, ms)); }
-
-/* ---------- particles: burst sparks, star glints and rising embers ---------- */
-var cv = $("#sparks"), ctx = cv.getContext("2d"), parts = [], embers = false, dpr = 1;
-function size() {
-  dpr = Math.min(2, window.devicePixelRatio || 1);
-  cv.width = cv.clientWidth * dpr; cv.height = cv.clientHeight * dpr;
-}
-function centre() {
-  var r = $(".crest").getBoundingClientRect();
-  return { x: (r.left + r.width / 2) * dpr, y: (r.top + r.height / 2) * dpr };
-}
-function burst(n) {
-  var c = centre();
-  for (var i = 0; i < n; i++) {
-    var ang = Math.random() * Math.PI * 2, sp = (2 + Math.random() * 11) * dpr;
-    parts.push({ x: c.x, y: c.y, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp, g: 0.07 * dpr, drag: 0.93,
-      r: (1 + Math.random() * 2.6) * dpr, life: 50 + Math.random() * 70, age: 0, hue: 36 + Math.random() * 16,
-      star: Math.random() < 0.18 });
-  }
-}
-function ember() {
-  parts.push({ x: Math.random() * cv.width, y: cv.height * (0.7 + Math.random() * 0.35), vx: (Math.random() - 0.5) * 0.3 * dpr,
-    vy: -(0.4 + Math.random() * 1.2) * dpr, g: 0, drag: 1, r: (0.8 + Math.random() * 2) * dpr,
-    life: 120 + Math.random() * 140, age: 0, hue: 34 + Math.random() * 16, star: Math.random() < 0.06 });
-}
-function drawStar(p, a) {
-  var L = p.r * 7;
-  ctx.strokeStyle = "hsla(" + p.hue + ",100%,92%," + a + ")";
-  ctx.lineWidth = Math.max(1, p.r * 0.5);
-  ctx.beginPath(); ctx.moveTo(p.x - L, p.y); ctx.lineTo(p.x + L, p.y); ctx.moveTo(p.x, p.y - L); ctx.lineTo(p.x, p.y + L); ctx.stroke();
-}
-function tick() {
-  ctx.clearRect(0, 0, cv.width, cv.height);
-  ctx.globalCompositeOperation = "lighter";
-  if (embers && Math.random() < 0.6) ember();
-  for (var i = parts.length - 1; i >= 0; i--) {
-    var p = parts[i];
-    p.vx *= p.drag; p.vy = p.vy * p.drag + p.g; p.x += p.vx; p.y += p.vy; p.age++;
-    var t = p.age / p.life;
-    if (t >= 1) { parts.splice(i, 1); continue; }
-    var a = (t < 0.15 ? t / 0.15 : 1 - t) * (0.65 + Math.random() * 0.35);
-    var grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3.4);
-    grd.addColorStop(0, "hsla(" + p.hue + ",100%,90%," + a + ")");
-    grd.addColorStop(0.4, "hsla(" + p.hue + ",100%,70%," + a * 0.6 + ")");
-    grd.addColorStop(1, "hsla(" + p.hue + ",100%,55%,0)");
-    ctx.fillStyle = grd;
-    ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 3.4, 0, Math.PI * 2); ctx.fill();
-    if (p.star) drawStar(p, a * 0.8);
-  }
-  requestAnimationFrame(tick);
-}
-
-/* ---------- timeline ---------- */
-function play() {
-  anims.forEach(function (a) { a.cancel(); }); anims = [];
-  timers.forEach(clearTimeout); timers = [];
-  parts = []; embers = false;
-
-  // 0–300 background fades in
-  A($(".bg"), [{ opacity: 0 }, { opacity: 1 }], 0, 300, "linear");
-  // 300–950 diamond window opens with a bright rim, then overshoots past the screen edges
-  var dia = [
-    { clipPath: "polygon(50% 50%,50% 50%,50% 50%,50% 50%)" },
-    { clipPath: "polygon(50% 8%,82% 50%,50% 92%,18% 50%)", offset: 0.55 },
-    { clipPath: "polygon(50% -130%,230% 50%,50% 230%,-130% 50%)" }
-  ];
-  var rim = [
-    { clipPath: "polygon(50% 49%,51% 50%,50% 51%,49% 50%)" },
-    { clipPath: "polygon(50% 5%,85% 50%,50% 95%,15% 50%)", offset: 0.55 },
-    { clipPath: "polygon(50% -134%,234% 50%,50% 234%,-134% 50%)" }
-  ];
-  A($(".reveal-rim"), rim, 300, 650, "cubic-bezier(.6,0,.3,1)");
-  A($(".reveal"), dia, 300, 650, "cubic-bezier(.6,0,.3,1)");
-  // 650 trophy and light from above
-  A($(".cup"), [{ opacity: 0, transform: "translate(-50%,-44%) scale(.94)" }, { opacity: 0.8, transform: "translate(-50%,-52%) scale(1)" }], 650, 500);
-  A($(".godrays"), [{ opacity: 0 }, { opacity: 0.8 }], 650, 900, "ease-out");
-  $$(".godrays i").forEach(function (g, i) {
-    var base = getComputedStyle(g).transform;
-    anims.push(g.animate([{ transform: base }, { transform: base + " rotate(" + (i % 2 ? -3 : 3) + "deg)" }, { transform: base }],
-      { duration: 5000 + i * 700, iterations: Infinity, easing: "ease-in-out" }));
-  });
-  // 1000 badge stamps down, shockwave and wings
-  A($(".badge"), [
-    { opacity: 0, transform: "scale(2.4)", filter: "blur(8px)" },
-    { opacity: 1, transform: "scale(.93)", filter: "blur(0)", offset: 0.7 },
-    { opacity: 1, transform: "scale(1)", filter: "blur(0)" }
-  ], 1000, 340, STAMP);
-  A($(".ring"), [{ opacity: 1, transform: "scale(.4)" }, { opacity: 0, transform: "scale(2.6)" }], 1120, 700, "cubic-bezier(.1,.7,.3,1)");
-  A($(".wing.right"), [{ opacity: 0, transform: "scaleX(0) rotate(-18deg)" }, { opacity: 1, transform: "scaleX(1.08) rotate(3deg)", offset: 0.65 }, { opacity: 1, transform: "scaleX(1) rotate(0)" }], 1100, 520, "cubic-bezier(.2,.9,.3,1)");
-  A($(".wing.left"), [{ opacity: 0, transform: "scaleX(0) rotate(18deg)" }, { opacity: 1, transform: "scaleX(1.08) rotate(-3deg)", offset: 0.65 }, { opacity: 1, transform: "scaleX(1) rotate(0)" }], 1100, 520, "cubic-bezier(.2,.9,.3,1)");
-  // 1150 flash, lens streak, bokeh, rays and spark burst
-  A($(".flash"), [{ opacity: 0, transform: "scale(.25)" }, { opacity: 1, transform: "scale(.7)", offset: 0.22 }, { opacity: 0, transform: "scale(1.5)" }], 1150, 700, "ease-out");
-  A($(".streak"), [{ opacity: 0, transform: "scaleX(.2)" }, { opacity: 1, transform: "scaleX(1)", offset: 0.25 }, { opacity: 0, transform: "scaleX(1.2)" }], 1150, 800, "ease-out");
-  $$(".orbs i").forEach(function (o, i) {
-    A(o, [{ opacity: 0, transform: "scale(.3)" }, { opacity: 1, transform: "scale(1)", offset: 0.3 }, { opacity: 0, transform: "scale(1.4)" }],
-      1150 + i * 45, 1000 + i * 70, "ease-out");
-  });
-  A($(".rays"), [{ opacity: 0 }, { opacity: 1, offset: 0.3 }, { opacity: 0.6 }], 1150, 1300, "ease-out");
-  A($(".sunburst"), [{ opacity: 0, transform: "translate(-50%,-50%) scale(.6)" }, { opacity: 1, transform: "translate(-50%,-50%) scale(1.05)", offset: 0.4 }, { opacity: 0.75, transform: "translate(-50%,-50%) scale(1)" }], 1150, 900);
-  A($(".halo"), [{ opacity: 0, transform: "translate(-50%,-50%) scale(.6)" }, { opacity: 1, transform: "translate(-50%,-50%) scale(1)" }], 1150, 600);
-  at(1150, function () { burst(180); });
-  at(1350, function () { burst(60); });
-  at(1500, function () { embers = true; });
-  // 1350+ metallic shine sweeps across the badge, then repeats
-  // (endDelay does not apply between iterations, so the pause is part of the keyframes)
-  A($(".shine"), [{ backgroundPosition: "160% 0" }, { backgroundPosition: "-60% 0", offset: 0.3 }, { backgroundPosition: "-60% 0" }], 1350, 3100, "ease-in-out", "forwards", { iterations: Infinity });
-  // 1500+ star glints twinkle around the crest
-  $$(".glint").forEach(function (g, i) {
-    A(g, [{ opacity: 0, transform: "scale(0) rotate(0)" }, { opacity: 1, transform: "scale(1) rotate(45deg)", offset: 0.22 }, { opacity: 0, transform: "scale(0) rotate(90deg)", offset: 0.45 }, { opacity: 0, transform: "scale(0) rotate(90deg)" }],
-      1500 + i * 330, 1700 + i * 120, "ease-in-out", "forwards", { iterations: Infinity });
-  });
-  // 1800+ halo breathes
-  at(1800, function () {
-    anims.push($(".halo").animate([{ opacity: 1 }, { opacity: 0.6 }, { opacity: 1 }], { duration: 1800, iterations: Infinity, easing: "ease-in-out" }));
-  });
-  // 2700 result panel slides up; crest lifts and shrinks, trophy fades
-  A($(".panel"), [{ transform: "translateY(100%)" }, { transform: "translateY(0)" }], 2700, 450);
-  A($(".crest"), [{ top: "44%", transform: "translate(-50%,-50%) scale(1)" }, { top: "33%", transform: "translate(-50%,-50%) scale(.82)" }], 2700, 450, null, "forwards");
-  A($(".rays"), [{ top: "44%" }, { top: "33%" }], 2700, 450, null, "forwards");
-  A($(".cup"), [{ opacity: 0.8 }, { opacity: 0 }], 2700, 400, null, "forwards");
-  A($(".score"), [{ opacity: 0, transform: "translateY(-8px)" }, { opacity: 1, transform: "none" }], 2950, 350);
-
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    anims.forEach(function (a) { if (a.effect.getTiming().iterations !== Infinity) a.finish(); });
-  }
-}
-
-window.addEventListener("resize", size);
-$("#replay").addEventListener("click", play);
-size();
-requestAnimationFrame(tick);
-play();
-</script>
 <script type="text/plain" id="src-navi-ket-ban-html">
 <svg class="art" id="art" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Navi đứng vẫy tay rồi nhảy cẫng lên vì được kết bạn, hai Navi trong khung chat vẫy tay chào">
 <!--
@@ -1097,43 +784,796 @@ body{display:grid;place-items:center;background:#2A2A2E;overflow:hidden}
   else requestAnimationFrame(frame);
 })();
 </script>
+<script type="text/plain" id="src-mo-qua-html">
+<svg id="art" class="art" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Navi tò mò đứng cạnh hộp quà, hộp bật mở, quà bay ra làm Navi giơ tay bất ngờ">
+<defs xmlns="http://www.w3.org/2000/svg">
+<filter id="filter0_f_12714_7046" x="75" y="123.079" width="101.935" height="46.9209" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix" />
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+<feGaussianBlur stdDeviation="0" result="effect1_foregroundBlur_12714_7046" />
+</filter>
+<filter id="filter1_f_12714_7046" x="40" y="80" width="170" height="110" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix" />
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+<feGaussianBlur stdDeviation="3" result="effect1_foregroundBlur_12714_7046" />
+</filter>
+<filter id="filter2_i_12714_7046" x="127.634" y="81.4541" width="8.98438" height="9.98438" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix" />
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+<feOffset dx="0.198907" dy="0.397814" />
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+<feColorMatrix type="matrix" values="0 0 0 0 0.14902 0 0 0 0 0.14902 0 0 0 0 0.14902 0 0 0 1 0" />
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_12714_7046" />
+</filter>
+<linearGradient id="paint2_linear_12714_7046" x1="113.276" y1="25.0057" x2="116.341" y2="154.16" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0A0A0A" />
+<stop offset="1" stop-color="#CA8A04" />
+</linearGradient>
+<linearGradient id="paint3_linear_12714_7046" x1="144.79" y1="142.112" x2="192.883" y2="79.9004" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFE600" stop-opacity="0" />
+<stop offset="1" stop-color="#FFE600" stop-opacity="0.42" />
+</linearGradient>
+<linearGradient id="paint4_linear_12714_7046" x1="120.774" y1="138.173" x2="80.5841" y2="101.023" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFE600" stop-opacity="0" />
+<stop offset="1" stop-color="#FFE600" stop-opacity="0.42" />
+</linearGradient>
+<linearGradient id="paint5_linear_12714_7046" x1="138.307" y1="143.551" x2="185.669" y2="115.674" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFE600" stop-opacity="0" />
+<stop offset="1" stop-color="#FFE600" stop-opacity="0.45" />
+</linearGradient>
+<linearGradient id="paint6_linear_12714_7046" x1="134.859" y1="134.471" x2="135.149" y2="148.961" gradientUnits="userSpaceOnUse">
+<stop stop-color="#737373" />
+<stop offset="1" stop-color="#D9D9D9" stop-opacity="0" />
+</linearGradient>
+<linearGradient id="paint7_linear_12714_7046" x1="143.935" y1="106.44" x2="151.013" y2="156.584" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EAB308" />
+<stop offset="0.593565" stop-color="#F97316" />
+<stop offset="1" stop-color="#7F1D1D" />
+</linearGradient>
+<linearGradient id="paint8_linear_12714_7046" x1="143.779" y1="112.08" x2="160.858" y2="136.17" gradientUnits="userSpaceOnUse">
+<stop stop-color="#450A0A" />
+<stop offset="1" stop-color="#EA580C" />
+</linearGradient>
+<radialGradient id="n1paint0_radial_12714_7046" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(61.0913 132.644) rotate(180) scale(4.38395 2.67421)" data-gt="translate(61.0913 132.644) rotate(180) scale(4.38395 2.67421)">
+<stop stop-color="#FF6707" />
+<stop offset="1" stop-color="#FF9707" stop-opacity="0" />
+</radialGradient>
+<radialGradient id="n1paint1_radial_12714_7046" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(82.7301 132.573) rotate(180) scale(5.10892 3.21862)" data-gt="translate(82.7301 132.573) rotate(180) scale(5.10892 3.21862)">
+<stop stop-color="#FF6707" />
+<stop offset="1" stop-color="#FF9707" stop-opacity="0" />
+</radialGradient>
+</defs>
+
+<g id="ground"><ellipse xmlns="http://www.w3.org/2000/svg" cx="61.5" cy="181.5" rx="31.5" ry="3.5" fill="#0A0A0A" fill-opacity="0.4" id="naviShadow" />
+</g>
+<g xmlns="http://www.w3.org/2000/svg" id="navi">
+<g data-role="feet">
+<path d="M60.624 168.668C60.6229 168.811 60.6216 168.981 60.6201 169.175C60.6152 169.802 60.6083 170.677 60.6006 171.668C60.5851 173.65 60.5661 176.097 60.5518 177.955C60.5458 178.724 60.2378 179.318 59.6484 179.801C59.0385 180.301 58.117 180.688 56.8984 180.973C54.4614 181.542 51.0346 181.656 47.0957 181.623L47.0947 181.623C43.1757 181.595 40.9898 181.128 39.8018 180.562C39.2152 180.282 38.895 179.989 38.7207 179.734C38.5506 179.486 38.4989 179.245 38.5 179.024C38.5026 178.856 38.587 178.623 38.7793 178.336C38.966 178.058 39.2227 177.776 39.4922 177.518C39.7597 177.261 40.0284 177.04 40.2314 176.882C40.3326 176.803 40.4167 176.74 40.4746 176.698C40.5031 176.678 40.5253 176.662 40.54 176.651C40.5473 176.646 40.5532 176.642 40.5566 176.64C40.5584 176.638 40.5599 176.637 40.5605 176.637L40.7754 176.489L40.7773 176.229L40.8398 168.505L60.624 168.668Z" fill="#F59E0B" stroke="#0A0A0A" data-role="footL" data-pts="" />
+<path d="M81.4922 169.031L81.4297 176.736L81.4277 176.997L81.6396 177.148L81.6406 177.148L81.6602 177.163C81.6748 177.174 81.6971 177.19 81.7256 177.211C81.783 177.254 81.8667 177.318 81.9668 177.398C82.1677 177.56 82.4328 177.786 82.6963 178.047C82.9619 178.31 83.2141 178.596 83.3955 178.877C83.5822 179.166 83.6613 179.399 83.6602 179.566C83.6585 179.788 83.6027 180.03 83.4277 180.277C83.2494 180.529 82.9248 180.817 82.334 181.088C81.1372 181.636 78.9442 182.067 75.0254 182.034C71.0861 182.001 67.6612 181.831 65.2344 181.223C64.0209 180.919 63.1066 180.517 62.5059 180.009C61.9257 179.518 61.6289 178.922 61.6367 178.156C61.6558 176.302 61.6752 173.854 61.6895 171.871C61.6966 170.879 61.7029 170.003 61.707 169.375C61.7083 169.181 61.7081 169.011 61.709 168.868L81.4922 169.031Z" fill="#F59E0B" stroke="#0A0A0A" data-role="footR" data-pts="" />
+<path d="M81.6151 172.127C81.6151 172.604 63.2632 171.174 61.6035 177.368L61.6035 168.792L81.6151 168.792L81.6151 172.127Z" fill="#262626" data-role="footR" data-pts="" />
+<path d="M40.6388 172.604C40.6388 173.08 58.9907 171.651 60.6504 177.845L60.6504 169.269L40.6388 169.269L40.6388 172.604Z" fill="#262626" data-role="footL" data-pts="" />
+</g>
+<g data-role="armR">
+<g>
+<mask id="path-6-inside-1_12714_7046" fill="white">
+<path d="M87.1655 129.601C97.3501 136.618 116.391 140.101 117.355 145.74C118.846 154.464 95.0792 153.894 86.6885 144.696" data-pts="" />
+</mask>
+<path d="M87.1655 129.601C97.3501 136.618 116.391 140.101 117.355 145.74C118.846 154.464 95.0792 153.894 86.6885 144.696" fill="#F05A22" data-pts="" />
+<path d="M117.355 145.74L118.306 145.577L117.355 145.74ZM87.1655 129.601L86.6182 130.395C91.8254 133.983 99.2748 136.657 105.361 139.083C108.442 140.311 111.165 141.47 113.173 142.656C114.175 143.249 114.958 143.825 115.508 144.389C116.059 144.953 116.328 145.455 116.404 145.902L117.355 145.74L118.306 145.577C118.141 144.615 117.604 143.774 116.889 143.042C116.174 142.309 115.232 141.633 114.154 140.996C112.002 139.724 109.148 138.516 106.075 137.291C99.8535 134.811 92.6901 132.236 87.7127 128.807L87.1655 129.601ZM117.355 145.74L116.404 145.902C116.551 146.764 116.386 147.461 116.002 148.049C115.604 148.659 114.927 149.216 113.956 149.681C112.001 150.617 109.081 151.073 105.756 150.975C102.451 150.877 98.8401 150.233 95.5545 149.058C92.2605 147.88 89.3578 146.191 87.401 144.046L86.6885 144.696L85.9759 145.347C88.2145 147.8 91.4292 149.632 94.9049 150.875C98.3889 152.121 102.2 152.799 105.699 152.903C109.178 153.006 112.445 152.544 114.789 151.421C115.968 150.856 116.968 150.098 117.617 149.104C118.28 148.09 118.531 146.896 118.306 145.577L117.355 145.74Z" fill="#0A0A0A" mask="url(#path-6-inside-1_12714_7046)" data-pts="" />
+</g>
+<path d="M97.9926 135.25C90.5819 138.19 93.3578 147.483 99.4192 149.469C104.169 151.025 106.875 151.154 107.947 151.445C100.884 151.766 92.2924 149.947 87.594 144.798L88.5501 130.776L97.9926 135.25Z" fill="#262626" data-pts="" />
+<path d="M88.2174 144.886C95.9291 149.711 105.601 152.167 114.471 149.452C106.31 154.008 94.7378 151.243 88.2174 144.886Z" fill="#262626" data-pts="" />
+</g>
+<path d="M62.0056 94.7969C62.9684 94.2967 64.0946 94.2575 65.0089 94.7564L65.1922 94.8658C82.6931 106.128 90.698 118.405 94.7835 131.021C96.83 137.339 97.8903 143.753 98.6691 150.178C99.4405 156.589 99.9327 163.067 100.825 169.419C101.019 170.786 100.081 171.904 98.6957 171.989C84.0369 172.871 38.8066 171.264 28.1403 170.401L27.2156 170.322L26.9665 170.284C26.4051 170.176 25.994 169.877 25.7092 169.469C25.3803 168.994 25.2091 168.341 25.2202 167.605L25.2271 167.268C25.5082 156.164 27.4066 141.901 32.8408 128.51C38.3249 114.993 47.3943 102.382 62.0056 94.7969Z" fill="#F05A22" stroke="#0A0A0A" data-role="body" data-pts="" />
+<path d="M98.1943 169.301C100.012 166.345 95.8888 141.711 94.6255 136.385C95.8801 147.377 97.9197 165.851 91.8231 167.6C85.7334 169.348 51.6396 172.3 38.3709 167.095C26.1791 162.312 31.0216 139.821 32.7023 132.67C29.1812 141.059 25.5025 164.861 26.816 168.39C28.1364 171.918 96.3762 172.256 98.1943 169.301Z" fill="#262626" data-role="body" data-pts="" />
+<g data-role="armL">
+<path d="M16.7111 163.559C10.7658 158.47 25.6215 138.095 33.4733 128.657L43.5 148C35.6786 154.565 20.6914 166.966 16.7111 163.559Z" fill="#F05A22" data-pts="" />
+<path d="M33.1897 128.431C25.3379 137.869 10.7577 158.451 16.703 163.54C20.6833 166.947 34.6777 155.565 42.4991 149.001" stroke="#0A0A0A" stroke-linecap="round" stroke-linejoin="round" data-pts="" />
+</g>
+<g data-role="body">
+<path d="M89.4211 124.832C90.8369 131.331 90.9648 142.564 90.8113 149.336C90.7687 151.093 89.1823 152.876 87.2376 153.004C77.6509 153.643 66.4522 153.959 54.8442 152.824C49.812 152.33 48.6009 149.02 48.5156 147.298C48.1488 139.229 48.4218 133.412 48.8141 125.693C48.8994 123.953 50.4431 122.555 52.3707 122.444L70.2647 121.42C71.4162 121.361 72.4055 122.103 72.5505 123.126L72.8064 124.926C72.9429 125.898 73.8555 126.632 74.9472 126.632L83.4934 123.28C85.5489 123.28 89.0287 123.007 89.4296 124.823L89.4211 124.832Z" fill="#262626" data-pts="" />
+<path d="M90.4322 125.985C90.5686 132.544 90.543 139.504 90.3895 146.779C90.3469 148.672 88.8799 150.242 86.9949 150.387C75.6086 151.24 64.2649 151.231 52.9639 150.353C51.1131 150.208 49.6546 148.681 49.5778 146.83C49.2196 138.156 49.2026 129.661 49.5778 121.362C49.6631 119.486 51.1642 117.993 53.0321 117.874L70.4229 116.774C71.5402 116.714 72.504 117.507 72.6405 118.607L72.8878 120.544C73.0243 121.593 73.9113 122.377 74.9689 122.377L86.7476 122.377C88.7434 122.386 90.3895 123.981 90.4322 125.977L90.4322 125.985Z" fill="#FBBF24" data-pts="" />
+<g>
+<g>
+<path d="M55.7776 132.78C55.7776 134.528 58.1743 135.935 61.1168 135.935C64.0679 135.935 66.4561 134.519 66.4561 132.771C66.4561 131.023 64.0594 129.615 61.1168 129.615C58.1658 129.615 55.7776 131.031 55.7776 132.78Z" fill="url(#n1paint0_radial_12714_7046)" data-pts="" />
+<path d="M76.5294 132.761C76.5294 134.791 79.3184 136.437 82.7471 136.437C86.1844 136.437 88.9648 134.782 88.9648 132.752C88.9648 130.722 86.1758 129.076 82.7471 129.076C79.3099 129.076 76.5294 130.731 76.5294 132.761Z" fill="url(#n1paint1_radial_12714_7046)" data-pts="" />
+</g>
+<path d="M69.0586 129.896C68.4019 129.896 67.8643 130.672 67.8643 131.627C67.8667 131.898 67.9128 132.154 67.9902 132.383C68.5877 132.681 69.1699 132.924 69.6797 133.11C70.0267 132.807 70.2607 132.256 70.2607 131.627C70.2522 130.672 69.7236 129.896 69.0586 129.896Z" fill="#262626" data-role="eyeL" data-pts="" />
+<path d="M74.0467 131.617C74.0467 130.662 74.584 129.886 75.2408 129.886C75.906 129.886 76.4348 130.662 76.4434 131.617C76.4434 132.572 75.906 133.349 75.2493 133.349C74.584 133.349 74.0552 132.572 74.0467 131.617Z" fill="#262626" data-role="eyeR" data-pts="" />
+</g>
+<g data-role="mouthS">
+<ellipse cx="72.4415" cy="139.96" rx="1.29397" ry="2.40309" transform="rotate(10.8505 72.4415 139.96)" fill="#262626" data-pin="72.4415 139.96" />
+<path d="M71.0998 140.268C71.468 140.11 71.876 140.057 72.2866 140.136C72.7885 140.232 73.2133 140.51 73.5178 140.898C73.1724 141.825 72.5576 142.428 71.9883 142.319C71.3878 142.204 71.0331 141.333 71.0998 140.268Z" fill="#FB7185" data-pts="" />
+</g>
+<g data-role="mouthB" style="display:none">
+<path d="M82.165 137.051C80.88 133.239 75.667 136.146 71.376 134.617C65.781 132.615 64.293 130.13 61.589 131.33C56.711 133.488 58.971 143.81 68.125 145.853C75.311 147.46 84.065 142.668 82.165 137.051Z" fill="#262626" data-pts="" />
+<path d="M75.013 145.51C74.628 144.029 71.583 136.927 65.314 138.092C59.052 139.263 65.716 144.893 65.716 144.893C68.587 146.349 71.69 146.363 75.013 145.51Z" fill="#FB7185" data-pts="" />
+</g>
+</g>
+</g>
+
+<g id="box">
+<g id="lidBack"></g>
+<g xmlns="http://www.w3.org/2000/svg" id="body">
+<g>
+<path d="M152.074 170.78L147.303 172.888L118.87 167.194L124.273 164.794L152.074 170.78Z" fill="#4C1D95" stroke="#0A0A0A" stroke-width="0.6" data-d2="M145.17 151.498L141.126 154.792L112.199 156.817L116.775 153.074L145.17 151.498Z" />
+<path d="M187.825 154.021C187.966 153.977 188.121 153.998 188.247 154.08C188.39 154.174 188.476 154.334 188.473 154.506L188.117 178.322C188.114 178.5 188.018 178.662 187.863 178.75L147.468 201.513C147.313 201.6 147.124 201.599 146.97 201.509C146.817 201.419 146.723 201.254 146.723 201.076L146.842 173.087C146.843 172.892 146.956 172.716 147.133 172.634L187.765 154.043L187.825 154.021Z" fill="#581C87" stroke="#0A0A0A" stroke-linejoin="round" data-d2="M175.218 125.884C175.342 125.804 175.498 125.783 175.641 125.829C175.804 125.882 175.929 126.014 175.972 126.18L181.924 149.243C181.968 149.415 181.918 149.598 181.792 149.723L148.852 182.354C148.725 182.48 148.542 182.529 148.37 182.482C148.198 182.436 148.064 182.302 148.018 182.13L140.733 155.105C140.683 154.917 140.745 154.717 140.895 154.592L175.166 125.921L175.218 125.884Z" />
+<path d="M147.176 172.625C147.367 172.696 147.5 172.879 147.502 173.089L147.739 192.038L147.738 192.056L147.519 201.501C147.516 201.652 147.443 201.794 147.324 201.886C147.204 201.978 147.05 202.011 146.903 201.976L114.946 194.343L93.5819 189.241L77.7413 185.457C77.5197 185.404 77.362 185.208 77.3576 184.981L76.8739 159.497L76.8751 159.496L76.8625 159.003C76.8591 158.851 76.9254 158.706 77.0415 158.608C77.1577 158.511 77.3119 158.472 77.4606 158.501L80.9104 159.189C80.9153 159.19 80.9207 159.192 80.9255 159.193C102.861 164.254 124.927 168.634 147.091 172.602L147.176 172.625Z" fill="#D946EF" stroke="#0A0A0A" stroke-linejoin="round" data-d2="M140.934 154.572C141.137 154.59 141.313 154.731 141.371 154.933L146.608 173.146L146.612 173.163L148.898 182.33C148.935 182.477 148.903 182.632 148.812 182.753C148.721 182.873 148.58 182.946 148.43 182.951L115.592 184.037L93.6387 184.765L77.3613 185.303C77.1336 185.31 76.9297 185.163 76.8652 184.944L69.6621 160.495L69.6631 160.494L69.5205 160.021C69.4771 159.876 69.5026 159.719 69.5889 159.594C69.6752 159.469 69.8136 159.391 69.9648 159.38L73.4736 159.131C73.4786 159.131 73.4843 159.131 73.4893 159.131C95.9823 158.213 118.421 156.604 140.846 154.572L140.934 154.572Z" />
+<path d="M167.99 177.248C169.788 183.517 166.421 189.397 161.834 192.828L171.799 187.576C172.933 186.167 174.455 183.071 173.818 178.845C173.181 174.619 170.225 171.483 176.448 169.25C172.88 169.304 166.193 170.978 167.99 177.248Z" fill="#84CC16" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" data-d2="M162.23 153.528C165.621 159.099 163.928 165.66 160.411 170.182L168.633 162.482C169.355 160.824 170.004 157.435 168.273 153.528C166.541 149.621 162.861 147.378 168.273 143.579C164.846 144.574 158.839 147.957 162.23 153.528Z" data-ribbon="" />
+<path d="M178.174 177.161C174.64 171.919 173.54 168.262 168.967 171.98C182.679 160.829 187.719 181.202 195.86 181.298L191.922 182.71L184.054 181.621L180.363 179.541L178.174 177.161Z" fill="#D0F500" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" data-d2="M172.028 150.752C167.233 146.631 165.205 143.394 161.778 148.19C172.055 133.811 182.301 152.126 190.178 150.066L186.753 152.469L178.877 153.499L174.767 152.469L172.028 150.752Z" data-ribbon="" />
+<path d="M206.601 172.888C203.283 179.753 197.328 182.926 191.598 183.216C186.848 183.456 182.279 181.717 179.478 178.479C180.943 179.77 182.402 180.561 183.822 180.935C185.977 181.502 188.004 181.106 189.749 180.109C193.015 178.242 195.304 174.266 195.708 170.504L199.618 174.756L199.76 174.842C199.946 174.893 200.18 174.893 200.422 174.869C200.671 174.844 200.961 174.791 201.275 174.72C201.901 174.577 202.647 174.353 203.404 174.098C204.549 173.712 205.735 173.251 206.601 172.888Z" fill="#84CC16" stroke="#0A0A0A" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="bevel" data-d2="M198.313 139.116C196.929 146.614 192.024 151.248 186.574 153.043C182.057 154.53 177.191 154.061 173.634 151.679C175.387 152.536 177.004 152.913 178.473 152.898C180.701 152.876 182.551 151.958 183.97 150.535C186.626 147.871 187.783 143.432 187.178 139.696L192.073 142.764L192.232 142.81C192.426 142.81 192.651 142.747 192.878 142.66C193.112 142.57 193.378 142.443 193.661 142.291C194.228 141.987 194.888 141.574 195.551 141.128C196.553 140.454 197.575 139.696 198.313 139.116Z" data-ribbon="" />
+<path d="M188.012 153.897C188.223 153.941 188.383 154.116 188.407 154.331C188.432 154.545 188.315 154.752 188.119 154.842L152.282 171.237C152.184 171.282 152.074 171.294 151.969 171.271L124.168 165.284C123.93 165.233 123.763 165.018 123.773 164.775L124.748 141.524C124.756 141.322 124.886 141.145 125.077 141.076L125.256 141.01L125.322 140.991C125.39 140.977 125.46 140.977 125.528 140.991L188.012 153.897Z" fill="#6D28D9" stroke="#0A0A0A" stroke-linejoin="round" data-d2="M175.365 125.715C175.581 125.701 175.781 125.828 175.861 126.028C175.942 126.229 175.884 126.459 175.718 126.598L145.49 151.883C145.408 151.952 145.305 151.993 145.197 151.999L116.803 153.574C116.56 153.588 116.342 153.425 116.287 153.188L111.081 130.506C111.036 130.308 111.114 130.103 111.279 129.986L111.436 129.876L111.494 129.84C111.555 129.808 111.623 129.79 111.692 129.785L175.365 125.715Z" />
+<path d="M125.137 141.057C125.277 141.026 125.425 141.056 125.543 141.142C125.677 141.241 125.754 141.399 125.747 141.566L124.772 164.817C124.763 165.027 124.623 165.209 124.422 165.273L119.262 166.891C119.184 166.915 119.101 166.92 119.021 166.905L77.5898 159.178C77.368 159.136 77.2011 158.952 77.1828 158.727C77.1646 158.502 77.299 158.292 77.5113 158.216L125.077 141.074L125.137 141.057Z" fill="#6D28D9" stroke="#0A0A0A" stroke-linejoin="round" data-d2="M111.334 129.953C111.461 129.886 111.612 129.876 111.748 129.928C111.903 129.987 112.019 130.12 112.057 130.282L117.263 152.964C117.31 153.169 117.223 153.382 117.046 153.496L112.497 156.421C112.428 156.465 112.35 156.491 112.269 156.498L70.2686 159.998C70.0437 160.017 69.8339 159.883 69.7568 159.671C69.6798 159.459 69.7539 159.221 69.9385 159.091L111.281 129.985L111.334 129.953Z" />
+</g>
+</g>
+
+<g xmlns="http://www.w3.org/2000/svg" filter="url(#filter0_f_12714_7046)" id="innerLight">
+<path d="M113.618 139.692C104.629 145.902 87.5772 157.638 87 158L141 154L164.935 135.079L113.618 139.692Z" fill="#FFE600" />
+</g>
+
+<g xmlns="http://www.w3.org/2000/svg" filter="url(#filter1_f_12714_7046)" style="mix-blend-mode:plus-lighter" id="glow">
+<path d="M71.0273 146.828L74.4521 159.192L141 154.5L169.805 131.007L176.507 112.828L122.055 123.131L71.0273 146.828Z" fill="url(#paint2_linear_12714_7046)" />
+</g>
+
+<g id="beams"></g>
+<g id="items"><g xmlns="http://www.w3.org/2000/svg" data-item="bubble">
+<g>
+<g opacity="0.55" style="mix-blend-mode:overlay">
+<ellipse cx="92.5337" cy="136.133" rx="14.8686" ry="14.9107" fill="white" />
+</g>
+<path d="M94.5134 121.007C102.746 122.203 108.452 129.866 107.259 138.121C106.066 146.375 98.4254 152.098 90.1923 150.901C81.9592 149.704 76.2539 142.041 77.447 133.787C78.6401 125.533 86.2803 119.81 94.5134 121.007Z" stroke="#0A0A0A" stroke-width="0.6" />
+<path d="M80.1746 129.09C78.9954 131.942 77.514 138.824 81.0222 143.535C79.8788 141.565 78.1085 135.919 80.1746 129.09Z" fill="white" />
+<path d="M93.5682 150.053C88.0155 150.265 83.7608 147.461 82.3276 146.033C83.6362 146.859 86.4731 149.738 94.7811 148.798C101.428 148.045 105.126 141.814 105.884 138.954C105.274 143.719 100.509 149.789 93.5682 150.053Z" fill="#0A0A0A" />
+<g>
+<path d="M88.4961 125.883C88.5737 125.835 88.6689 125.825 88.7549 125.855L91.2803 126.76C91.4111 126.807 91.4928 126.937 91.4775 127.075C91.4309 127.496 91.3734 127.892 91.3652 128.287C91.3573 128.676 91.399 129.035 91.54 129.36C91.8132 129.991 92.5106 130.611 94.3096 131C96.1155 131.391 96.9397 131.145 97.4316 130.702C97.6896 130.47 97.8832 130.161 98.0723 129.783C98.1667 129.594 98.2568 129.396 98.3545 129.184C98.4512 128.974 98.5543 128.753 98.6709 128.531L98.6963 128.49C98.7633 128.401 98.8757 128.355 98.9883 128.375L100.521 128.646L100.572 128.66C100.686 128.702 100.766 128.808 100.77 128.933L100.77 128.941C100.77 128.947 100.77 128.956 100.771 128.967C100.771 128.989 100.772 129.022 100.772 129.064C100.774 129.149 100.776 129.271 100.776 129.425C100.778 129.732 100.775 130.163 100.758 130.659C100.724 131.648 100.633 132.913 100.401 133.979C100.175 135.024 99.8815 136.248 99.6445 137.21C99.526 137.691 99.4215 138.107 99.3467 138.403C99.3093 138.551 99.2794 138.669 99.2588 138.75C99.2485 138.79 99.2408 138.822 99.2354 138.843C99.2326 138.853 99.2299 138.862 99.2285 138.867C99.2279 138.87 99.2279 138.872 99.2275 138.873L99.2266 138.875C99.2256 138.879 99.2237 138.882 99.2227 138.886L100.116 140.899C100.231 140.993 100.316 141.122 100.357 141.267C100.781 141.26 101.12 141.241 101.382 141.22C101.542 141.207 101.672 141.194 101.779 141.184C101.88 141.174 101.974 141.166 102.042 141.166L102.116 141.172C102.282 141.199 102.392 141.314 102.453 141.419C102.52 141.533 102.556 141.673 102.575 141.804C102.615 142.071 102.606 142.41 102.566 142.739C102.527 143.071 102.453 143.416 102.353 143.698C102.302 143.839 102.242 143.974 102.17 144.086C102.102 144.191 101.999 144.313 101.852 144.372C101.755 144.411 101.624 144.428 101.497 144.438C101.359 144.448 101.187 144.453 100.984 144.451C100.633 144.448 100.18 144.424 99.6416 144.379L99.6348 144.409C99.5507 144.73 99.2515 144.955 98.9111 144.929C97.9492 144.854 96.1819 144.64 94.5898 144.202C94.2887 144.119 94.098 143.853 94.085 143.563C93.9652 143.76 93.7465 143.891 93.4951 143.871C92.9723 143.83 92.0251 143.701 90.8672 143.396C89.7343 143.096 88.9441 142.772 88.5273 142.564C88.3032 142.453 88.1877 142.231 88.1865 142.006C88.0205 141.947 87.8572 141.887 87.6963 141.828C87.5504 142.1 87.2372 142.258 86.918 142.177C85.3177 141.771 83.6745 141.085 82.8008 140.675C82.4922 140.53 82.3427 140.186 82.4268 139.866L82.4561 139.752C81.8722 139.474 81.3925 139.222 81.042 139.008C80.8456 138.888 80.6822 138.776 80.5615 138.675C80.5015 138.625 80.4455 138.571 80.4004 138.517C80.3595 138.467 80.3048 138.389 80.2852 138.291C80.2483 138.106 80.2701 137.889 80.3125 137.687C80.3564 137.477 80.4287 137.253 80.5166 137.043C80.6043 136.833 80.711 136.628 80.8271 136.458C80.9368 136.297 81.0799 136.131 81.251 136.045L81.3232 136.02C81.3974 136.004 81.4757 136.016 81.542 136.057C81.8549 136.248 82.374 136.527 83.083 136.864C83.2194 136.599 83.5198 136.461 83.8076 136.515L85.7852 135.049L85.8486 135.013C85.8846 134.998 85.9231 134.991 85.9619 134.991C86.3184 134.212 87.067 132.513 87.4639 131.12C87.7289 130.19 87.9519 128.939 88.1094 127.912C88.1878 127.401 88.2499 126.948 88.292 126.623C88.313 126.461 88.329 126.331 88.3398 126.241C88.3452 126.197 88.3488 126.162 88.3516 126.139C88.3529 126.127 88.3548 126.118 88.3555 126.112C88.3558 126.109 88.3553 126.107 88.3555 126.105L88.3564 126.104C88.3668 126.013 88.4183 125.931 88.4961 125.883Z" fill="#525252" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" />
+<g>
+<path d="M91.1787 127.042C90.9983 128.67 90.5662 130.498 94.2461 131.294C97.9253 132.09 98.0338 130.389 98.9355 128.671L100.469 128.941C100.469 128.941 100.559 131.836 100.108 133.916C99.6574 135.996 98.9355 138.801 98.9355 138.801C98.9077 138.798 98.8798 138.793 98.8516 138.79L100.018 141.414L99.4238 143.672C98.1767 143.708 94.7738 143.536 91.0117 142.564L91.0117 142.565C90.9811 142.557 90.9504 142.548 90.9199 142.54C90.8922 142.533 90.8637 142.527 90.8359 142.52L90.8359 142.519C87.0844 141.506 84.0378 139.975 82.9707 139.327L83.5635 137.069L85.9639 135.288L86.1309 135.344C86.4199 134.723 87.3035 132.777 87.752 131.203C88.2931 129.304 88.6533 126.138 88.6533 126.138L91.1787 127.042Z" fill="#262626" />
+<path d="M91.6634 140.252C86.1819 138.779 82.5275 137.011 81.3855 136.312C80.9825 136.514 80.4787 137.726 80.5794 138.231C80.6802 138.737 85.2146 140.932 90.9581 142.475C96.7016 144.019 101.236 144.294 101.74 144.092C102.244 143.89 102.546 141.465 102.042 141.465C101.538 141.465 98.5153 142.094 91.6634 140.252Z" fill="#262626" />
+<g>
+<path d="M99.7123 141.041C98.5629 140.891 96.7441 140.503 95.636 140.248C95.4229 140.198 95.2091 140.327 95.1535 140.539L94.3946 143.429C94.3394 143.64 94.4598 143.856 94.6689 143.914C96.2357 144.344 97.9818 144.557 98.9332 144.631C99.1238 144.646 99.2948 144.52 99.3434 144.334L100.071 141.562C100.135 141.318 99.9626 141.073 99.7123 141.041Z" fill="#404040" />
+<path d="M84.013 136.895C85.0866 137.333 86.8605 137.893 87.9502 138.218C88.1597 138.281 88.2825 138.498 88.2268 138.71L87.4679 141.6C87.4127 141.811 87.2015 141.94 86.9913 141.887C85.4162 141.487 83.7922 140.81 82.9279 140.404C82.7548 140.323 82.6679 140.129 82.7165 139.944L83.4443 137.172C83.5086 136.927 83.7792 136.8 84.013 136.895Z" fill="#404040" />
+<path d="M93.8697 143.316L94.5878 140.581C94.642 140.375 94.5068 140.166 94.297 140.131C93.7287 140.037 92.6625 139.847 91.9123 139.647C91.1935 139.456 90.2182 139.109 89.6923 138.916C89.4924 138.843 89.2722 138.957 89.218 139.163L88.4958 141.914C88.4558 142.066 88.5197 142.227 88.6606 142.297C89.0571 142.494 89.8275 142.812 90.9432 143.107C92.0834 143.408 93.0125 143.533 93.5178 143.573C93.6822 143.586 93.8277 143.476 93.8697 143.316Z" fill="#404040" />
+</g>
+<path d="M99.7464 141.134C99.969 141.162 100.122 141.379 100.065 141.597L99.6437 143.201C99.6123 143.22 99.5771 143.232 99.5389 143.237C98.6867 143.337 96.8479 142.917 95.7302 142.611C95.5369 142.558 95.4283 142.355 95.4789 142.16C95.6611 141.461 95.8278 140.472 95.497 140.315C95.5223 140.315 95.5479 140.318 95.5734 140.324C96.6943 140.583 98.5861 140.988 99.7464 141.134Z" fill="#525252" />
+<path d="M83.8271 136.832C83.6196 136.747 83.3797 136.86 83.3226 137.078L82.9012 138.682C82.9195 138.714 82.944 138.742 82.9751 138.765C83.6676 139.273 85.4741 139.816 86.5971 140.102C86.7913 140.151 86.9857 140.027 87.0371 139.833C87.2221 139.135 87.5628 138.191 87.9277 138.218C87.9056 138.206 87.8818 138.196 87.8566 138.189C86.7541 137.86 84.9084 137.279 83.8271 136.832Z" fill="#525252" />
+<path d="M94.1828 140.004C94.2607 140.017 94.3284 140.054 94.3799 140.106L93.9918 141.584C93.9503 141.742 93.8082 141.852 93.6458 141.841C93.1689 141.808 92.3037 141.697 91.2463 141.418C90.2117 141.144 89.4962 140.843 89.1239 140.653C88.9861 140.582 88.9247 140.424 88.9641 140.274L89.3564 138.78C89.4268 138.76 89.5039 138.761 89.5782 138.789C90.1041 138.982 91.0795 139.329 91.7983 139.52C92.5485 139.72 93.6146 139.909 94.1828 140.004Z" fill="#525252" />
+</g>
+</g>
+<path d="M88.438 122.416C90.6604 121.678 96.2871 121.138 101.014 124.88C106.877 129.522 107.639 137.572 104.289 143.27C104.262 143.317 104.235 143.363 104.208 143.406C104.235 143.361 104.262 143.315 104.289 143.27C105.317 141.483 106.655 136.885 104.321 131.647C101.325 124.926 97.699 125.442 93.6613 125.801C83.7822 126.678 81.8484 141.349 81.6589 141.322C81.7251 137.936 83.086 130.779 86.806 127.668C91.5891 123.669 94.7966 124.533 94.9317 123.598C95.0669 122.663 91.7818 121.788 88.438 122.416Z" fill="white" />
+</g>
+</g>
+<g xmlns="http://www.w3.org/2000/svg" data-item="coin">
+<ellipse cx="7.76272" cy="10.7727" rx="7.76272" ry="10.7727" transform="matrix(-0.948586 -0.31652 -0.314914 0.94912 144.955 79.5049)" fill="#262626" />
+<path d="M135.779 76.7416C133.861 76.1013 131.739 76.5929 129.848 77.9581C127.959 79.323 126.321 81.5492 125.402 84.3192C124.483 87.0895 124.463 89.8562 125.161 92.0846C125.859 94.3135 127.265 95.9809 129.183 96.6212C131.102 97.2614 133.224 96.7708 135.114 95.4056C137.004 94.0407 138.641 91.8138 139.561 89.0435C140.48 86.2735 140.499 83.5073 139.801 81.2791C139.103 79.0502 137.698 77.3818 135.779 76.7416Z" fill="#A259FF" stroke="#0A0A0A" stroke-width="0.6" />
+<g>
+<g filter="url(#filter2_i_12714_7046)">
+<path d="M132.377 82.0038L130.847 81.4651C130.745 81.4291 130.633 81.4834 130.598 81.5861L127.655 90.1712C127.585 90.3747 127.693 90.5957 127.896 90.6632C128.285 90.7921 128.944 91.0052 129.891 91.3C131.874 91.9171 134.211 90.3838 134.987 88.3262C135.31 87.4705 136.172 85.002 136.608 83.7032C136.643 83.5996 136.586 83.4886 136.482 83.4556L134.81 82.9246C134.708 82.8921 134.599 82.9481 134.565 83.0504C134.332 83.7643 133.819 85.2935 133.221 86.9628C132.565 88.7943 131.463 89.2528 130.247 88.9177L132.497 82.2513C132.532 82.1497 132.478 82.0394 132.377 82.0038Z" fill="#D0F500" />
+</g>
+<path d="M136.289 83.7086C135.844 85.0295 135.019 87.3908 134.706 88.2195C134.343 89.1814 133.612 90.0281 132.736 90.5591C131.86 91.0903 130.869 91.2898 129.98 91.013C129.034 90.7186 128.377 90.5059 127.99 90.3777C127.948 90.3635 127.922 90.3165 127.939 90.2687L130.847 81.7831L132.181 82.2526L129.963 88.8215L129.861 89.1227L130.168 89.2077C130.833 89.391 131.501 89.3641 132.096 89.0113C132.686 88.662 133.161 88.0197 133.503 87.065C134.076 85.4652 134.57 83.9933 134.817 83.2418L136.289 83.7086Z" stroke="#0A0A0A" stroke-width="0.6" />
+</g>
+</g>
+<g xmlns="http://www.w3.org/2000/svg" data-item="coin">
+<path d="M153.208 116.228L149.626 108.781C149.626 108.781 149.293 108.906 148.753 109.203C147.704 109.78 147.723 111.904 148.794 113.947C149.866 115.99 151.585 117.177 152.634 116.6C153.683 116.023 153.208 116.228 153.208 116.228Z" fill="#A259FF" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" />
+<path d="M152.634 116.597C153.37 116.191 153.581 115.022 153.269 113.655L150.531 116.112C151.289 116.701 152.061 116.912 152.634 116.597Z" fill="#262626" />
+<ellipse cx="2.16817" cy="4.1766" rx="2.16817" ry="4.1766" transform="matrix(0.876058 -0.482206 -0.464557 -0.885543 151.407 117.264)" fill="#D0F500" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" />
+</g>
+<g xmlns="http://www.w3.org/2000/svg" data-item="coin">
+<path d="M188.845 85.8127L194.717 73.84C194.717 73.84 195.253 74.0455 196.12 74.5317C197.806 75.4766 197.75 78.9041 195.995 82.1872C194.241 85.4703 191.452 87.3658 189.766 86.421C188.08 85.4761 188.845 85.8127 188.845 85.8127Z" fill="#A259FF" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" />
+<path d="M189.768 86.4188C188.584 85.7551 188.259 83.8664 188.778 81.6632L193.167 85.6635C191.937 86.6041 190.688 86.9346 189.768 86.4188Z" fill="#262626" />
+<ellipse cx="3.49919" cy="6.74032" rx="3.49919" ry="6.74032" transform="matrix(-0.872319 -0.488938 0.471342 -0.881951 191.737 87.5117)" fill="#D0F500" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" />
+</g>
+<g xmlns="http://www.w3.org/2000/svg" data-item="coin">
+<path d="M83.8551 103.029L73.8711 96.9188C73.8711 96.9188 74.0932 96.465 74.5868 95.7422C75.546 94.3375 78.5337 94.6597 81.2599 96.4617C83.9862 98.2638 85.4187 100.863 84.4595 102.268C83.5002 103.673 83.8551 103.029 83.8551 103.029Z" fill="#A259FF" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" />
+<path d="M84.4583 102.265C83.7845 103.252 82.1098 103.387 80.2279 102.755L84.0698 99.2206C84.793 100.375 84.9819 101.498 84.4583 102.265Z" fill="#262626" />
+<ellipse cx="3.07987" cy="5.91727" rx="3.07987" ry="5.91727" transform="matrix(-0.563926 0.825825 -0.834228 -0.55142 85.5703 100.624)" fill="#D0F500" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" />
+</g>
+<g xmlns="http://www.w3.org/2000/svg" data-item="coin">
+<path d="M144.498 92.436C144.502 92.4333 144.505 92.4302 144.508 92.4276C145.278 91.8445 147.563 93.5762 149.611 96.2954C151.562 98.8843 152.596 101.435 152.026 102.177L150.512 103.193L147.66 99.4476C147.381 99.1207 147.1 98.7728 146.825 98.4069C146.595 98.102 146.378 97.7975 146.175 97.4966L143.111 93.4722L144.498 92.436Z" fill="#A259FF" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" />
+<path d="M150.04 101.471L151.926 100.363C152.219 101.208 152.271 101.86 152.026 102.179L150.512 103.195L150.181 102.76L150.04 101.471Z" fill="#262626" />
+<ellipse cx="6.16459" cy="1.74828" rx="6.16459" ry="1.74828" transform="matrix(-0.601769 -0.79867 0.797032 -0.603937 149.186 104.295)" fill="#D0F500" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" />
+</g>
+<g xmlns="http://www.w3.org/2000/svg" data-cards="">
+<mask id="mask0_12714_7046" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="98" y="91" width="91" height="74">
+<path d="M98.6387 91H172.813L188.623 109.341L168.138 131.717L141.802 152.993L98.6387 164.031V91Z" fill="url(#paint6_linear_12714_7046)" />
+</mask>
+<g mask="url(#mask0_12714_7046)">
+<g>
+<g data-card="0">
+<path d="M132.748 148.206L129.754 146.743C129.101 146.244 127.413 143.601 127.413 143.601C127.413 143.601 131.361 135.078 135.97 127.069C140.579 119.058 145.746 114.215 148.118 112.512C148.362 112.338 148.679 112.32 148.949 112.451L150.581 111.464C150.868 111.603 152.63 114.159 152.516 114.457C152.16 115.385 151.866 117.157 152.534 117.944C153.349 118.902 156.46 117.663 157.913 116.923L160.274 116.813C160.525 116.963 162.261 119.214 162.16 119.49C161.833 120.381 161.638 122.374 162.261 123.093C162.97 123.913 165.931 123.032 167.547 122.407C167.71 122.344 167.892 122.357 168.043 122.444L168.927 121.429C169.435 121.72 171.244 124.397 170.397 124.997C168.498 126.829 163.793 131.525 159.164 138.722C154.868 145.401 152.87 152.98 152.236 156.884C152.142 157.465 151.517 157.808 150.988 157.555L148.722 156.781L146.831 154.099C146.831 154.099 147.4 152.092 146.732 151.733C145.567 151.108 144.087 152.085 143.361 153.04C143.185 153.271 142.872 153.36 142.612 153.233L138.723 151.473C138.544 151.385 138.185 150.976 138.185 150.976L136.67 148.559C136.67 148.559 137.207 146.866 136.609 146.516C135.423 145.821 133.486 147.275 132.748 148.206Z" fill="#262626" />
+<path d="M131.02 145.755L127.862 144.06C127.567 143.901 127.39 143.586 127.425 143.252C127.769 139.957 129.469 132.395 134.078 124.385C138.687 116.375 143.854 111.532 146.226 109.829C146.47 109.654 146.787 109.636 147.057 109.767L150.34 111.361C150.626 111.5 150.742 111.847 150.627 112.145C150.271 113.073 149.974 114.474 150.642 115.26C151.457 116.219 154.568 114.98 156.021 114.24L160.11 116.697C160.361 116.847 160.455 117.164 160.354 117.44C160.027 118.331 159.746 119.691 160.369 120.41C161.078 121.229 164.039 120.349 165.655 119.724C165.818 119.661 166 119.673 166.151 119.76L168.683 121.216C169.191 121.508 169.269 122.218 168.847 122.625C166.948 124.456 162.233 129.313 157.604 136.509C153.308 143.189 151.306 150.763 150.672 154.666C150.578 155.247 149.954 155.591 149.424 155.338L146.83 154.098C146.727 152.716 146.185 149.772 144.84 149.05C143.675 148.425 142.359 149.635 141.633 150.589C141.457 150.82 141.144 150.91 140.884 150.782L136.831 148.789C136.652 148.702 136.533 148.527 136.51 148.329C136.346 146.924 135.815 144.475 134.717 143.832C133.531 143.138 131.758 144.825 131.02 145.755Z" fill="url(#paint7_linear_12714_7046)" stroke="#0A0A0A" stroke-width="0.6" />
+<path d="M146.659 147.634L133.291 140.765C131.805 140.001 131.013 138.332 131.502 136.73C132.447 133.636 134.169 129.113 136.736 124.944C139.052 121.181 141.477 118.188 143.271 116.228C144.525 114.859 146.521 114.609 148.172 115.45L160.981 121.976C162.401 122.7 162.686 124.656 161.616 125.841C159.799 127.855 157.36 130.851 154.985 134.524C152.44 138.461 150.967 142.77 150.217 145.879C149.841 147.438 148.082 148.365 146.659 147.634Z" fill="url(#paint8_linear_12714_7046)" stroke="#0A0A0A" stroke-width="0.6" />
+<path d="M143.269 116.227C144.523 114.858 146.518 114.608 148.169 115.449L160.977 121.974C161.545 122.264 161.931 122.751 162.121 123.307C162.005 123.215 161.879 123.132 161.74 123.062L149.134 116.641C147.509 115.813 145.545 116.059 144.311 117.406C142.545 119.335 140.159 122.28 137.878 125.984C135.352 130.087 133.657 134.539 132.727 137.584C132.353 138.808 132.74 140.073 133.616 140.928L133.29 140.761C131.804 139.997 131.012 138.328 131.502 136.726C132.447 133.633 134.168 129.11 136.734 124.941C139.051 121.179 141.475 118.187 143.269 116.227Z" fill="#262626" />
+<path d="M139.282 128.234C138.883 127.367 138.601 125.529 139.545 125.395L143.571 125.77C143.864 125.728 144.137 125.596 144.352 125.392L146.689 123.167C147.392 122.497 148.543 122.714 148.955 123.594L150.298 126.464C150.426 126.737 150.637 126.962 150.901 127.107L153.7 127.755C154.541 128.218 154.669 130.244 153.977 130.912L151.625 133.178C151.414 133.381 151.27 133.645 151.214 133.934L150.59 137.143C150.406 138.088 149.361 138.583 148.517 138.126L145.732 136.617C145.467 136.474 145.164 136.418 144.865 136.459L141.731 136.884C140.77 137.014 139.786 135.699 139.952 134.359L140.742 132.033C140.797 131.742 140.76 131.44 140.635 131.171L139.282 128.234Z" fill="#262626" />
+<path d="M139.091 126.974C138.691 126.106 139.239 125.097 140.184 124.963L143.379 124.51C143.673 124.468 143.946 124.336 144.16 124.131L146.497 121.907C147.2 121.237 148.351 121.453 148.763 122.333L150.107 125.203C150.234 125.476 150.446 125.702 150.709 125.847L153.485 127.373C154.326 127.835 154.478 128.984 153.785 129.651L151.433 131.917C151.222 132.121 151.078 132.385 151.022 132.673L150.398 135.882C150.214 136.827 149.169 137.323 148.325 136.865L145.54 135.356C145.275 135.213 144.972 135.157 144.674 135.198L141.539 135.623C140.578 135.754 139.772 134.902 139.952 133.947L140.55 130.773C140.605 130.481 140.568 130.18 140.444 129.91L139.091 126.974Z" fill="#FCD34D" />
+</g>
+<g data-card="1">
+<path d="M120.621 156.027L116.266 155.718C115.228 155.432 111.882 153.047 111.882 153.047C111.882 153.047 112.516 140.75 114.204 128.753C115.892 116.754 119.806 108.332 121.858 105.099C122.069 104.767 122.446 104.589 122.838 104.616L124.34 102.617C124.756 102.645 128.149 104.888 128.156 105.305C128.177 106.609 128.686 108.907 129.883 109.535C131.342 110.3 134.518 107.268 135.923 105.657L138.739 104.364C139.118 104.424 142.33 106.308 142.342 106.693C142.381 107.937 143.118 110.455 144.226 111.024C145.49 111.672 148.659 109.149 150.318 107.597C150.485 107.441 150.712 107.366 150.939 107.398L151.517 105.73C152.277 105.836 155.786 108.202 155.049 109.347C153.635 112.505 150.211 120.522 148.102 131.541C146.144 141.768 147.42 151.961 148.558 157.017C148.727 157.769 148.136 158.493 147.368 158.446L144.235 158.616L140.625 156.282C140.625 156.282 140.336 153.564 139.348 153.456C137.626 153.267 136.303 155.181 135.888 156.697C135.787 157.065 135.451 157.327 135.072 157.299L129.483 157.068C129.222 157.048 128.586 156.728 128.586 156.728L125.562 154.533C125.562 154.533 125.387 152.211 124.489 152.079C122.707 151.816 121.063 154.534 120.621 156.027Z" fill="#262626" />
+<path d="M118.5 102.928C118.648 102.695 118.917 102.563 119.206 102.583L123.977 102.911C124.22 102.928 124.426 103.148 124.431 103.428C124.442 104.098 124.53 104.918 124.776 105.66C125.02 106.397 125.435 107.103 126.132 107.469C126.612 107.72 127.188 107.639 127.741 107.427C128.302 107.211 128.905 106.835 129.491 106.395C130.606 105.559 131.708 104.454 132.426 103.647L138.439 104.601C138.661 104.636 138.837 104.842 138.845 105.097C138.865 105.737 138.958 106.527 139.195 107.237C139.429 107.941 139.822 108.621 140.479 108.958C140.907 109.178 141.442 109.109 141.963 108.933C142.497 108.752 143.087 108.433 143.675 108.055C144.853 107.299 146.074 106.267 146.911 105.484C147.014 105.388 147.152 105.345 147.287 105.363L151.077 105.89C151.633 105.968 151.967 106.577 151.733 107.101C150.313 110.273 146.945 118.513 144.831 129.561C142.863 139.841 144.137 150.073 145.281 155.155C145.408 155.721 144.962 156.254 144.402 156.219L140.813 155.995C140.393 155.168 139.693 153.998 138.857 152.983C138.411 152.442 137.92 151.938 137.406 151.552C136.894 151.168 136.34 150.888 135.769 150.825C134.759 150.715 133.984 151.29 133.434 152.026C132.883 152.763 132.514 153.71 132.301 154.487C132.234 154.73 132.018 154.886 131.796 154.87L125.893 154.436C125.739 154.425 125.598 154.332 125.519 154.189C125.07 153.363 124.376 152.258 123.581 151.325C123.184 150.859 122.755 150.428 122.313 150.096C121.873 149.766 121.402 149.52 120.921 149.449C119.844 149.29 118.97 150.098 118.352 150.993C117.781 151.819 117.356 152.821 117.111 153.572L112.687 153.087C112.365 153.051 112.101 152.834 112.016 152.534C110.834 148.398 109.208 138.414 110.889 126.462C112.572 114.504 116.472 106.122 118.5 102.928Z" fill="#D0F500" stroke="#0A0A0A" stroke-width="0.6" />
+<path d="M137.258 148.51L117.646 146.717C115.465 146.518 113.687 144.878 113.499 142.69C113.135 138.465 113.016 132.123 114.099 125.795C115.076 120.084 116.561 115.258 117.784 111.995C118.639 109.716 120.943 108.433 123.362 108.646L142.126 110.295C144.207 110.478 145.51 112.717 144.789 114.682C143.563 118.022 142.063 122.86 140.972 128.49C139.802 134.524 140.118 140.485 140.726 144.631C141.03 146.711 139.346 148.701 137.258 148.51Z" fill="#A259FF" stroke="#0A0A0A" stroke-width="0.6" />
+<path d="M117.784 111.995C118.639 109.716 120.943 108.433 123.362 108.646L142.126 110.295C142.959 110.369 143.666 110.772 144.17 111.354C143.984 111.299 143.789 111.261 143.587 111.243L125.118 109.621C122.738 109.412 120.469 110.675 119.628 112.918C118.423 116.129 116.962 120.88 116 126.501C114.934 132.73 115.05 138.973 115.408 143.131C115.552 144.803 116.64 146.151 118.125 146.761L117.646 146.717C115.465 146.518 113.687 144.877 113.498 142.69C113.135 138.465 113.016 132.123 114.099 125.795C115.076 120.084 116.561 115.258 117.784 111.995Z" fill="#262626" />
+<path d="M118.805 128.546C117.895 127.688 116.654 125.592 117.737 124.966L122.815 123.447C123.151 123.252 123.418 122.958 123.579 122.604L125.332 118.754C125.86 117.594 127.365 117.293 128.296 118.161L131.333 120.99C131.622 121.259 131.988 121.43 132.38 121.477L136.099 120.892C137.348 121.041 138.495 123.442 137.979 124.593L136.228 128.501C136.071 128.852 136.025 129.243 136.098 129.621L136.908 133.829C137.146 135.067 136.118 136.182 134.868 136.04L130.744 135.572C130.352 135.527 129.956 135.609 129.614 135.804L126.011 137.859C124.906 138.489 123.067 137.373 122.614 135.663L122.437 132.448C122.361 132.067 122.168 131.718 121.886 131.452L118.805 128.546Z" fill="#262626" />
+<path d="M118.297 126.744C117.631 126.116 117.757 125.02 118.55 124.561L122.214 122.442C122.64 122.196 122.979 121.823 123.183 121.374L124.936 117.525C125.323 116.675 126.425 116.456 127.106 117.09L130.142 119.919C130.509 120.261 130.974 120.477 131.471 120.536L135.591 121.03C136.505 121.139 137.051 122.106 136.674 122.949L134.922 126.858C134.722 127.303 134.665 127.799 134.757 128.278L135.567 132.486C135.742 133.393 134.988 134.209 134.073 134.105L129.95 133.637C129.453 133.581 128.951 133.684 128.516 133.931L124.912 135.986C124.104 136.447 123.083 135.979 122.901 135.064L122.076 130.913C121.98 130.429 121.736 129.988 121.378 129.65L118.297 126.744Z" fill="#D0F500" stroke="#0A0A0A" />
+</g>
+</g>
+</g>
+</g>
+<g xmlns="http://www.w3.org/2000/svg" data-item="bubble">
+<g>
+<g style="mix-blend-mode:overlay">
+<ellipse cx="105.333" cy="92.6834" rx="18.4058" ry="18.4579" fill="white" />
+</g>
+<g>
+<path d="M108.716 81.9182C108.834 81.4972 109.281 81.2707 109.687 81.4032L113.89 82.7739L114.013 82.8132L114.069 82.929L117.208 89.4985C117.502 90.1135 117.242 90.8515 116.628 91.1452L113.082 92.8381L112.034 102.907C111.991 103.322 111.832 103.702 111.59 104.013C111.553 104.061 111.513 104.108 111.473 104.152C111.186 104.464 110.808 104.691 110.381 104.792C110.35 104.799 110.319 104.806 110.289 104.812C110.227 104.823 110.164 104.833 110.1 104.839C109.945 104.855 109.778 104.869 109.599 104.882C109.554 104.885 109.509 104.889 109.462 104.892C109.369 104.898 109.273 104.904 109.174 104.909C107.934 104.973 106.195 104.957 103.874 104.714C101.737 104.49 100.124 104.181 98.9447 103.884C98.7399 103.832 98.5477 103.782 98.3685 103.731C98.3237 103.719 98.2793 103.705 98.2361 103.693C98.0632 103.643 97.9026 103.595 97.7544 103.547C97.6932 103.528 97.6336 103.506 97.5757 103.481C97.5466 103.469 97.5178 103.456 97.4894 103.443C97.4757 103.436 97.4618 103.429 97.4474 103.422C97.4052 103.401 97.3636 103.379 97.3237 103.356C96.6002 102.934 96.1702 102.118 96.2599 101.256L97.3075 91.1875L94.1866 88.7969C93.6457 88.3823 93.5434 87.6064 93.9574 87.0654L98.3819 81.2875L98.4602 81.1857L98.5882 81.1726L102.983 80.7016C103.036 80.696 103.089 80.6964 103.141 80.7015C103.153 80.7027 103.167 80.7046 103.18 80.7065C103.458 80.7487 103.696 80.9419 103.789 81.2121C103.798 81.2375 103.805 81.2632 103.81 81.288C103.813 81.3008 103.816 81.314 103.818 81.3271C103.823 81.3539 103.826 81.3805 103.827 81.4067C103.83 81.4489 103.835 81.4916 103.84 81.5346C103.846 81.585 103.854 81.6352 103.862 81.6843C103.869 81.7199 103.876 81.755 103.884 81.7896C103.885 81.796 103.884 81.7912 103.887 81.8047C103.894 81.8348 103.901 81.8644 103.909 81.8934C103.948 82.0344 103.999 82.1713 104.06 82.302C104.064 82.3096 104.066 82.3126 104.072 82.3268C104.085 82.3529 104.097 82.3773 104.109 82.4003C104.117 82.4154 104.125 82.4309 104.134 82.4461C104.197 82.5601 104.268 82.6691 104.348 82.772C104.368 82.7975 104.388 82.8223 104.408 82.846C104.437 82.8806 104.467 82.9144 104.499 82.9478C104.514 82.9646 104.531 82.9818 104.547 82.9979C104.551 83.0028 104.556 83.0071 104.56 83.0111C104.618 83.0689 104.679 83.1244 104.743 83.1766C104.751 83.1832 104.76 83.1899 104.768 83.1969C104.805 83.2264 104.843 83.2544 104.881 83.2814C104.896 83.2915 104.91 83.301 104.923 83.3104C104.939 83.3207 104.954 83.331 104.968 83.3406C104.977 83.3463 104.967 83.3397 104.985 83.3512C105.011 83.3675 105.036 83.3828 105.062 83.3975C105.078 83.4068 105.093 83.4156 105.108 83.4239C105.13 83.4361 105.152 83.4491 105.177 83.4616C105.219 83.4832 105.261 83.503 105.304 83.522C105.329 83.5332 105.355 83.5438 105.382 83.5547C105.396 83.5604 105.397 83.5621 105.405 83.5649C105.421 83.5715 105.439 83.5777 105.457 83.5841C105.525 83.6094 105.596 83.6321 105.668 83.6514C105.703 83.661 105.74 83.6695 105.777 83.6775C105.795 83.6816 105.813 83.6856 105.832 83.6891C105.905 83.7037 105.981 83.7156 106.058 83.7236C106.297 83.7486 106.532 83.7382 106.757 83.6977C106.785 83.6928 106.81 83.6877 106.836 83.6823C106.954 83.657 107.07 83.6231 107.183 83.5812C107.235 83.5619 107.285 83.5408 107.335 83.5185C107.365 83.5048 107.396 83.4904 107.427 83.4751C107.45 83.4635 107.472 83.4526 107.492 83.4417C107.552 83.4093 107.611 83.3738 107.669 83.3365C107.731 83.296 107.792 83.2528 107.85 83.2072C107.872 83.1897 107.896 83.1711 107.919 83.1515C107.951 83.1242 107.983 83.0963 108.013 83.0681C108.046 83.037 108.079 83.0048 108.111 82.9714C108.121 82.9619 108.124 82.9589 108.129 82.9536C108.146 82.9357 108.162 82.916 108.18 82.8961C108.199 82.8746 108.218 82.8534 108.236 82.8322C108.288 82.769 108.338 82.7026 108.384 82.6336C108.398 82.6125 108.412 82.5931 108.424 82.574C108.438 82.552 108.451 82.5286 108.465 82.5047C108.48 82.4795 108.494 82.455 108.507 82.4315C108.521 82.406 108.534 82.3792 108.548 82.3513C108.567 82.3122 108.586 82.2729 108.604 82.2334C108.616 82.2056 108.628 82.177 108.639 82.1478C108.643 82.1383 108.643 82.1375 108.644 82.1326C108.67 82.065 108.693 81.9959 108.713 81.9258C108.715 81.9183 108.715 81.9218 108.716 81.9182Z" fill="#F59E0B" stroke="#0A0A0A" stroke-width="0.6" />
+<g>
+<g>
+<path d="M98.6201 81.4742L94.1956 87.2476C93.8818 87.6571 93.9598 88.2443 94.3695 88.5582L97.6273 91.0536L99.7065 91.2721L98.6201 81.4742Z" fill="#F05A22" />
+</g>
+<g>
+<path d="M98.2816 84.7247L96.1727 89.9418L97.6255 91.0545L99.3558 91.2363L98.2816 84.7247Z" fill="#262626" />
+</g>
+<g>
+<path d="M113.795 83.063L116.941 89.6318C117.164 90.0977 116.967 90.6561 116.502 90.878L112.802 92.6427L111.072 92.4609L113.795 83.063Z" fill="#F05A22" />
+</g>
+<g>
+<path d="M113.46 86.3138L114.453 91.8568L112.804 92.6437L111.073 92.4619L113.46 86.3138Z" fill="#262626" />
+</g>
+<g>
+<path d="M109.592 81.6982C109.343 81.6169 109.073 81.7563 109.002 82.0088C108.64 83.2958 107.396 84.1728 106.023 84.0286C104.65 83.8844 103.613 82.7676 103.523 81.4332C103.505 81.1713 103.269 80.9788 103.009 81.0065L98.6115 81.4744L96.5582 101.285C96.4669 102.166 97.0053 102.99 97.8474 103.259C99.0123 103.632 100.954 104.105 103.91 104.416C106.867 104.727 108.863 104.666 110.08 104.544C110.959 104.455 111.654 103.761 111.746 102.881L113.799 83.0699L109.592 81.6982Z" fill="#F05A22" />
+</g>
+<g>
+<path d="M109.599 81.7063C109.349 81.6202 109.075 81.7595 109.002 82.0145C108.637 83.2963 107.396 84.1689 106.027 84.025C104.657 83.8812 103.622 82.7695 103.528 81.4395C103.509 81.1749 103.27 80.9817 103.007 81.0139L102.126 81.1219C102.064 83.297 103.687 85.1865 105.883 85.4171C108.078 85.6477 110.054 84.1362 110.44 81.9952L109.599 81.7063Z" fill="#FBBF24" />
+</g>
+</g>
+</g>
+<ellipse cx="18.2746" cy="18.3242" rx="18.2746" ry="18.3242" transform="matrix(0.989599 0.143852 -0.143058 0.989714 89.6455 71.6963)" stroke="#0A0A0A" stroke-width="0.6" />
+<path d="M90.0317 83.9647C88.572 87.4952 86.7382 96.0143 91.081 101.846C89.6656 99.4077 87.4741 92.4179 90.0317 83.9647Z" fill="white" />
+<path d="M106.612 109.911C99.7386 110.173 94.4717 106.702 92.6975 104.934C94.3175 105.957 97.8292 109.521 108.114 108.357C116.341 107.425 120.92 99.7122 121.857 96.1714C121.103 102.07 115.204 109.584 106.612 109.911Z" fill="#0A0A0A" />
+<path d="M100.264 75.7015C103.015 74.7881 109.98 74.1197 115.832 78.7525C123.089 84.4976 124.033 94.4628 119.886 101.517C119.852 101.575 119.819 101.631 119.785 101.685C119.819 101.629 119.853 101.573 119.886 101.517C121.159 99.3052 122.815 93.6125 119.925 87.1283C116.217 78.8084 111.728 79.4477 106.73 79.8915C94.5006 80.9775 92.1068 99.1389 91.8723 99.1048C91.9542 94.9143 93.6388 86.0539 98.2439 82.2037C104.165 77.2533 108.135 78.3229 108.303 77.1653C108.47 76.0077 104.403 74.9244 100.264 75.7015Z" fill="white" />
+</g>
+</g>
+<g xmlns="http://www.w3.org/2000/svg" data-item="coin">
+<path d="M181.317 118.48L190.943 109.793C190.943 109.793 191.353 110.173 191.961 110.927C193.143 112.392 191.856 115.469 189.087 117.799C186.317 120.129 183.113 120.83 181.93 119.364C180.748 117.899 181.317 118.48 181.317 118.48Z" fill="#A259FF" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" />
+<path d="M181.931 119.364C181.1 118.335 181.488 116.51 182.752 114.708L185.275 119.915C183.824 120.318 182.576 120.164 181.931 119.364Z" fill="#262626" />
+<ellipse cx="3.4093" cy="6.55366" rx="3.4093" ry="6.55366" transform="matrix(-0.627939 -0.778263 0.765258 -0.643724 183.317 121.07)" fill="#D0F500" stroke="#0A0A0A" stroke-width="0.6" stroke-linejoin="round" />
+</g>
+</g>
+<g id="lidFront"></g>
+</g>
+</svg>
+</script>
+<script type="text/plain" id="src-mo-qua-css">
+html,body{margin:0;height:100%}
+body{display:grid;place-items:center;background:#2A2A2E;overflow:hidden}
+.art{width:min(92vmin,640px);height:auto;overflow:visible}
+</script>
+<script type="text/plain" id="src-mo-qua-js">
+/* Mở quà: the box shakes, the lid flips open on its back hinge, gifts burst out
+   and Navi flings its arms out in surprise. Everything is driven from one clock so the
+   loop can be seeked frame by frame (window.__demo) for video/WebP export. */
+(function () {
+  var LOOP = 6000, TAU = Math.PI * 2;
+  var svg = document.getElementById('art');
+  var NS = 'http://www.w3.org/2000/svg';
+
+  // Everything below measures the artwork (getBBox), which reads as empty while
+  // the page sits in a hidden frame, so wait until the drawing has a real size.
+  function measurable() {
+    try {
+      return [].every.call(svg.querySelectorAll('[data-item]'), function (e) { return e.getBBox().width > 0; });
+    } catch (e) { return false; }
+  }
+  // (setTimeout, not requestAnimationFrame: a hidden frame gets no animation frames)
+  (function boot() { if (measurable()) main(); else setTimeout(boot, 100); })();
+
+  function main() {
+
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function prog(t, a, b) { return clamp((t - a) / (b - a), 0, 1); }
+  function ease(t) { return t * t * (3 - 2 * t); }
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function easeIn(t) { return t * t * t; }
+  function easeOutBack(t) { var c = 1.7; t -= 1; return 1 + t * t * ((c + 1) * t + c); }
+  function easeInBack(t) { var c = 1.7; return t * t * ((c + 1) * t - c); }
+  // damped spring from `from` to `to`, p in 0..1
+  function settle(from, to, p) { return to + (from - to) * Math.cos(p * Math.PI * 2.2) * Math.pow(1 - p, 2); }
+  function mix(c1, c2, t) {
+    var a = parseInt(c1.slice(1), 16), b = parseInt(c2.slice(1), 16), r = '#';
+    for (var s = 16; s >= 0; s -= 8) r += ('0' + Math.round(lerp(a >> s & 255, b >> s & 255, t)).toString(16)).slice(-2);
+    return r;
+  }
+
+  /* ---------- Navi: one drawing cut into parts, puppeted ----------
+     Each point first gets its part's own motion (arm swings on the shoulder
+     as one rigid piece, foot tips on the ankle, eye/mouth scale about
+     their centre), then the whole body's spine motion (tilt about the feet,
+     lean, squash, hop). */
+  var NUM = /-?(?:\d+\.?\d*|\.\d+)(?:e-?\d+)?/g;
+  function nums(str) { return str.match(NUM).map(Number); }
+  var naviG = svg.getElementById('navi');
+  var BASE = 178, CX = 62, HN = 84;                 // feet line, body centre, body height
+  var JOINT = {
+    armL: { at: [38.5, 138], len: 33 }, armR: { at: [88, 137], len: 31 },
+    footL: { at: [57, 170] }, footR: { at: [65, 170] }
+  };
+  var parts = [].map.call(naviG.querySelectorAll('[data-pts]'), function (el) {
+    var d = el.getAttribute('d'), r = el.closest('[data-role]');
+    return { el: el, role: r ? r.getAttribute('data-role') : 'body', parts: d.split(NUM), v: nums(d) };
+  });
+  // centres for scaling eyes and mouths
+  var centre = {};
+  parts.forEach(function (p) {
+    var c = centre[p.role] || (centre[p.role] = [Infinity, Infinity, -Infinity, -Infinity]);
+    for (var i = 0; i < p.v.length; i += 2) {
+      c[0] = Math.min(c[0], p.v[i]); c[1] = Math.min(c[1], p.v[i + 1]);
+      c[2] = Math.max(c[2], p.v[i]); c[3] = Math.max(c[3], p.v[i + 1]);
+    }
+  });
+  for (var k in centre) centre[k] = [(centre[k][0] + centre[k][2]) / 2, (centre[k][1] + centre[k][3]) / 2];
+  var pins = [].map.call(naviG.querySelectorAll('[data-pin]'), function (el) {
+    return { el: el, attr: 'transform', role: el.closest('[data-role]').getAttribute('data-role'), at: nums(el.getAttribute('data-pin')), tf: el.getAttribute('transform') || '' };
+  }).concat([].map.call(svg.querySelectorAll('[data-gt]'), function (el) {
+    var tf = el.getAttribute('data-gt'), v = nums(tf);
+    return { el: el, attr: 'gradientTransform', role: 'body', at: /^matrix/.test(tf) ? [v[4], v[5]] : [v[0], v[1]], tf: tf };
+  }));
+  var mouthS = naviG.querySelector('[data-role="mouthS"]'), mouthB = naviG.querySelector('[data-role="mouthB"]');
+
+  function rot(x, y, cx, cy, a) {
+    var c = Math.cos(a), s = Math.sin(a), dx = x - cx, dy = y - cy;
+    return [cx + dx * c - dy * s, cy + dx * s + dy * c];
+  }
+  function local(role, x, y, P) {
+    var J = JOINT[role];
+    if (role === 'armL' || role === 'armR') {
+      // rigid swing on the shoulder; the root is tucked inside the body
+      return rot(x, y, J.at[0], J.at[1], P[role]);
+    }
+    if (role === 'footL' || role === 'footR') {
+      var q = rot(x, y, J.at[0], J.at[1], P[role]);
+      return [q[0], q[1] - (role === 'footR' ? P.kick : 0)];
+    }
+    if (role === 'eyeL' || role === 'eyeR' || role === 'mouthS' || role === 'mouthB') {
+      var c = centre[role], m = role.slice(0, 3) === 'eye' ? P.eye : P[role];
+      return [c[0] + (x - c[0]) * m[0], c[1] + (y - c[1]) * m[1]];
+    }
+    return [x, y];
+  }
+  function deform(x, y, P) {
+    var h = clamp((BASE - y) / HN, 0, 1);
+    var dy = (BASE - y) * P.sy, dx = (x - CX) * P.sx;
+    // tilt is rigid above the ankles; bend adds a curve that grows toward the top
+    var a = P.tilt * clamp((BASE - y) / 12, 0, 1) + P.bend * Math.pow(h, 1.4);
+    var c = Math.cos(a), s = Math.sin(a);
+    return [CX + dx * c + dy * s, BASE - dy * c + dx * s - P.lift];
+  }
+  function drawNavi(P) {
+    parts.forEach(function (n) {
+      var v = n.v, out = n.parts[0];
+      for (var i = 0; i < v.length; i += 2) {
+        var l = local(n.role, v[i], v[i + 1], P), p = deform(l[0], l[1], P);
+        out += (+p[0].toFixed(2)) + n.parts[i + 1] + (+p[1].toFixed(2)) + n.parts[i + 2];
+      }
+      n.el.setAttribute('d', out);
+    });
+    pins.forEach(function (n) {
+      var l = local(n.role, n.at[0], n.at[1], P), p = deform(l[0], l[1], P);
+      var sc = n.role === 'mouthS' ? ' translate(' + n.at[0] + ' ' + n.at[1] + ') scale(' + P.mouthS[0].toFixed(3) + ' ' + P.mouthS[1].toFixed(3) + ') translate(' + (-n.at[0]) + ' ' + (-n.at[1]) + ')' : '';
+      n.el.setAttribute(n.attr, 'translate(' + (p[0] - n.at[0]).toFixed(2) + ' ' + (p[1] - n.at[1]).toFixed(2) + ')' + sc + ' ' + n.tf);
+    });
+    mouthS.style.display = P.wow ? 'none' : '';
+    mouthB.style.display = P.wow ? '' : 'none';
+  }
+
+  var KNOT = [164, 151];                       // where the ribbon is tied on the open box
+
+  /* ---------- Lid: a slab hinged on its back edge ----------
+     Corners F0 F1 (front edge) B1 B0 (hinge). Closed and open positions are the
+     designed lids from Figma; in between the front edge swings on an ellipse
+     (cos/sin of the hinge angle) so it reads as a real 3D rotation. */
+  var C = { F0: [73.53, 155.36], F1: [147.22, 168.93], B1: [189.8, 150.3], B0: [122.82, 138.72] };
+  var O = { F0: [107.5, 72.2], F1: [171, 61], B1: [170.7, 117.44], B0: [108.3, 120.06] };
+  var NC = { F0: [-0.22, 7.76], F1: [-0.31, 9.82], B1: [0.12, 8.38], B0: [0, 8.2] };  // thickness, closed
+  var NO = { F0: [7.65, 3.1], F1: [6.65, 4.6], B1: [6.2, 1], B0: [6.85, 0.35] };  // thickness, open
+  // the shut lid on the tipped box (the first design), used while the box tips
+  var CO = { F0: [65, 157.5], F1: [139.5, 149.5], B1: [175, 119.5], B0: [107.5, 127.5] };
+  var NCO = { F0: [2, 7.5], F1: [2.5, 9.5], B1: [2.5, 8], B0: [2.5, 8] };
+  var K = ['F0', 'F1', 'B1', 'B0'];
+  // painted in this order. `on` is the range of hinge angle (0 shut, 1 upright) where the face
+  // turns toward the viewer: we look from the front at about 40° above, so the outside of the
+  // lid hides and the inside shows once it passes ~40°.
+  var FACES = [
+    { key: 'hinge', pts: [['o', 'B1'], ['o', 'B0'], ['i', 'B0'], ['i', 'B1']], fill: '#5B21B6', on: [0.55, 9] },
+    { key: 'left',  pts: [['o', 'B0'], ['o', 'F0'], ['i', 'F0'], ['i', 'B0']], fill: '#581C87', on: [0.5, 9] },
+    { key: 'inner', pts: [['i', 'F0'], ['i', 'F1'], ['i', 'B1'], ['i', 'B0']], fill: '#E879F9', on: [0.45, 9] },
+    { key: 'top',   pts: [['o', 'F0'], ['o', 'F1'], ['o', 'B1'], ['o', 'B0']], fill: '#F675FF', on: [-9, 0.45] },
+    { key: 'front', pts: [['o', 'F0'], ['o', 'F1'], ['i', 'F1'], ['i', 'F0']], fill: '#E356F8', on: [-9, 9] },
+    { key: 'right', pts: [['o', 'F1'], ['o', 'B1'], ['i', 'B1'], ['i', 'F1']], fill: '#581C87', on: [-9, 9] }
+  ];
+
+  // a: hinge angle (0 shut, 1 upright). hk: how far the box has tipped toward us
+  // (0 flat as in state 1, 1 as in state 2); the hinge rides on the box's back rim.
+  function lidCorners(a, lift, hk) {
+    var th = a * Math.PI / 2, c = Math.cos(th), s = Math.sin(th), k = hk;
+    var o = {}, i = {};
+    K.forEach(function (n) {
+      var b = n[0] === 'B' ? n : 'B' + n[1];
+      // hinge: on the back rim of the box (flat or tipped), rising a little as the lid swings up
+      var bs = [lerp(C[b][0], CO[b][0], k), lerp(C[b][1], CO[b][1], k)], ka = ease(clamp(a, 0, 1));
+      var B = [lerp(bs[0], O[b][0], ka), lerp(bs[1], O[b][1], ka) - lift];
+      // the shut lid's depth follows the box from flat to tipped as well
+      var dc = [lerp(C[n][0] - C[b][0], CO[n][0] - CO[b][0], k), lerp(C[n][1] - C[b][1], CO[n][1] - CO[b][1], k)];
+      var p = n[0] === 'B' ? B : [B[0] + c * dc[0] + s * (O[n][0] - O[b][0]),
+                                  B[1] + c * dc[1] + s * (O[n][1] - O[b][1])];
+      o[n] = p;
+      var nc = [lerp(NC[n][0], NCO[n][0], k), lerp(NC[n][1], NCO[n][1], k)];
+      i[n] = [p[0] + c * nc[0] + s * NO[n][0], p[1] + c * nc[1] + s * NO[n][1]];
+    });
+    return { o: o, i: i };
+  }
+  function area(p) {
+    var s = 0;
+    for (var j = 0; j < p.length; j++) { var q = p[(j + 1) % p.length]; s += p[j][0] * q[1] - q[0] * p[j][1]; }
+    return s;
+  }
+  function facePts(f, L) { return f.pts.map(function (r) { return L[r[0]][r[1]]; }); }
+
+  var lidBack = svg.getElementById('lidBack'), lidFront = svg.getElementById('lidFront');
+  var lidEls = FACES.map(function (f) {
+    var p = document.createElementNS(NS, 'path');
+    p.setAttribute('stroke', '#0A0A0A');
+    p.setAttribute('stroke-linejoin', 'round');
+    p.setAttribute('fill', f.fill);
+    return p;
+  });
+  var lidHost = null;
+  function drawLid(a, lift, light, hk) {
+    var L = lidCorners(a, lift, hk);
+    // once the front edge has swung above the hinge the lid sits behind the box body
+    var front = (L.o.F0[1] + L.o.F1[1]) / 2 > (L.o.B0[1] + L.o.B1[1]) / 2 - 4;
+    var host = front ? lidFront : lidBack;
+    if (host !== lidHost) { lidEls.forEach(function (e) { host.appendChild(e); }); lidHost = host; }
+    FACES.forEach(function (f, j) {
+      var p = facePts(f, L), el = lidEls[j];
+      if (a < f.on[0] || a > f.on[1] || Math.abs(area(p)) < 1) { el.setAttribute('d', ''); return; }
+      el.setAttribute('d', 'M' + p.map(function (q) { return q[0].toFixed(2) + ' ' + q[1].toFixed(2); }).join('L') + 'Z');
+      if (f.key === 'front') el.setAttribute('fill', mix('#E356F8', '#FEF08A', clamp(light, 0, 1)));
+      if (f.key === 'inner') el.setAttribute('fill', mix('#F675FF', '#E879F9', clamp(a, 0, 1)));
+    });
+  }
+
+  /* ---------- gifts ---------- */
+  var MOUTH = [140, 138];                      // where gifts leave the box
+  var items = [].map.call(svg.querySelectorAll('[data-item]'), function (el, i) {
+    var b = el.getBBox();
+    return { el: el, coin: el.getAttribute('data-item') === 'coin', c: [b.x + b.width / 2, b.y + b.height / 2], i: i };
+  });
+  // fly order: closest to the box first
+  items.sort(function (p, q) { return Math.hypot(p.c[0] - MOUTH[0], p.c[1] - MOUTH[1]) - Math.hypot(q.c[0] - MOUTH[0], q.c[1] - MOUTH[1]); });
+  items.forEach(function (it, k) { it.k = k; });
+  var cards = [].slice.call(svg.querySelectorAll('[data-card]'));
+  var glow = svg.getElementById('glow'), box = svg.getElementById('box');
+  var naviShadow = svg.getElementById('naviShadow'), innerLight = svg.getElementById('innerLight');
+
+  /* ---------- coins: spinning discs with a real rim ----------
+     Each designed coin is read for its size, tilt and colours, then redrawn as
+     a disc turning on its long axis: the face narrows to an edge while the rim
+     between front and back faces widens, so the coin has thickness. */
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function shade(c, k) { return mix(c, '#000000', k); }
+  var coins = items.filter(function (it) { return it.coin; }).map(function (it, i) {
+    var e = it.el.querySelector('ellipse');
+    var rx = +e.getAttribute('rx'), ry = +e.getAttribute('ry');
+    var m = nums(e.getAttribute('transform') || 'matrix(1 0 0 1 0 0)');
+    var ax = ry >= rx ? [m[2], m[3]] : [m[0], m[1]];
+    var plainV = e.getAttribute('fill') === '#262626';      // the big coin with the V logo
+    var logo = plainV ? it.el.querySelector('g') : null;
+    var R = Math.max(rx, ry) * Math.hypot(ax[0], ax[1]);
+    // centre on the face: the plain coins' face ellipse, the V coin's purple face (the logo sits on it)
+    var fb = plainV ? it.el.children[1].getBBox() : null;
+    var fc = plainV ? [fb.x + fb.width / 2, fb.y + fb.height / 2] : [m[0] * rx + m[2] * ry + m[4], m[1] * rx + m[3] * ry + m[5]];
+    if (plainV) R = Math.max(fb.width, fb.height) / 2 * 0.97;
+    // hide the drawn coin only after measuring it (a hidden element has an empty box)
+    [].forEach.call(it.el.children, function (c) { if (c !== logo) c.style.display = 'none'; });
+    var root = el('g', { transform: 'translate(' + fc[0].toFixed(2) + ' ' + fc[1].toFixed(2) + ') rotate(' + (Math.atan2(ax[1], ax[0]) * 180 / Math.PI - 90).toFixed(2) + ')' });
+    it.el.insertBefore(root, it.el.firstChild);
+    var face = plainV ? '#A259FF' : '#D0F500', rim = plainV ? '#581C87' : '#A259FF';
+    return {
+      it: it, fc: fc, R: R, face: face, logo: logo, root: root, tilt: Math.atan2(ax[1], ax[0]) * 180 / Math.PI - 90,
+      a0: Math.acos(Math.min(rx, ry) / Math.max(rx, ry)), phase: i * 1.7,
+      rim: el('path', { fill: rim, stroke: '#0A0A0A', 'stroke-width': 0.6, 'stroke-linejoin': 'round' }, root),
+      disc: el('ellipse', { stroke: '#0A0A0A', 'stroke-width': 0.6 }, root),
+      ring: el('ellipse', { fill: 'none', stroke: '#0A0A0A', 'stroke-opacity': 0.3, 'stroke-width': 0.5 }, root),
+      shine: el('path', { fill: 'none', stroke: '#FFFFFF', 'stroke-opacity': 0.85, 'stroke-width': 0.9, 'stroke-linecap': 'round' }, root)
+    };
+  });
+  function drawCoin(C, phi) {
+    var c = Math.cos(phi), s = Math.sin(phi), R = C.R;
+    var a = Math.max(R * Math.abs(c), 0.05), off = R * 0.16 * s, fx = (c >= 0 ? 1 : -1) * off;
+    var x1 = -Math.abs(off), x2 = Math.abs(off), f = function (v) { return v.toFixed(2); };
+    C.rim.setAttribute('d', 'M' + f(x1) + ' ' + f(-R) + 'A' + f(a) + ' ' + f(R) + ' 0 0 0 ' + f(x1) + ' ' + f(R) +
+      'L' + f(x2) + ' ' + f(R) + 'A' + f(a) + ' ' + f(R) + ' 0 0 0 ' + f(x2) + ' ' + f(-R) + 'Z');
+    var show = Math.abs(c) > 0.06;
+    [C.disc, C.ring].forEach(function (e, k) {
+      var r = k ? 0.68 : 1;
+      e.setAttribute('cx', f(fx)); e.setAttribute('rx', f(a * r)); e.setAttribute('ry', f(R * r));
+      e.style.display = show ? '' : 'none';
+    });
+    // the back face is the same disc in shadow
+    C.disc.setAttribute('fill', c >= 0 ? C.face : shade(C.face, 0.28));
+    var lit = Math.abs(c) > 0.3, t0 = 3.55, t1 = 4.25;
+    C.shine.style.display = lit ? '' : 'none';
+    if (lit) C.shine.setAttribute('d', 'M' + f(fx + a * 0.78 * Math.cos(t0)) + ' ' + f(R * 0.78 * Math.sin(t0)) +
+      'A' + f(a * 0.78) + ' ' + f(R * 0.78) + ' 0 0 1 ' + f(fx + a * 0.78 * Math.cos(t1)) + ' ' + f(R * 0.78 * Math.sin(t1)));
+    if (C.logo) {
+      var k = c / Math.cos(C.a0), cx = C.fc[0], cy = C.fc[1];
+      C.logo.style.display = c > 0.2 ? '' : 'none';
+      C.logo.setAttribute('transform', 'translate(' + cx + ' ' + cy + ') rotate(' + C.tilt.toFixed(2) + ') translate(' + f(fx) + ' 0) scale(' + k.toFixed(3) + ' 1) rotate(' + (-C.tilt).toFixed(2) + ') translate(' + (-cx) + ' ' + (-cy) + ')');
+    }
+  }
+
+  /* ---------- light: soft beams fanning out of the open box ---------- */
+  var BEAM_FROM = [128, 142];
+  svg.querySelector('defs').insertAdjacentHTML('beforeend',
+    '<filter id="beamBlur" x="0" y="0" width="200" height="200" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="2.6"/></filter>' +
+    '<filter id="haloBlur" x="0" y="0" width="200" height="200" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="5"/></filter>' +
+    '<radialGradient id="beamGrad" gradientUnits="userSpaceOnUse" cx="' + BEAM_FROM[0] + '" cy="' + BEAM_FROM[1] + '" r="105">' +
+      '<stop offset="0" stop-color="#FFF7C2" stop-opacity="0.95"/><stop offset="0.35" stop-color="#FFE600" stop-opacity="0.55"/><stop offset="1" stop-color="#FFE600" stop-opacity="0"/></radialGradient>' +
+    '<radialGradient id="haloGrad"><stop offset="0" stop-color="#FFFBE0" stop-opacity="0.9"/><stop offset="0.5" stop-color="#FFE600" stop-opacity="0.45"/><stop offset="1" stop-color="#FFE600" stop-opacity="0"/></radialGradient>');
+  var beamsG = svg.getElementById('beams');
+  beamsG.setAttribute('style', 'mix-blend-mode:plus-lighter');
+  var halo = el('ellipse', { cx: BEAM_FROM[0], cy: BEAM_FROM[1] - 4, rx: 46, ry: 20, fill: 'url(#haloGrad)', filter: 'url(#haloBlur)' }, beamsG);
+  var beamWrap = el('g', { filter: 'url(#beamBlur)' }, beamsG);
+  var BEAMS = [[-152, 66, 5], [-130, 84, 4], [-110, 96, 6.5], [-91, 104, 3.5], [-72, 98, 6], [-52, 86, 4], [-30, 70, 5]].map(function (b) {
+    return { ang: b[0], len: b[1], hw: b[2], el: el('path', { fill: 'url(#beamGrad)' }, beamWrap) };
+  });
+  function drawBeams(t, light, grow) {
+    beamsG.setAttribute('opacity', clamp(light, 0, 1.3).toFixed(3));
+    halo.setAttribute('rx', (46 * (0.6 + 0.4 * grow)).toFixed(1));
+    BEAMS.forEach(function (b, j) {
+      var a = (b.ang + 3 * Math.sin(TAU * t / 2600 + j * 1.3)) * Math.PI / 180, w = b.hw * Math.PI / 180;
+      var L = b.len * grow * (0.92 + 0.08 * Math.sin(TAU * t / 1300 + j));
+      var p = function (ang, r) { return (BEAM_FROM[0] + r * Math.cos(ang)).toFixed(2) + ' ' + (BEAM_FROM[1] + r * Math.sin(ang)).toFixed(2); };
+      b.el.setAttribute('d', 'M' + p(a - w * 0.3, 2) + 'L' + p(a - w, L) + 'L' + p(a + w, L) + 'L' + p(a + w * 0.3, 2) + 'Z');
+      b.el.setAttribute('opacity', (0.55 + 0.45 * Math.sin(TAU * t / 1700 + j * 1.9)).toFixed(3));
+    });
+  }
+
+  /* ---------- box body: flat when shut (state 1), tipped toward us when open (state 2) ---------- */
+  var bodyPaths = [].map.call(svg.querySelectorAll('#body [data-d2]'), function (el) {
+    var d = el.getAttribute('d');
+    return { el: el, ribbon: el.hasAttribute('data-ribbon'), parts: d.split(NUM), a: nums(d), b: nums(el.getAttribute('data-d2')) };
+  });
+  var KNOT_SHUT = [170, 176];
+  /* box shadow, same treatment as Navi's (flat #0A0A0A at 40%, no outline).
+     It lies on the floor and stays put: the box's footprint (its bottom corners
+     front-right, front-left, back-left, back-right), grown a little and nudged
+     away from the light. */
+  var SHADOW_SHUT = (function () {
+    var q = [[147.2, 201.8], [77.5, 185.4], [118.4, 162.1], [188.1, 178.5]];
+    var c = [0, 0]; q.forEach(function (p) { c[0] += p[0] / 4; c[1] += p[1] / 4; });
+    return q.map(function (p) { return [c[0] + (p[0] - c[0]) * 1.16 + 5, c[1] + (p[1] - c[1]) * 1.16 + 2.5]; });
+  })();
+  var boxShadow = document.createElementNS(NS, 'path');
+  boxShadow.setAttribute('fill', '#0A0A0A');
+  boxShadow.setAttribute('stroke', '#0A0A0A');
+  boxShadow.setAttribute('stroke-width', '3');
+  boxShadow.setAttribute('stroke-linejoin', 'round');
+  boxShadow.setAttribute('opacity', '0.4');
+  svg.getElementById('ground').appendChild(boxShadow);
+  var SHADOW_C = [0, 0]; SHADOW_SHUT.forEach(function (p) { SHADOW_C[0] += p[0] / 4; SHADOW_C[1] += p[1] / 4; });
+  // it stays on the floor; as the box lifts off it, the shadow shrinks and fades a little
+  function drawBoxShadow(up) {
+    var sc = 1 - 0.14 * up;
+    boxShadow.setAttribute('transform', 'translate(' + SHADOW_C[0].toFixed(2) + ' ' + SHADOW_C[1].toFixed(2) + ') scale(' + sc.toFixed(3) + ') translate(' + (-SHADOW_C[0]).toFixed(2) + ' ' + (-SHADOW_C[1]).toFixed(2) + ')');
+    boxShadow.setAttribute('opacity', (0.4 - 0.13 * up).toFixed(3));
+  }
+  boxShadow.setAttribute('d', 'M' + SHADOW_SHUT.map(function (p) { return p[0].toFixed(2) + ' ' + p[1].toFixed(2); }).join('L') + 'Z');
+  // the light inside was drawn for the tipped box; this affine carries it onto the
+  // flat box (fitted on three corners of the shut lid in both drawings)
+  var TO_FLAT = (function () {
+    var src = [[65, 157.5], [139.5, 149.5], [175, 119.5]], dst = [[73.53, 155.36], [147.22, 168.93], [189.8, 150.3]];
+    var x1 = src[1][0] - src[0][0], y1 = src[1][1] - src[0][1], x2 = src[2][0] - src[0][0], y2 = src[2][1] - src[0][1];
+    var u1 = dst[1][0] - dst[0][0], v1 = dst[1][1] - dst[0][1], u2 = dst[2][0] - dst[0][0], v2 = dst[2][1] - dst[0][1];
+    var det = x1 * y2 - x2 * y1;
+    var a = (u1 * y2 - u2 * y1) / det, c = (u2 * x1 - u1 * x2) / det, b = (v1 * y2 - v2 * y1) / det, d = (v2 * x1 - v1 * x2) / det;
+    return [a, b, c, d, dst[0][0] - a * src[0][0] - c * src[0][1], dst[0][1] - b * src[0][0] - d * src[0][1]];
+  })();
+  function lightTransform(k) {
+    var m = TO_FLAT, id = [1, 0, 0, 1, 0, 0];
+    return 'matrix(' + m.map(function (v, i) { return lerp(v, id[i], k).toFixed(4); }).join(' ') + ')';
+  }
+  function drawBody(k, t, gust) {
+    var knot = [lerp(KNOT_SHUT[0], KNOT[0], k), lerp(KNOT_SHUT[1], KNOT[1], k)];
+    bodyPaths.forEach(function (r) {
+      var a = r.a, b = r.b, out = r.parts[0];
+      for (var i = 0; i < a.length; i += 2) {
+        var x = lerp(a[i], b[i], k), y = lerp(a[i + 1], b[i + 1], k);
+        if (r.ribbon) {
+          // only the very tips of the ribbon stir
+          var d = Math.hypot(x - knot[0], y - knot[1]);
+          var w = Math.pow(clamp((d - 24) / 12, 0, 1), 2), ph = TAU * t / 1800 - d * 0.08, amp = 0.7 + 0.6 * gust;
+          x += 0.6 * amp * w * Math.sin(ph * 0.8 + 1);
+          y += amp * w * Math.sin(ph);
+        }
+        out += (+x.toFixed(2)) + r.parts[i + 1] + (+y.toFixed(2)) + r.parts[i + 2];
+      }
+      r.el.setAttribute('d', out);
+    });
+  }
+
+  /* ---------- timeline ---------- */
+  var OPEN = 1500, CLOSE = 4500;
+
+  function frame(t) {
+    t = ((t % LOOP) + LOOP) % LOOP;
+
+    // box: two curious rattles, a squash, the pop, and a thud when it shuts
+    var rot = 0, sy = 1, lidA = 0, lidLift = 0;
+    [[380, 260, 1.2, 0.03], [860, 320, 2.2, 0.07], [1180, 260, 1.6, 0.05]].forEach(function (r) {
+      var p = prog(t, r[0], r[0] + r[1]);
+      if (p > 0 && p < 1) {
+        var w = Math.sin(p * Math.PI);
+        rot += r[2] * Math.sin(p * TAU * 2) * w;
+        lidA += r[3] * w;
+        lidLift += 2.2 * w * Math.abs(Math.sin(p * TAU * 1.5));
+      }
+    });
+    var pre = prog(t, 1300, OPEN);
+    sy *= 1 - 0.07 * ease(pre) * (t < OPEN ? 1 : 0);
+    var pop = prog(t, OPEN, OPEN + 380);
+    if (t >= OPEN && t < OPEN + 900) {
+      sy = settle(1.08, 1, prog(t, OPEN, OPEN + 600));
+      lidA = t < OPEN + 380 ? 1.14 * easeOut(pop) : settle(1.14, 1, prog(t, OPEN + 380, OPEN + 900));
+      lidLift = 6 * Math.sin(pop * Math.PI);
+    } else if (t >= OPEN + 900 && t < CLOSE + 450) {
+      lidA = 1 + 0.015 * Math.sin(TAU * (t - OPEN) / 1800);
+    } else if (t >= CLOSE + 450) {
+      var cl = prog(t, CLOSE + 450, CLOSE + 860);
+      lidA = 1 - easeIn(cl);
+      var thud = prog(t, CLOSE + 860, CLOSE + 1200);
+      if (thud > 0) {
+        lidA = 0.06 * Math.sin(thud * Math.PI) * (1 - thud);
+        sy = settle(0.93, 1, thud);
+      }
+    }
+    // shut, the box sits flat on the ground; it tips toward us as it pops so we can see inside
+    var k = t < OPEN ? easeOut(prog(t, OPEN - 120, OPEN)) * 0.35 : t < CLOSE + 450 ? Math.min(1, 0.35 + 0.65 * easeOutBack(prog(t, OPEN, OPEN + 320))) : 1 - easeIn(prog(t, CLOSE + 450, CLOSE + 860));   // drops flat as the lid slams, same beat
+    k = clamp(k, 0, 1.06);
+    box.setAttribute('transform', 'translate(125 184) rotate(' + rot.toFixed(2) + ') scale(' + (1 + (1 - sy) * 0.5).toFixed(4) + ' ' + sy.toFixed(4) + ') translate(-125 -184)');
+
+    // light from inside the box
+    var light = 0;
+    if (t < OPEN) light = lidA * 4;
+    else if (t < CLOSE + 760) light = t < OPEN + 450 ? 1.35 * easeOut(prog(t, OPEN, OPEN + 160)) - 0.35 * prog(t, OPEN + 160, OPEN + 450) : 0.9 + 0.1 * Math.sin(TAU * t / 900);
+    // the glow inside stays until the lid is shut (the beams are pulled in earlier, with the gifts)
+    else light = (0.9 + 0.1 * Math.sin(TAU * t / 900)) * (1 - prog(t, CLOSE + 760, CLOSE + 860));
+    glow.setAttribute('opacity', clamp(light * (t < OPEN ? k : 1), 0, 1).toFixed(3));
+    drawLid(lidA, lidLift, light, k);
+    drawBoxShadow(clamp(k, 0, 1.1));
+    var seen = t < OPEN ? clamp(k, 0, 1) : 1;   // before the pop the box is still shut; after, the light rides the box down
+    innerLight.setAttribute('opacity', (seen * clamp(light * 1.1, 0, 1)).toFixed(3));
+    var lt = lightTransform(clamp(k, 0, 1));
+    innerLight.setAttribute('transform', lt);
+    glow.setAttribute('transform', lt);
+    beamsG.setAttribute('transform', lt);
+
+    // gifts fly out on an arc, bob while out, then get sucked back in
+    items.forEach(function (it) {
+      var out = easeOutBack(prog(t, OPEN + 60 + it.k * 55, OPEN + 600 + it.k * 55));
+      var back = easeInBack(prog(t, CLOSE + (items.length - it.k) * 25, CLOSE + 260 + (items.length - it.k) * 25));
+      var p = out * (1 - back);
+      if (p <= 0.001) { it.el.setAttribute('opacity', 0); return; }
+      it.el.removeAttribute('opacity');
+      var hold = prog(t, OPEN + 600, OPEN + 900) * (1 - back);
+      var bob = 1.6 * Math.sin(TAU * t / 1500 + it.i * 1.3) * hold;
+      var x = lerp(MOUTH[0], it.c[0], p), y = lerp(MOUTH[1], it.c[1], p) - 14 * Math.sin(Math.PI * clamp(p, 0, 1)) * (1 - hold) + bob;
+      var sc = 0.3 + 0.7 * p, r = (1 - p) * (it.k % 2 ? -40 : 40);
+      if (!it.coin) r += 4 * Math.sin(TAU * t / 2100 + it.i) * hold;
+      it.el.setAttribute('transform', 'translate(' + x.toFixed(2) + ' ' + y.toFixed(2) + ') rotate(' + r.toFixed(2) + ') scale(' + sc.toFixed(3) + ') translate(' + (-it.c[0]) + ' ' + (-it.c[1]) + ')');
+    });
+    // coins spin fast while flying, then settle into a lazy turn
+    coins.forEach(function (C) {
+      var fly = prog(t, OPEN, OPEN + 900);
+      drawCoin(C, C.a0 + C.phase + TAU * (t / 1400) + TAU * 1.5 * easeOut(fly));
+    });
+    drawBeams(t, light * (t < OPEN ? clamp(k, 0, 1) : 1), t < OPEN ? 0.25 + 2 * lidA : easeOutBack(prog(t, OPEN + 20, OPEN + 420)) * (1 - easeIn(prog(t, CLOSE, CLOSE + 460))));
+
+    cards.forEach(function (el, j) {
+      var up = easeOutBack(prog(t, OPEN + 90 + j * 90, OPEN + 640 + j * 90));
+      var down = easeIn(prog(t, CLOSE + 40 * j, CLOSE + 300 + 40 * j));
+      var p = up * (1 - down), sway = 3 * Math.sin(TAU * t / 1700 + j * 1.7) * prog(t, OPEN + 700, OPEN + 1000);
+      var cx = j ? 133 : 150, cy = 160;
+      el.setAttribute('transform', 'translate(0 ' + (50 * (1 - p)).toFixed(2) + ') rotate(' + ((1 - p) * (j ? -12 : 12) + sway).toFixed(2) + ' ' + cx + ' ' + cy + ')');
+    });
+
+    drawBody(k, t, Math.max(lidA * 3, t >= OPEN ? Math.exp(-(t - OPEN) / 500) * (t < CLOSE + 860 ? 1 : 0) : 0, t >= CLOSE + 860 ? Math.exp(-(t - CLOSE - 860) / 400) : 0));
+
+    // Navi. Curious: leans in, blinks, little "o" mouth, a hand reaching toward
+    // the box. Pop: flinch, a small hop for joy with the mouth wide open, arms
+    // waving on the ground, and calms down as the lid shuts.
+    var P = { sy: 1 + 0.012 * Math.sin(TAU * t / 1600), sx: 1, tilt: 0, bend: 0.03, lift: 0,
+              armL: 0, armR: 0, footL: 0, footR: 0, kick: 0, eye: [1, 1], mouthS: [1, 1], mouthB: [1, 1], wow: false };
+    var D = Math.PI / 180;
+    // blinks
+    [180, 2900, 3900].forEach(function (b) { var p = prog(t, b, b + 160); if (p > 0 && p < 1) P.eye = [1, 1 - 0.9 * Math.sin(p * Math.PI)]; });
+    if (t < OPEN) {
+      var lean = ease(prog(t, 300, 700)) * 0.05 + ease(prog(t, 1100, 1400)) * 0.05;
+      P.bend += lean;
+      P.armR = -14 * D * ease(prog(t, 500, 820)) * (1 - ease(prog(t, 840, 960)));          // reaches toward the lid…
+      P.armR += -8 * D * ease(prog(t, 1000, 1300));                                         // …and again, more carefully
+      [[380, 260], [860, 320], [1180, 260]].forEach(function (r) {                          // tiny start at each rattle
+        var p = prog(t, r[0], r[0] + r[1]);
+        if (p > 0 && p < 1) { var w = Math.sin(p * Math.PI); P.sy *= 1 - 0.03 * w; P.mouthS = [1 + 0.35 * w, 1 + 0.35 * w]; P.eye = [1 + 0.12 * w, 1 + 0.18 * w]; }
+      });
+      var fl = prog(t, 1420, OPEN);                                                         // flinch as the lid strains
+      P.sy *= 1 - 0.06 * ease(fl);
+    } else if (t < OPEN + 90) {
+      var f = Math.sin(prog(t, OPEN, OPEN + 90) * Math.PI / 2);
+      P.sy *= 0.94 - 0.08 * f; P.bend = 0.13 - 0.1 * f;
+      P.eye = [1.05, 1 - 0.55 * f]; P.armL = -10 * D * f; P.armR = 12 * D * f;
+    } else if (t < CLOSE + 860) {
+      // jumps for joy and hangs there while the gifts are out, lands as the lid shuts
+      P.wow = true;
+      // a small hop that hangs just above the ground, then drops as the lid shuts
+      // one small happy hop, then stays on the ground waving, bouncing at the knees
+      var hop = prog(t, OPEN + 90, OPEN + 430);
+      P.lift = hop < 1 ? 7 * Math.sin(Math.PI * hop) : 0;
+      var beat = Math.sin(TAU * (t - OPEN) / 650);
+      var fling = prog(t, OPEN + 90, OPEN + 600);
+      P.sy *= hop < 1 ? settle(1.1, 1, hop) : settle(0.92, 1, prog(t, OPEN + 430, OPEN + 750)) * (1 - 0.02 * Math.abs(beat) * fling);
+      var joy = beat;
+      P.tilt = settle(-0.24, -0.1, fling) + 0.03 * Math.sin(TAU * (t - OPEN) / 1300) * fling;
+      P.bend = 0.01;
+      // both arms wave up and down together, mirrored (left raises with +, right with -)
+      var flap = 10 * D * beat * fling;
+      P.armL = settle(62, 44, fling) * D + flap;
+      P.armR = settle(-50, -34, fling) * D - flap;
+      var pop = prog(t, OPEN + 90, OPEN + 450);
+      var m = settle(0.35, 1, pop) * (1 + 0.07 * joy * fling);
+      P.mouthB = [m, m];
+      if (P.eye[1] === 1) { var e = settle(1.4, 1.1, pop); P.eye = [e, e * (1 - 0.12 * fling)]; }  // wide, then a happy squint
+      // arms come in a little as the gifts go home and the lid closes
+      var down = ease(prog(t, CLOSE + 300, CLOSE + 860));
+      P.armL *= 1 - 0.6 * down; P.armR *= 1 - 0.6 * down; P.tilt *= 1 - 0.6 * down;
+      P.mouthB = [m * (1 - 0.3 * down), m * (1 - 0.45 * down)];
+    } else {
+      // arms down with the thud of the lid, then back to curious
+      var back = prog(t, CLOSE + 860, CLOSE + 1300), e2 = ease(back);
+      P.armL = 19 * D * (1 - e2); P.armR = -15 * D * (1 - e2); P.tilt = -0.05 * (1 - e2);
+      P.bend = 0.03 + 0.04 * Math.sin(Math.PI * back);                                  // peeks at the shut box
+      P.mouthS = [1 + 0.4 * (1 - e2), 1 + 0.4 * (1 - e2)];
+      P.sy *= settle(0.95, 1, prog(t, CLOSE + 860, CLOSE + 1140));
+    }
+    P.sx = 1 + (1 - P.sy) * 0.6;
+    drawNavi(P);
+    var sh = 1 - P.lift * 0.02;
+    naviShadow.setAttribute('transform', 'translate(61.5 181.5) scale(' + sh.toFixed(3) + ' 1) translate(-61.5 -181.5)');
+  }
+
+  var start = performance.now(), playing = true, raf = null;
+  function tick(now) { frame(now - start); raf = requestAnimationFrame(tick); }
+  window.__demo = {
+    duration: LOOP,
+    seek: function (ms) { playing = false; if (raf) cancelAnimationFrame(raf); raf = null; frame(ms); },
+    play: function () { if (!playing) { playing = true; start = performance.now(); raf = requestAnimationFrame(tick); } }
+  };
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) frame(OPEN + 1400);
+  else raf = requestAnimationFrame(tick);
+  }
+})();
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 <script>
 /* ---------- demo data ---------- */
 var FONT = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&display=swap">';
 function src(slug, part){ var el=document.getElementById('src-'+slug+'-'+part); return el ? el.textContent.replace(/^\n/,'') : ''; }
 var DEMOS = [
-{
-  slug:'the-lat-zing-card', title:'Thẻ lật Zing Card', type:'Component', project:'Test Draft',
-  desc:'Thẻ nạp lật 3D khi bấm, có nghiêng theo chuột. Mặt sau hiện mã thẻ.',
-  lottie:{status:'no', notes:["Demo tương tác (bấm để lật, nghiêng theo chuột). Lottie chỉ phát theo thời gian, không tự bắt sự kiện chuột.", "Lật 3D có phối cảnh: Lottie trên iOS/Android không hỗ trợ 3D.", "Cách khác: làm 2 file Lottie (lật sang, lật về) và để code điều khiển khi bấm."]},
-  updated:'25/10/2026', interactive:'Demo tương tác (bấm để lật, rê chuột để nghiêng). Cần thêm kịch bản tự bấm thì mới quay thành video/ảnh động được.',
-  specs:[['Thời lượng','0.7s mỗi lần lật'],['Easing','cubic-bezier(.2,.8,.2,1.2)'],['Thư viện','Không cần, CSS + 15 dòng JS'],['Kích thước','240 × 330px'],['Tương tác','Bấm để lật, rê chuột để nghiêng']],
-  steps:['Copy khối <code>.card</code> vào trang.','Thêm style.css và script.js.','Đổi mệnh giá và mã thẻ trong HTML hoặc gắn dữ liệu thật.'],
-  html:'<div class="scene">\n  <button class="card" aria-label="Lật thẻ">\n    <div class="face front">\n      <span class="brand">ZING CARD</span>\n      <span class="value">100.000<small>VNĐ</small></span>\n      <span class="hint">Bấm để lật</span>\n    </div>\n    <div class="face back">\n      <span class="lbl">Mã thẻ</span>\n      <span class="code">8271 4402 9135</span>\n      <span class="lbl">Seri 0049 2210 77</span>\n    </div>\n  </button>\n</div>',
-  css:'body{margin:0;height:100vh;display:grid;place-items:center;background:#120F1C;font-family:"Be Vietnam Pro",system-ui,sans-serif}\n.scene{perspective:1100px}\n.card{position:relative;width:240px;height:330px;border:0;padding:0;background:none;cursor:pointer;transform-style:preserve-3d;\n  transition:transform .7s cubic-bezier(.2,.8,.2,1.2)}\n.card.flipped{transform:rotateY(180deg)}\n.face{position:absolute;inset:0;border-radius:20px;border:2px solid #0A0A0A;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:22px;text-align:left}\n.front{background:linear-gradient(160deg,#7C3AED,#5B21B6 60%,#2E1065);color:#fff;box-shadow:0 24px 50px rgba(91,33,182,.45)}\n.brand{font-weight:800;letter-spacing:.12em;font-size:13px;color:#D0F500}\n.value{font-size:40px;font-weight:800;letter-spacing:-.02em;line-height:1}\n.value small{display:block;font-size:14px;letter-spacing:.1em;opacity:.8;margin-top:6px}\n.hint{font-size:12px;opacity:.7}\n.back{background:#D0F500;color:#0A0A0A;transform:rotateY(180deg);justify-content:center;gap:10px}\n.lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.7}\n.code{font-size:24px;font-weight:800;letter-spacing:.04em}',
-  js:'var card = document.querySelector(".card");\nvar flipped = false;\ncard.addEventListener("click", function () {\n  flipped = !flipped;\n  card.classList.toggle("flipped", flipped);\n  card.style.transform = "";\n});\ncard.addEventListener("mousemove", function (e) {\n  var r = card.getBoundingClientRect();\n  var x = (e.clientX - r.left) / r.width - 0.5;\n  var y = (e.clientY - r.top) / r.height - 0.5;\n  card.style.transform = "rotateY(" + ((flipped ? 180 : 0) + x * 18) + "deg) rotateX(" + (-y * 14) + "deg)";\n});\ncard.addEventListener("mouseleave", function () { card.style.transform = ""; });'
-},
-{
-  slug:'nut-dang-ki-ngay', title:'Nút Đăng kí ngay', type:'Component', project:'Test Draft',
-  desc:'Nút CTA của banner Kênh phân phối: nổi khối, nhấn lún xuống, có vệt sáng chạy qua khi rê chuột.',
-  lottie:{status:'warn', notes:["Lottie không tự phản ứng khi rê chuột hay bấm. Sẽ xuất thành 3 đoạn (đứng yên, rê chuột, bấm) để dev ghép bằng code.", "Vệt sáng chạy qua dùng mask, chạy được trên cả web và app."]},
-  updated:'24/10/2026', interactive:'Demo tương tác (hiệu ứng khi rê chuột và bấm). Cần thêm kịch bản tự rê chuột thì mới quay thành video/ảnh động được.',
-  specs:[['Thời lượng','Hover 0.18s, vệt sáng 0.8s'],['Easing','ease-out'],['Thư viện','Không cần, chỉ CSS'],['Kích thước','260 × 64px'],['Màu','yellow/300, orange/500, orange/700']],
-  steps:['Copy thẻ <code>&lt;button class="cta"&gt;</code>.','Thêm style.css.','Đổi chữ trên nút, độ rộng tự co theo chữ.'],
-  html:'<button class="cta"><span>ĐĂNG KÍ NGAY</span></button>',
-  css:'body{margin:0;height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 50% 30%,#7C3AED,#4C1D95 70%);font-family:"Be Vietnam Pro",system-ui,sans-serif}\n.cta{position:relative;border:0;padding:0;background:#C2410C;border-radius:999px;cursor:pointer;box-shadow:0 0 0 3px #fff,0 10px 0 3px #fff;transition:box-shadow .18s ease-out}\n.cta span{position:relative;display:block;overflow:hidden;padding:18px 56px;border-radius:999px;background:#FDE047;color:#422006;font-weight:800;font-size:20px;letter-spacing:.02em;\n  transform:translateY(-8px);transition:transform .18s ease-out;border:2px solid #F97316}\n.cta span::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg)}\n.cta:hover span{transform:translateY(-11px)}\n.cta:hover span::after{animation:shine .8s ease-out}\n.cta:active span{transform:translateY(-2px)}\n@keyframes shine{to{left:130%}}',
-  js:''
-},
-{
-  slug:'vinh-quang-no1', gifNote:'Ánh sáng chuyển màu rất mịn, GIF chỉ có 256 màu nên sẽ bị sọc. Nên dùng WebP hoặc MP4.', title:'Vinh quang NO.1', type:'Animation', project:'Test Draft',
-  desc:'Màn kết quả hạng nhất: ô thoi viền sáng mở ra, huy hiệu đóng dấu và bung cánh vàng, loé sáng, bokeh, tia lửa, ánh kim chạy qua, rồi bảng kết quả trượt lên.',
-  lottie:{status:'warn', notes:["Xuất được: ô thoi mở ra, cúp, huy hiệu đóng dấu, cánh bung, vòng sóng, tia sáng, sao lấp lánh.", "Bị bỏ: tia lửa và bụi vàng (vẽ bằng canvas, ngẫu nhiên).", "Trên iOS/Android: mất blur, lớp loé sáng hoà trộn (screen) và ánh kim sẽ nhạt hơn.", "Gợi ý: Lottie cho phần chính + WebM nền trong suốt cho lớp tia lửa."]},
-  updated:'28/10/2026', duration:4000, loop:false,
-  specs:[['Tổng thời lượng','≈ 3.3s, chạy một lần (có nút Phát lại)'],['Thứ tự','Nền 0s → ô thoi viền sáng 0.3s → cúp kim loại + tia sáng trên cao 0.65s → huy hiệu đóng dấu 1.0s → sóng xung kích + cánh vàng 1.1s → loé sáng, vệt ngang, bokeh, tia lửa 1.15s → ánh kim chạy qua 1.35s → sao lấp lánh 1.5s → bảng kết quả 2.7s'],['Easing','Mở ra cubic-bezier(.6,0,.3,1) · đóng dấu cubic-bezier(.3,1.4,.5,1)'],['Thư viện','Không cần: Web Animations API + Canvas 2D'],['Tham khảo','Pinterest pin 514465957456005140 (chỉ lấy hiệu ứng)']],
-  steps:['Copy cả khối <code>.scene</code> trong index.html.','Thêm style.css và script.js. Gọi <code>play()</code> khi trận đấu kết thúc thay vì chạy ngay lúc tải.','Thay SVG huy hiệu, cúp và bảng kết quả bằng asset thật, giữ nguyên class để animation chạy đúng.'],
-  html:src('vinh-quang-no1','html'), css:src('vinh-quang-no1','css'), js:src('vinh-quang-no1','js')
-},
 {
   slug:'navi-ket-ban', title:'Navi kết bạn', type:'Animation', project:'Test Draft',
   desc:'Navi đứng dưới đất vẫy tay rồi nhảy cẫng lên vì được kết bạn, hai Navi trong khung chat vẫy tay chào, bong bóng “Hi” và “Add friend me!” nảy lên.',
@@ -1142,14 +1582,23 @@ var DEMOS = [
   specs:[['Thời lượng','Vòng lặp 4.5s, có thể tua từng khung (window.__demo.seek)'],['Nhịp nhảy','Đứng vẫy tay ~2s → lấy đà 0.3s → bay 0.8s (cao 13px) → tiếp đất, nảy 0.6s → đứng lại'],['Kỹ thuật','Rig kiểu puppet: mọi điểm vector của thân, mặt, miệng, mũ, tai nghe được uốn theo một xương sống ảo mỗi khung; tay xoay ở vai rồi uốn theo thân; mũ và tai nghe trễ 80–90ms tạo quán tính'],['Thư viện','Không cần, SVG + JS thuần (~200 dòng)'],['Kích thước','Khung 200 × 200, co giãn theo màn hình'],['Nguồn','Figma V7tl node 13175:84037 (Navi/Friends)']],
   steps:['Copy thẻ <code>&lt;svg id="art"&gt;</code> vào trang, thêm style.css và script.js.','Thuộc tính <code>data-rig</code>, <code>data-arm</code>, <code>data-acc</code>, <code>data-mouth</code> đánh dấu phần nào uốn, xoay hay trễ. Đổi tư thế trong hàm <code>POSE</code>.','Muốn chạy khi có lời mời kết bạn: gọi <code>window.__demo.seek(0)</code> để dừng ở tư thế đứng, <code>window.__demo.play()</code> để chạy.'],
   html:src('navi-ket-ban','html'), css:src('navi-ket-ban','css'), js:src('navi-ket-ban','js')
+},
+{
+  slug:'mo-qua', title:'Mở quà', type:'Animation', project:'Test Draft',
+  desc:'Navi tò mò đứng cạnh hộp quà, hộp rung rồi bật nắp, ánh sáng loé lên, quà và đồng xu bay ra, Navi nhún nhảy vẫy tay; quà thu về, nắp đóng, hộp nằm lại xuống sàn.',
+  lottie:{status:'warn', notes:["Nắp lật, quà bay, đồng xu xoay, tay và chân xoay khớp chuyển được.","Thân hộp đổi dáng từ nằm phẳng sang nghiêng và thân Navi uốn (puppet) phải chuyển thành nhiều khung hình dạng (shape keyframes), file Lottie sẽ nặng hơn.","Luồng sáng làm nhoè và cộng sáng (plus-lighter) chỉ hiện đúng trên web; iOS/Android sẽ thấy sáng phẳng hơn."]},
+  updated:'30/10/2026', duration:6000, loop:true,
+  specs:[['Thời lượng','Vòng lặp 6s, có thể tua từng khung (window.__demo.seek)'],['Nhịp','Tò mò, hộp rung 3 lần ~1.5s → bật nắp 0.4s, quà bay ra 0.6s → vui ~2.4s → quà và luồng sáng thu về 0.46s → nắp đóng cùng lúc hộp nằm xuống 0.4s → nảy nhẹ'],['Nắp hộp','Vẽ bằng code thành tấm có độ dày, xoay quanh bản lề; hai đầu khớp đúng nắp đóng (trạng thái 1) và nắp mở (trạng thái 2), mặt ngoài và mặt trong đổi theo góc nhìn'],['Thân hộp','Đổi dáng từ nằm phẳng (trạng thái 1) sang nghiêng (trạng thái 2); ánh sáng bên trong đi theo hộp; bóng nằm yên trên sàn, nhạt và nhỏ lại khi hộp nhấc lên'],['Navi','Một hình cắt rời tay, chân, mắt, miệng; tay xoay cứng quanh vai, mắt chớp, miệng đổi từ chữ "o" sang há to'],['Thư viện','Không cần, SVG + JS thuần']],
+  steps:['Copy thẻ <code>&lt;svg id="art"&gt;</code> vào trang, thêm style.css và script.js.','Muốn chạy khi người chơi nhận quà: gọi <code>window.__demo.seek(0)</code> rồi <code>window.__demo.play()</code>.','Quà là các nhóm <code>data-item</code>, thẻ là <code>data-card</code>: thay hình bên trong, vị trí bay tới lấy theo chỗ đặt trong SVG.'],
+  html:src('mo-qua','html'), css:src('mo-qua','css'), js:src('mo-qua','js')
 }
 ];
 
 /* ---------- state ---------- */
 var SITE = 'https://ilong6.github.io/thu-vien-il';
 var share = load('tvcl-share') || {
-  'the-lat-zing-card': {on:true, token:'k7Qx9mPa'},
-  'nut-dang-ki-ngay': {on:true, token:'R2vB8tWn'}
+  'navi-ket-ban': {on:true, token:'navi-ket-ban'},
+  'mo-qua': {on:true, token:'mo-qua'}
 };
 var ui = {type:'Tất cả', project:null, q:'', view:'gallery', slug:null, tab:'preview', file:'html', vp:'desktop', preview:false, editing:false};
 
