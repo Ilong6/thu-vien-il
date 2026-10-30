@@ -1641,13 +1641,6 @@ function srcdoc(d){
 function single(d){
   return '<!doctype html>\n<html lang="vi">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<title>'+d.title+'</title>\n<style>\n'+d.css+'\n</style>\n</head>\n<body>\n'+d.html+'\n'+(d.js?'<script>\n'+d.js+'\n<\/script>\n':'')+'</body>\n</html>';
 }
-function aiPrompt(d){
-  var specs = d.specs.map(function(s){return '- '+s[0]+': '+s[1];}).join('\n');
-  var steps = d.steps.map(function(s,i){return (i+1)+'. '+s.replace(/<[^>]+>/g,'').replace(/&lt;/g,'<').replace(/&gt;/g,'>');}).join('\n');
-  return '# '+d.title+'\n\n'+d.desc+'\n\nLoại: '+d.type+' · Dự án: '+d.project+'\n\n## Thông số\n'+specs+
-    '\n\n## Yêu cầu\nTích hợp demo này vào project hiện tại. Giữ đúng thời lượng, easing và màu như trên. Không thêm thư viện mới nếu không cần.\n\n## Cách gắn\n'+steps+
-    '\n\n## index.html\n```html\n'+d.html+'\n```\n\n## style.css\n```css\n'+d.css+'\n```\n'+(d.js?'\n## script.js\n```js\n'+d.js+'\n```\n':'');
-}
 function files(d){ var f=[['html','index.html',d.html],['css','style.css',d.css]]; if(d.js) f.push(['js','script.js',d.js]); return f; }
 
 /* ---------- icons ---------- */
@@ -1860,7 +1853,6 @@ function renderDetail(d){
         '</div></div>'+
       '<div class="dd"><button type="button" class="btn" data-open="ai">'+I.ai+'Dùng cho AI'+I.caret+'</button>'+
         '<div class="menu" data-menu="ai" hidden>'+
-          '<button type="button" data-ai="prompt"><span>Copy prompt cho AI</span><small>Mô tả, thông số và toàn bộ code dạng Markdown</small></button>'+
           '<button type="button" data-ai="single"><span>Copy code 1 file</span><small>HTML, CSS, JS gộp chung để dán vào AI</small></button>'+
           '<hr><button type="button" data-ai="md"><span>Tải file cho AI (.md)</span><small>Dùng với Cursor, Claude Code</small></button>'+
         '</div></div>'+
@@ -2062,7 +2054,6 @@ function bindDetail(d){
   view.querySelectorAll('[data-open]').forEach(function(b){ b.onclick=function(e){ e.stopPropagation(); var m=b.parentNode.querySelector('.menu'); closeMenus(m); m.hidden=!m.hidden; }; });
   view.querySelectorAll('[data-ai]').forEach(function(b){ b.onclick=function(){
     closeMenus();
-    if(b.dataset.ai==='prompt') copy(aiPrompt(d), 'Đã copy prompt. Dán vào ChatGPT, Claude hoặc Cursor');
     if(b.dataset.ai==='single') copy(single(d), 'Đã copy code 1 file');
     if(b.dataset.ai==='md') toast('Bản thử chưa tải file được. Bản thật sẽ tải '+d.slug+'.md');
   }; });
