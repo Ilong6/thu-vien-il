@@ -68,6 +68,7 @@
     return { el: el, attr: 'gradientTransform', role: 'body', at: /^matrix/.test(tf) ? [v[4], v[5]] : [v[0], v[1]], tf: tf };
   }));
   var mouthS = naviG.querySelector('[data-role="mouthS"]'), mouthB = naviG.querySelector('[data-role="mouthB"]');
+  var armTrim = naviG.querySelector('[data-arm-trim]');
 
   function rot(x, y, cx, cy, a) {
     var c = Math.cos(a), s = Math.sin(a), dx = x - cx, dy = y - cy;
@@ -113,6 +114,8 @@
     });
     mouthS.style.display = P.wow ? 'none' : '';
     mouthB.style.display = P.wow ? '' : 'none';
+    // hanging down, the arm lies over the body and needs its whole outline; raised (15°→35°) it is trimmed
+    armTrim.setAttribute('fill-opacity', clamp((P.armL * 180 / Math.PI - 15) / 20, 0, 1).toFixed(2));
   }
 
   var KNOT = [164, 151];                       // where the ribbon is tied on the open box
