@@ -1416,16 +1416,20 @@ body{display:grid;place-items:center;background:#2A2A2E;overflow:hidden}
   }
   function drawBody(k, t, gust) {
     var knot = [lerp(KNOT_SHUT[0], KNOT[0], k), lerp(KNOT_SHUT[1], KNOT[1], k)];
+    var sway = ribbonSway(t);
     bodyPaths.forEach(function (r) {
       var a = r.a, b = r.b, out = r.parts[0];
       for (var i = 0; i < a.length; i += 2) {
         var x = lerp(a[i], b[i], k), y = lerp(a[i + 1], b[i + 1], k);
         if (r.ribbon) {
-          // only the very tips of the ribbon stir
+          // the very tips stir on their own…
           var d = Math.hypot(x - knot[0], y - knot[1]);
           var w = Math.pow(clamp((d - 24) / 12, 0, 1), 2), ph = TAU * t / 1800 - d * 0.08, amp = 0.7 + 0.6 * gust;
           x += 0.6 * amp * w * Math.sin(ph * 0.8 + 1);
           y += amp * w * Math.sin(ph);
+          // …and the whole strip follows the box's moves with a little lag, more towards the tips
+          var f = Math.pow(clamp((d - 6) / 30, 0, 1), 1.5);
+          x += sway[0] * f; y += sway[1] * f;
         }
         out += (+x.toFixed(2)) + r.parts[i + 1] + (+y.toFixed(2)) + r.parts[i + 2];
       }
@@ -1436,41 +1440,74 @@ body{display:grid;place-items:center;background:#2A2A2E;overflow:hidden}
   /* ---------- timeline ---------- */
   var OPEN = 1500, CLOSE = 4500;
 
+  /* ---------- box motion, as a pure function of time (the ribbon samples it at past moments) ---------- */
+  function boxMotion(t) {
+    t = ((t % LOOP) + LOOP) % LOOP;
+      // box: two curious rattles, a squash, the pop, and a thud when it shuts
+      var rot = 0, sy = 1, lidA = 0, lidLift = 0;
+      [[380, 260, 1.2, 0.03], [860, 320, 2.2, 0.07], [1180, 260, 1.6, 0.05]].forEach(function (r) {
+        var p = prog(t, r[0], r[0] + r[1]);
+        if (p > 0 && p < 1) {
+          var w = Math.sin(p * Math.PI);
+          rot += r[2] * Math.sin(p * TAU * 2) * w;
+          lidA += r[3] * w;
+          lidLift += 2.2 * w * Math.abs(Math.sin(p * TAU * 1.5));
+        }
+      });
+      var pre = prog(t, 1300, OPEN);
+      sy *= 1 - 0.07 * ease(pre) * (t < OPEN ? 1 : 0);
+      var pop = prog(t, OPEN, OPEN + 380);
+      if (t >= OPEN && t < OPEN + 900) {
+        sy = settle(1.08, 1, prog(t, OPEN, OPEN + 600));
+        lidA = t < OPEN + 380 ? 1.14 * easeOut(pop) : settle(1.14, 1, prog(t, OPEN + 380, OPEN + 900));
+        lidLift = 6 * Math.sin(pop * Math.PI);
+      } else if (t >= OPEN + 900 && t < CLOSE + 450) {
+        lidA = 1 + 0.015 * Math.sin(TAU * (t - OPEN) / 1800);
+      } else if (t >= CLOSE + 450) {
+        var cl = prog(t, CLOSE + 450, CLOSE + 860);
+        lidA = 1 - easeIn(cl);
+        var thud = prog(t, CLOSE + 860, CLOSE + 1200);
+        if (thud > 0) {
+          lidA = 0.06 * Math.sin(thud * Math.PI) * (1 - thud);
+          sy = settle(0.93, 1, thud);
+        }
+      }
+      // shut, the box sits flat on the ground; it tips toward us as it pops so we can see inside
+      var k = t < OPEN ? easeOut(prog(t, OPEN - 120, OPEN)) * 0.35 : t < CLOSE + 450 ? Math.min(1, 0.35 + 0.65 * easeOutBack(prog(t, OPEN, OPEN + 320))) : 1 - easeIn(prog(t, CLOSE + 450, CLOSE + 860));   // drops flat as the lid slams, same beat
+      k = clamp(k, 0, 1.06);
+    return { rot: rot, sy: sy, lidA: lidA, lidLift: lidLift, k: k };
+  }
+
+  // where the ribbon's knot is on screen: on the box (shut ↔ tipped open) under the box transform
+  function knotAt(t) {
+    var m = boxMotion(t), kk = clamp(m.k, 0, 1), sx = 1 + (1 - m.sy) * 0.5, c = Math.cos(m.rot * Math.PI / 180), s = Math.sin(m.rot * Math.PI / 180);
+    var x = (lerp(KNOT_SHUT[0], KNOT[0], kk) - 125) * sx, y = (lerp(KNOT_SHUT[1], KNOT[1], kk) - 184) * m.sy;
+    return [125 + x * c - y * s, 184 + x * s + y * c];
+  }
+  /* The ribbon lags behind the box like a loose, springy strip: its tips are pushed against the
+     knot's acceleration and ring out. Worked out from the box's recent past (a damped-spring
+     response summed over the last ~0.7 s) instead of a running simulation, so any frame can be
+     seeked to directly. */
+  var LAG_STEP = 25, LAG_N = 28, RIBBON_GAIN = 42, RIBBON_MAX = 5;
+  function ribbonSway(t) {
+    var out = [0, 0], hist = [];
+    for (var j = LAG_N + 1; j >= 0; j--) hist.push(knotAt(t - j * LAG_STEP));
+    for (j = 1; j <= LAG_N; j++) {
+      var i = hist.length - 1 - j, s = j * LAG_STEP;
+      var ax = (hist[i + 1][0] - 2 * hist[i][0] + hist[i - 1][0]) / (LAG_STEP * LAG_STEP);
+      var ay = (hist[i + 1][1] - 2 * hist[i][1] + hist[i - 1][1]) / (LAG_STEP * LAG_STEP);
+      var h = Math.exp(-s / 160) * Math.sin(TAU * s / 380) * LAG_STEP;   // ~2.6 Hz, settles in ~0.5 s
+      out[0] -= h * ax; out[1] -= h * ay;
+    }
+    // a soft limit keeps the big pop from flinging it too far
+    var x = out[0] * RIBBON_GAIN, y = out[1] * RIBBON_GAIN, m = Math.hypot(x, y), f = m > 0 ? RIBBON_MAX * Math.tanh(m / RIBBON_MAX) / m : 0;
+    return [x * f, y * f];
+  }
+
   function frame(t) {
     t = ((t % LOOP) + LOOP) % LOOP;
 
-    // box: two curious rattles, a squash, the pop, and a thud when it shuts
-    var rot = 0, sy = 1, lidA = 0, lidLift = 0;
-    [[380, 260, 1.2, 0.03], [860, 320, 2.2, 0.07], [1180, 260, 1.6, 0.05]].forEach(function (r) {
-      var p = prog(t, r[0], r[0] + r[1]);
-      if (p > 0 && p < 1) {
-        var w = Math.sin(p * Math.PI);
-        rot += r[2] * Math.sin(p * TAU * 2) * w;
-        lidA += r[3] * w;
-        lidLift += 2.2 * w * Math.abs(Math.sin(p * TAU * 1.5));
-      }
-    });
-    var pre = prog(t, 1300, OPEN);
-    sy *= 1 - 0.07 * ease(pre) * (t < OPEN ? 1 : 0);
-    var pop = prog(t, OPEN, OPEN + 380);
-    if (t >= OPEN && t < OPEN + 900) {
-      sy = settle(1.08, 1, prog(t, OPEN, OPEN + 600));
-      lidA = t < OPEN + 380 ? 1.14 * easeOut(pop) : settle(1.14, 1, prog(t, OPEN + 380, OPEN + 900));
-      lidLift = 6 * Math.sin(pop * Math.PI);
-    } else if (t >= OPEN + 900 && t < CLOSE + 450) {
-      lidA = 1 + 0.015 * Math.sin(TAU * (t - OPEN) / 1800);
-    } else if (t >= CLOSE + 450) {
-      var cl = prog(t, CLOSE + 450, CLOSE + 860);
-      lidA = 1 - easeIn(cl);
-      var thud = prog(t, CLOSE + 860, CLOSE + 1200);
-      if (thud > 0) {
-        lidA = 0.06 * Math.sin(thud * Math.PI) * (1 - thud);
-        sy = settle(0.93, 1, thud);
-      }
-    }
-    // shut, the box sits flat on the ground; it tips toward us as it pops so we can see inside
-    var k = t < OPEN ? easeOut(prog(t, OPEN - 120, OPEN)) * 0.35 : t < CLOSE + 450 ? Math.min(1, 0.35 + 0.65 * easeOutBack(prog(t, OPEN, OPEN + 320))) : 1 - easeIn(prog(t, CLOSE + 450, CLOSE + 860));   // drops flat as the lid slams, same beat
-    k = clamp(k, 0, 1.06);
+    var M = boxMotion(t), rot = M.rot, sy = M.sy, lidA = M.lidA, lidLift = M.lidLift, k = M.k;
     box.setAttribute('transform', 'translate(125 184) rotate(' + rot.toFixed(2) + ') scale(' + (1 + (1 - sy) * 0.5).toFixed(4) + ' ' + sy.toFixed(4) + ') translate(-125 -184)');
 
     // light from inside the box
