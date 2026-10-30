@@ -68,7 +68,9 @@
     return { el: el, attr: 'gradientTransform', role: 'body', at: /^matrix/.test(tf) ? [v[4], v[5]] : [v[0], v[1]], tf: tf };
   }));
   var mouthS = naviG.querySelector('[data-role="mouthS"]'), mouthB = naviG.querySelector('[data-role="mouthB"]');
-  var armTrim = naviG.querySelector('[data-arm-trim]');
+  var armLine = naviG.querySelector('[data-role="armL"] path[stroke]');
+  var bodyFill = naviG.querySelector(':scope > path[data-role="body"]');
+  var UNDERARM = 18;   // length of underarm outline hidden while the arm hangs down
 
   function rot(x, y, cx, cy, a) {
     var c = Math.cos(a), s = Math.sin(a), dx = x - cx, dy = y - cy;
@@ -114,8 +116,23 @@
     });
     mouthS.style.display = P.wow ? 'none' : '';
     mouthB.style.display = P.wow ? '' : 'none';
-    // hanging down, the arm lies over the body and needs its whole outline; raised (15°→35°) it is trimmed
-    armTrim.setAttribute('fill-opacity', clamp((P.armL * 180 / Math.PI - 15) / 20, 0, 1).toFixed(2));
+    // The arm outline runs from the shoulder round the hand and back along the underarm. Hanging down,
+    // the underarm part stops halfway (UNDERARM px short of its end) so the arm doesn't look pinned on.
+    // Once it lifts (1°→6°), both ends are cut back to just past the body outline instead.
+    // A dash rather than a mask, so the ends stay round.
+    var trim = clamp((P.armL * 180 / Math.PI - 1) / 5, 0, 1);
+    var L = armLine.getTotalLength(), from = 0, cut = UNDERARM;
+    if (trim > 0) {
+      var n = Math.ceil(L / 0.5), inBody = [];
+      for (var i = 0; i <= n; i++) { var q = armLine.getPointAtLength(L * i / n); inBody.push(bodyFill.isPointInFill(new DOMPoint(q.x, q.y))); }
+      var a = 0, b = n, STUB = 1.2;
+      while (a < n && inBody[a]) a++;
+      while (b > 0 && inBody[b]) b--;
+      from = Math.max(0, L * a / n - STUB) * trim;
+      cut = lerp(UNDERARM, Math.max(0, L * (n - b) / n - STUB), trim);
+    }
+    armLine.setAttribute('stroke-dasharray', (L - from - cut).toFixed(2) + ' ' + L.toFixed(2));
+    armLine.setAttribute('stroke-dashoffset', (-from).toFixed(2));
   }
 
   var KNOT = [164, 151];                       // where the ribbon is tied on the open box
