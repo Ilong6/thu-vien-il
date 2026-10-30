@@ -70,7 +70,7 @@
   var mouthS = naviG.querySelector('[data-role="mouthS"]'), mouthB = naviG.querySelector('[data-role="mouthB"]');
   var armLine = naviG.querySelector('[data-role="armL"] path[stroke]');
   var bodyFill = naviG.querySelector(':scope > path[data-role="body"]');
-  var UNDERARM = 14;   // length of underarm outline hidden while the arm hangs down
+  var bodyBand = naviG.querySelector(':scope > path[fill="#262626"]');   // dark band at the bottom of the body
 
   function rot(x, y, cx, cy, a) {
     var c = Math.cos(a), s = Math.sin(a), dx = x - cx, dy = y - cy;
@@ -116,21 +116,21 @@
     });
     mouthS.style.display = P.wow ? 'none' : '';
     mouthB.style.display = P.wow ? '' : 'none';
-    // The arm outline runs from the shoulder round the hand and back along the underarm. Hanging down,
-    // the underarm part stops halfway (UNDERARM px short of its end) so the arm doesn't look pinned on.
-    // Once it lifts (1°→6°), both ends are cut back to just past the body outline instead.
+    // The arm outline runs from the shoulder round the hand and back along the underarm. Its ends are
+    // cut back to where the arm stops lying over the orange front of the body (plus a short round stub),
+    // so the line never runs deep into the body. The underarm end is always cut this way; the shoulder
+    // end only once the arm lifts (1°→6°), since hanging down that end is part of the body's contour.
     // A dash rather than a mask, so the ends stay round.
     var trim = clamp((P.armL * 180 / Math.PI - 1) / 5, 0, 1);
-    var L = armLine.getTotalLength(), from = 0, cut = UNDERARM;
-    if (trim > 0) {
-      var n = Math.ceil(L / 0.5), inBody = [];
-      for (var i = 0; i <= n; i++) { var q = armLine.getPointAtLength(L * i / n); inBody.push(bodyFill.isPointInFill(new DOMPoint(q.x, q.y))); }
-      var a = 0, b = n, STUB = 1.2;
-      while (a < n && inBody[a]) a++;
-      while (b > 0 && inBody[b]) b--;
-      from = Math.max(0, L * a / n - STUB) * trim;
-      cut = lerp(UNDERARM, Math.max(0, L * (n - b) / n - STUB), trim);
+    var L = armLine.getTotalLength(), n = Math.ceil(L / 0.5), onFront = [], STUB = 1.2;
+    for (var i = 0; i <= n; i++) {
+      var q = armLine.getPointAtLength(L * i / n), pt = new DOMPoint(q.x, q.y);
+      onFront.push(bodyFill.isPointInFill(pt) && !bodyBand.isPointInFill(pt));
     }
+    var a = 0, b = n;
+    while (a < n && onFront[a]) a++;
+    while (b > 0 && onFront[b]) b--;
+    var from = Math.max(0, L * a / n - STUB) * trim, cut = Math.max(0, L * (n - b) / n - STUB);
     armLine.setAttribute('stroke-dasharray', (L - from - cut).toFixed(2) + ' ' + L.toFixed(2));
     armLine.setAttribute('stroke-dashoffset', (-from).toFixed(2));
   }
