@@ -1418,13 +1418,14 @@ body{display:grid;place-items:center;background:#2A2A2E;overflow:hidden}
       for (var i = 0; i < a.length; i += 2) {
         var x = lerp(a[i], b[i], k), y = lerp(a[i + 1], b[i + 1], k);
         if (r.ribbon) {
-          // the very tips stir on their own…
+          // the strip stirs on its own: a slow wave running out from the knot, so the whole tail
+          // bends (still at the knot, growing smoothly toward the end) rather than just the tip
           var d = Math.hypot(x - knot[0], y - knot[1]);
-          var w = Math.pow(clamp((d - 24) / 12, 0, 1), 2), ph = TAU * t / 1800 - d * 0.08, amp = 0.7 + 0.6 * gust;
+          var u = clamp((d - 4) / 32, 0, 1), w = u * u * (3 - 2 * u), ph = TAU * t / 1800 - d * 0.09, amp = 0.9 + 0.6 * gust;
           x += 0.6 * amp * w * Math.sin(ph * 0.8 + 1);
-          y += amp * w * Math.sin(ph);
+          y += amp * w * (Math.sin(ph) + 0.3 * Math.sin(ph * 1.7 + 2));
           // …and the whole strip follows the box's moves with a little lag, more towards the tips
-          var f = Math.pow(clamp((d - 6) / 30, 0, 1), 1.5);
+          var f = w;
           x += sway[0] * f; y += sway[1] * f;
         }
         out += (+x.toFixed(2)) + r.parts[i + 1] + (+y.toFixed(2)) + r.parts[i + 2];
