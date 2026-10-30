@@ -1156,6 +1156,7 @@ var ui = {type:'Tất cả', project:null, q:'', view:'gallery', slug:null, tab:
 function load(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } }
 function save(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
 function token(){ var a='abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789',s=''; for(var i=0;i<8;i++) s+=a[Math.floor(Math.random()*a.length)]; return s; }
+function shareUrl(slug){ return SITE+'/?s='+encodeURIComponent(slug); }
 function shareOf(slug){ return share[slug] || {on:false, token:null}; }
 // owner edits to title / description / type / project, layered over the demo data
 var EDITABLE=['title','desc','type','project'];
@@ -1400,9 +1401,9 @@ function renderDetail(d){
         '<div class="menu share-pop" data-menu="share" hidden>'+
           '<div class="share-row"><div><b>Ai có link đều xem được</b><small>Người nhận chỉ thấy demo này, không thấy thư viện.</small></div>'+
           '<button type="button" class="switch" role="switch" aria-checked="'+s.on+'" aria-label="Bật chia sẻ bằng link" data-toggle></button></div>'+
-          '<div class="link-box"><input id="shareLink" readonly value="'+(s.on?SITE+'/s/'+s.token:'Đang riêng tư, chưa có link')+'" '+(s.on?'':'disabled')+' aria-label="Link chia sẻ">'+
+          '<div class="link-box"><input id="shareLink" readonly value="'+(s.on?shareUrl(d.slug):'Đang riêng tư, chưa có link')+'" '+(s.on?'':'disabled')+' aria-label="Link chia sẻ">'+
           '<button type="button" class="btn" data-copylink '+(s.on?'':'disabled')+'>'+I.copy+'Copy</button></div>'+
-          '<div class="share-foot"><button type="button" class="linkish" data-regen '+(s.on?'':'disabled')+'>Tạo link mới (link cũ hết hạn)</button><button type="button" class="linkish" data-asrecipient>Xem như người nhận</button></div>'+
+          '<div class="share-foot"><span>Khoá link chỉ có tác dụng thật từ phase 3.</span><button type="button" class="linkish" data-asrecipient>Xem như người nhận</button></div>'+
         '</div></div>'+
       '<div class="dd"><button type="button" class="btn" data-open="ai">'+I.ai+'Dùng cho AI'+I.caret+'</button>'+
         '<div class="menu" data-menu="ai" hidden>'+
@@ -1620,10 +1621,9 @@ function bindDetail(d){
   function syncShare(){
     var s=shareOf(d.slug), inp=$('#shareLink');
     view.querySelector('[data-toggle]').setAttribute('aria-checked', s.on);
-    inp.value = s.on ? SITE+'/s/'+s.token : 'Đang riêng tư, chưa có link';
+    inp.value = s.on ? shareUrl(d.slug) : 'Đang riêng tư, chưa có link';
     inp.disabled = !s.on;
     view.querySelector('[data-copylink]').disabled = !s.on;
-    view.querySelector('[data-regen]').disabled = !s.on;
     var st=view.querySelector('.d-meta .only-owner'); if(st) st.innerHTML = statusHtml(d.slug);
   }
   var tg=view.querySelector('[data-toggle]'); if(tg) tg.onclick=function(e){
@@ -1652,7 +1652,8 @@ function setPreview(on){
   if(!on){ render(); return; }
   ui.tab='preview'; ui.editing=false;
   var d=find(ui.slug);
-  if(shareOf(d.slug).on) renderDetail(d); else renderLocked();
+  if(ui.recipient){ $('#band').hidden=true; renderDetail(d); }
+  else if(shareOf(d.slug).on) renderDetail(d); else renderLocked();
   window.scrollTo(0,0);
 }
 $('#exitShare').onclick=function(){ setPreview(false); };
@@ -1672,6 +1673,7 @@ function fromHash(){
   if(h && find(h)){ ui.slug=h; ui.view='detail'; } else ui.view='gallery';
 }
 window.addEventListener('hashchange', function(){ if(ui.preview) return; fromHash(); render(); });
-fromHash();
-render();
+var shared=new URLSearchParams(location.search).get('s');
+if(shared && find(shared)){ ui.recipient=true; ui.slug=shared; ui.view='detail'; renderRail(); setPreview(true); }
+else { fromHash(); render(); }
 </script>
