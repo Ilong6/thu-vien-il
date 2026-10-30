@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Xuất WebP</title>
+<style>body{font:14px system-ui;background:#111;color:#eee;padding:20px}iframe{width:600px;height:600px;border:0;background:transparent}</style>
+</head>
+<body>
+<p id="log">Đang chuẩn bị…</p>
+<iframe id="demo"></iframe>
+<script>
+// Renders a seekable demo frame by frame (transparent), muxes an animated WebP and saves it via tools/save_server.py.
+// Usage: export-webp.html?demo=demos/navi-ket-ban/standalone.html&name=navi-ket-ban.webp&size=600&fps=30
+var Q = new URLSearchParams(location.search);
+var DEMO = Q.get("demo"), NAME = Q.get("name"), SIZE = +(Q.get("size") || 600), FPS = +(Q.get("fps") || 30), QUALITY = +(Q.get("q") || 0.9);
+var log = function (m) { document.getElementById("log").textContent = m; };
+
+function u24(n) { return [n & 255, (n >> 8) & 255, (n >> 16) & 255]; }
+function u32(n) { return [n & 255, (n >> 8) & 255, (n >> 16) & 255, (n >>> 24) & 255]; }
+function chunk(tag, body) {
+  var pad = body.length & 1, out = new Uint8Array(8 + body.length + pad);
+  for (var i = 0; i < 4; i++) out[i] = tag.charCodeAt(i);
+  out.set(u32(body.length), 4); out.set(body, 8); return out;
+}
+function concat(parts) {
+  var n = 0; parts.forEach(function (p) { n += p.length; });
+  var out = new Uint8Array(n), o = 0; parts.forEach(function (p) { out.set(p, o); o += p.length; }); return out;
+}
+// keep the ALPH + VP8/VP8L chunks of a still WebP
+function frameChunks(bytes) {
+  var keep = [], o = 12;
+  while (o < bytes.length) {
+    var tag = String.fromCharCode(bytes[o], bytes[o + 1], bytes[o + 2], bytes[o + 3]);
+    var len = bytes[o + 4] | (bytes[o + 5] << 8) | (bytes[o + 6] << 16) | (bytes[o + 7] << 24);
+    var end = o + 8 + len + (len & 1);
+    if (tag === "ALPH" || tag === "VP8 " || tag === "VP8L") keep.push(bytes.subarray(o, end));
+    o = end;
+  }
+  return concat(keep);
+}
+function mux(frames, w, h, durations) {
+  var parts = [];
+  parts.push(chunk("VP8X", new Uint8Array([0x12, 0, 0, 0].concat(u24(w - 1), u24(h - 1))))); // alpha + animation
+  parts.push(chunk("ANIM", new Uint8Array([0, 0, 0, 0, 0, 0])));                              // clear bg, loop forever
+  frames.forEach(function (f, i) {
+    var head = new Uint8Array([].concat(u24(0), u24(0), u24(w - 1), u24(h - 1), u24(durations[i]), [0x03])); // no blend, dispose
+    parts.push(chunk("ANMF", concat([head, f])));
+  });
+  var body = concat(parts);
+  return concat([new Uint8Array([82, 73, 70, 70].concat(u32(body.length + 4), [87, 69, 66, 80])), body]);
+}
+function b64(buf) { var s = "", b = new Uint8Array(buf); for (var i = 0; i < b.length; i++) s += String.fromCharCode(b[i]); return btoa(s); }
+
+async function fontCSS(text) {
+  // embed the bubble font so the SVG image does not fall back to a system face
+  var css = await (await fetch("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@800&text=" + encodeURIComponent(text))).text();
+  var url = css.match(/url\((https:[^)]+)\)/)[1];
+  var font = await (await fetch(url)).arrayBuffer();
+  return "@font-face{font-family:'Be Vietnam Pro';font-weight:800;src:url(data:font/woff2;base64," + b64(font) + ") format('woff2')}";
+}
+
+function load(src) { return new Promise(function (r) { var f = document.getElementById("demo"); f.onload = function () { r(f); }; f.src = src; }); }
+function img(src) { return new Promise(function (r, j) { var i = new Image(); i.onload = function () { r(i); }; i.onerror = j; i.src = src; }); }
+
+(async function () {
+  var f = await load("/" + DEMO);
+  var w = f.contentWindow, d = f.contentDocument, svg = d.querySelector("svg");
+  await new Promise(function (r) { setTimeout(r, 400); });
+  var dur = w.__demo.duration, n = Math.round(dur / 1000 * FPS);
+  var fonts = await fontCSS(svg.textContent.replace(/\s+/g, "") + " ");
+  var cssAnims = d.getAnimations();
+  var canvas = document.createElement("canvas"); canvas.width = canvas.height = SIZE;
+  var ctx = canvas.getContext("2d"), frames = [], durations = [];
+  for (var i = 0; i < n; i++) {
+    var t = i * dur / n;
+    w.__demo.seek(t);
+    cssAnims.forEach(function (a) {
+      a.pause();
+      var timing = a.effect.getComputedTiming(), cycle = (timing.duration || 0) * (timing.direction === "alternate" ? 2 : 1);
+      // stretch CSS loops that are not 4.5s long so the export loops seamlessly
+      a.currentTime = cycle && Math.abs(cycle - dur) > 1 ? t / dur * cycle * Math.max(1, Math.round(dur / cycle)) : t;
+    });
+    var clone = svg.cloneNode(true);
+    // bake the CSS-animated transforms into attributes
+    var live = svg.querySelectorAll(".k1,.k2,.bub1,.bub2"), copy = clone.querySelectorAll(".k1,.k2,.bub1,.bub2");
+    live.forEach(function (el, k) {
+      var cs = w.getComputedStyle(el), m = cs.transform, o = cs.transformOrigin.split(" ").map(parseFloat);
+      if (m && m !== "none") copy[k].setAttribute("transform", "translate(" + o[0] + " " + o[1] + ") " + m + " translate(" + -o[0] + " " + -o[1] + ")");
+    });
+    clone.setAttribute("width", SIZE); clone.setAttribute("height", SIZE);
+    var st = d.createElementNS("http://www.w3.org/2000/svg", "style"); st.textContent = fonts; clone.insertBefore(st, clone.firstChild);
+    var src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(new XMLSerializer().serializeToString(clone))));
+    var im = await img(src);
+    ctx.clearRect(0, 0, SIZE, SIZE); ctx.drawImage(im, 0, 0, SIZE, SIZE);
+    var webp = await new Promise(function (r) { canvas.toBlob(r, "image/webp", QUALITY); });
+    frames.push(frameChunks(new Uint8Array(await webp.arrayBuffer())));
+    durations.push(Math.round((i + 1) * dur / n) - Math.round(i * dur / n));
+    log("Khung " + (i + 1) + "/" + n);
+  }
+  var out = mux(frames, SIZE, SIZE, durations);
+  var res = await fetch("/save?name=" + encodeURIComponent(NAME), { method: "POST", body: out });
+  log("Xong: " + (await res.text()));
+  window.__done = { frames: n, bytes: out.length };
+})().catch(function (e) { log("Lỗi: " + e); window.__done = { error: String(e) }; });
+</script>
+</body>
+</html>
