@@ -1628,6 +1628,494 @@ body{display:grid;place-items:center;background:#2A2A2E;overflow:hidden}
   }
 })();
 </script>
+<script type="text/plain" id="src-go-bua-html">
+<div class="stage" id="stage">
+<button class="tool" id="tool" type="button" aria-pressed="false" title="Cầm búa (Esc để bỏ)"><svg viewBox="-1 -1 125 49" aria-hidden="true"><g xmlns="http://www.w3.org/2000/svg">
+<rect x="24.5" y="16.5" width="98" height="13" rx="6.5" fill="#744832" stroke="black" />
+<rect x="0.5" y="0.5" width="35" height="46" rx="12.5" fill="#696969" stroke="black" />
+</g>
+</svg><span>Búa</span></button>
+<svg id="art" class="art" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Navi tò mò nhìn theo con trỏ; bấm nút búa rồi gõ vào Navi thì Navi nhún xuống, khóc rồi cười lại">
+<defs xmlns="http://www.w3.org/2000/svg"><radialGradient id="qpaint0_radial_12714_7046" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(109.462 86.1569) scale(10.1839 6.21219)">
+<stop stop-color="#FF6707" />
+<stop offset="1" stop-color="#FF9707" stop-opacity="0" />
+</radialGradient>
+<radialGradient id="qpaint1_radial_12714_7046" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(76.4834 85.245) scale(11.868 7.47686)">
+<stop stop-color="#FF6707" />
+<stop offset="1" stop-color="#FF9707" stop-opacity="0" />
+</radialGradient>
+</defs>
+<ellipse id="shadow" cx="100" cy="178" rx="44" ry="4.5" fill="#000" opacity=".28"/>
+<g id="navi">
+<g xmlns="http://www.w3.org/2000/svg">
+<path d="M100.026 153.91C100.024 154.213 100.022 154.644 100.018 155.177C100.009 156.277 99.997 157.812 99.9834 159.551C99.9562 163.028 99.9225 167.321 99.8975 170.581C99.8861 172.051 99.2876 173.194 98.1738 174.106C97.0395 175.036 95.3597 175.734 93.1973 176.239C89.4128 177.124 84.304 177.387 78.458 177.399L75.9092 177.391C69.0176 177.341 65.1154 176.521 62.9551 175.491C61.8822 174.98 61.2616 174.427 60.9092 173.912C60.5611 173.404 60.4532 172.902 60.4561 172.448C60.4622 172.046 60.6556 171.564 61.0098 171.036C61.3582 170.516 61.8291 170 62.3125 169.537C62.7939 169.076 63.2767 168.679 63.6396 168.396C63.8207 168.256 63.9707 168.143 64.0752 168.067C64.1273 168.03 64.1681 168.001 64.1953 167.981C64.209 167.972 64.2199 167.965 64.2266 167.96C64.2297 167.958 64.232 167.956 64.2334 167.955L64.2354 167.954L64.4492 167.807L64.4521 167.546L64.5645 153.618L100.026 153.91Z" fill="#F59E0B" stroke="#0A0A0A" data-foot="L" />
+<path d="M136.639 154.547L136.526 168.442L136.524 168.703L136.736 168.854L136.738 168.854C136.74 168.856 136.742 168.858 136.745 168.86C136.752 168.865 136.762 168.872 136.775 168.882C136.802 168.902 136.843 168.932 136.895 168.971C136.998 169.048 137.147 169.163 137.326 169.307C137.685 169.595 138.162 170 138.637 170.47C139.113 170.941 139.575 171.465 139.914 171.99C140.258 172.524 140.441 173.006 140.438 173.407C140.435 173.862 140.319 174.364 139.962 174.868C139.602 175.377 138.973 175.92 137.893 176.415C135.716 177.411 131.801 178.169 124.91 178.11C118.002 178.052 111.951 177.754 107.645 176.676C105.491 176.136 103.824 175.413 102.706 174.468C101.609 173.54 101.032 172.391 101.047 170.926C101.08 167.673 101.114 163.38 101.139 159.9C101.151 158.161 101.162 156.624 101.169 155.522C101.172 154.989 101.175 154.558 101.177 154.255L136.639 154.547Z" fill="#F59E0B" stroke="#0A0A0A" data-foot="R" />
+<path d="M136.474 160.353C136.474 161.189 104.278 158.681 101.366 169.548V154.502H136.474V160.353Z" fill="#262626" data-foot="R" />
+<path d="M64.5863 161.189C64.5863 162.025 96.7826 159.517 99.6943 170.384V155.338H64.5863V161.189Z" fill="#262626" data-foot="L" />
+</g>
+
+<g id="torso">
+<path xmlns="http://www.w3.org/2000/svg" d="M97.8242 19.9219C99.6141 19.0418 101.501 19.3281 103.597 19.9199L103.611 19.9346L103.735 19.9697C113.557 22.7942 124.87 31.5056 136.082 43.2578C147.278 54.9939 158.317 69.7019 167.596 84.4258C176.876 99.1519 184.381 113.873 188.523 125.629C190.596 131.511 191.816 136.622 192.009 140.607C192.197 144.496 191.402 147.161 189.655 148.519L189.483 148.646C186.468 150.759 183.256 151.012 179.977 150.008C176.674 148.996 173.307 146.707 170.063 143.737L169.083 142.84L169.229 144.161C169.362 145.373 169.488 146.534 169.604 147.635L169.931 150.745C170.181 153.196 168.748 155.191 166.403 155.503L166.173 155.528C139.355 157.766 51.8972 156.646 36.5352 155.527L36.3047 155.505C35.1725 155.366 34.3284 154.824 33.749 154.035C33.1223 153.181 32.7861 152.01 32.7861 150.693C32.7861 146.759 32.9196 142.591 33.2197 138.256L33.3096 136.957L32.373 137.862C28.6167 141.494 24.6663 144.74 20.9219 146.79C17.1617 148.849 13.7155 149.645 10.8984 148.571L10.8975 148.571C8.77989 147.765 7.56039 145.715 7.25781 142.454C6.95506 139.191 7.59125 134.834 9.07422 129.665C12.0371 119.339 18.3352 105.932 26.9473 91.8896C44.1784 63.7938 70.5813 33.3021 97.8242 19.9219Z" fill="#F05A22" stroke="#0A0A0A" data-pts="" />
+
+<path xmlns="http://www.w3.org/2000/svg" d="M160.711 133.606C154.86 151.16 37.8332 155.338 35.3239 142.8C34.0492 148.219 34.2764 148.396 34.4879 151.995C34.6994 155.595 96.345 155.338 96.345 155.338C96.345 155.338 166.517 155.602 167.399 150.324C168.236 145.309 166.563 119.395 160.711 109.364C160.711 109.364 163.807 124.315 160.711 133.606Z" fill="#262626" data-pts="" />
+
+<g id="back"></g>
+<g id="screen"><path xmlns="http://www.w3.org/2000/svg" d="M140.166 74.6399C140.433 87.4961 140.383 101.138 140.082 115.399C139.999 119.11 137.123 122.186 133.428 122.47C111.11 124.142 88.8747 124.125 66.7232 122.404C63.0954 122.119 60.2366 119.127 60.0861 115.499C59.3839 98.4966 59.3505 81.8454 60.0861 65.5787C60.2533 61.9007 63.1957 58.975 66.8569 58.7409L100.945 56.5843C103.135 56.4673 105.024 58.0221 105.292 60.1787L105.777 63.9737C106.044 66.03 107.783 67.5681 109.856 67.5681L132.944 67.5681C136.856 67.5848 140.082 70.7111 140.166 74.6232L140.166 74.6399Z" fill="#FBBF24" data-pts="" />
+</g>
+<g id="face"><g xmlns="http://www.w3.org/2000/svg" transform="translate(8.4 9.6)"><g>
+<path d="M121.806 86.4727C121.806 90.5344 116.238 93.8036 109.403 93.8036C102.548 93.8036 97 90.5146 97 86.4529C97 82.3912 102.567 79.1221 109.403 79.1221C116.258 79.1221 121.806 82.411 121.806 86.4727Z" fill="url(#qpaint0_radial_12714_7046)" />
+<path d="M90.8875 85.6813C90.8875 90.3968 84.4086 94.2208 76.4437 94.2208C68.4591 94.2208 62 90.377 62 85.6615C62 80.946 68.4789 77.1221 76.4437 77.1221C84.4284 77.1221 90.8875 80.9658 90.8875 85.6813Z" fill="url(#qpaint1_radial_12714_7046)" />
+</g>
+</g><g xmlns="http://www.w3.org/2000/svg" transform="translate(8.4 9.6)" id="eyes"><path d="M99.2432 74.0244C100.769 74.0244 102.018 75.8278 102.018 78.0469C101.998 80.2658 100.769 82.0684 99.2236 82.0684C97.6981 82.0684 96.4503 80.2658 96.4502 78.0469C96.47 75.828 97.6979 74.0246 99.2432 74.0244Z" fill="#262626" data-eye="" />
+<path d="M87.6544 78.0221C87.6544 75.803 86.4062 74 84.8806 74C83.3351 74 82.1067 75.803 82.0869 78.0221C82.0869 80.2411 83.3351 82.0441 84.8607 82.0441C86.4062 82.0441 87.6346 80.2411 87.6544 78.0221Z" fill="#262626" data-eye="" />
+</g><g xmlns="http://www.w3.org/2000/svg" transform="translate(0.3086 -0.3086)" id="shut"><path d="M95.4713 83.9041C96.1371 83.7139 96.8303 84.0988 97.0206 84.7645C97.2109 85.4302 96.826 86.1235 96.1602 86.3138L90.3089 87.9856C89.6431 88.1759 88.9499 87.791 88.7595 87.1253C88.5693 86.4595 88.9542 85.7662 89.6199 85.5759L95.4713 83.9041Z" fill="#262626" />
+<path d="M105.356 83.9041C104.69 83.7139 103.997 84.0988 103.807 84.7645C103.616 85.4302 104.001 86.1235 104.667 86.3138L110.518 87.9856C111.184 88.1759 111.877 87.791 112.068 87.1253C112.258 86.4595 111.873 85.7662 111.207 85.5759L105.356 83.9041Z" fill="#262626" />
+<path d="M89.9652 88.4531C89.1293 96.8122 74.9189 100.833 74.9189 94.3045C74.9189 90.1249 86.6216 94.3045 89.9652 88.4531Z" fill="#DBEAFE" />
+<path d="M111.699 88.4531C112.349 94.5982 123.401 97.5541 123.401 92.7547C123.401 89.6821 114.299 92.7547 111.699 88.4531Z" fill="#DBEAFE" />
+<path d="M120.058 96.8115C122.802 98.2452 125.397 100.516 123.853 101.591C121.881 102.965 120.401 99.6789 120.058 96.8115Z" fill="#DBEAFE" />
+</g><g xmlns="http://www.w3.org/2000/svg" transform="translate(8.4 9.6)" data-mouth="curious"><g>
+<ellipse cx="3.0059" cy="5.58238" rx="3.0059" ry="5.58238" transform="matrix(-0.982122 0.188247 0.188247 0.982122 96.9043 94)" fill="#262626" />
+<path d="M98.1181 100.766C97.2627 100.399 96.315 100.276 95.3613 100.459C94.1954 100.682 93.2084 101.329 92.501 102.23C93.3034 104.383 94.7317 105.784 96.054 105.53C97.4492 105.262 98.273 103.241 98.1181 100.766Z" fill="#FB7185" />
+</g>
+</g><g xmlns="http://www.w3.org/2000/svg" data-mouth="smile"><path d="M120.361 89.4739C120.728 88.8868 121.501 88.7086 122.088 89.0756C122.676 89.4426 122.854 90.2157 122.487 90.8029L121.424 90.1384C122.452 90.7808 122.486 90.8029 122.487 90.8045L122.485 90.8078L122.482 90.8111C122.48 90.8142 122.478 90.8186 122.475 90.8225C122.47 90.8306 122.463 90.8407 122.456 90.8519C122.441 90.8746 122.42 90.9038 122.395 90.9384C122.346 91.0075 122.279 91.0998 122.19 91.2111C122.01 91.4344 121.745 91.7357 121.378 92.0878C120.644 92.7929 119.505 93.6978 117.834 94.589C114.488 96.3733 109.054 98.0795 100.526 98.0795C91.9984 98.0795 86.5647 96.3733 83.2188 94.589C81.5479 93.6978 80.4089 92.7929 79.6744 92.0878C79.3077 91.7357 79.0424 91.4344 78.863 91.2111C78.7736 91.0998 78.7062 91.0075 78.6572 90.9384C78.6327 90.9038 78.6119 90.8746 78.5968 90.8519C78.5894 90.8407 78.5825 90.8306 78.5772 90.8225C78.5747 90.8186 78.5727 90.8142 78.5707 90.8111L78.5675 90.8078L78.5658 90.8045C78.5664 90.8029 78.6008 90.7808 79.6287 90.1384L78.5658 90.8029C78.1988 90.2157 78.3771 89.4426 78.9642 89.0756C79.5511 88.7088 80.3226 88.8874 80.6899 89.4739L80.6915 89.4723L80.6899 89.4707L80.6882 89.4674C80.6872 89.4658 80.6855 89.465 80.685 89.4641C80.6871 89.4674 80.6935 89.4754 80.7029 89.4886C80.7233 89.5174 80.7616 89.5693 80.8188 89.6405C80.9333 89.7829 81.1254 90.0042 81.4115 90.2788C81.983 90.8275 82.9343 91.5946 84.3976 92.3751C87.321 93.9343 92.3367 95.5718 100.526 95.5718C108.716 95.5718 113.732 93.9343 116.655 92.3751C118.118 91.5946 119.07 90.8275 119.641 90.2788C119.927 90.0042 120.119 89.7829 120.234 89.6405C120.291 89.5693 120.329 89.5174 120.35 89.4886C120.36 89.4743 120.366 89.4651 120.368 89.4625C120.367 89.4634 120.365 89.4657 120.364 89.4674L120.363 89.4707L120.361 89.4723V89.4739Z" fill="#262626" />
+</g><g xmlns="http://www.w3.org/2000/svg" transform="translate(0.3086 0)" data-mouth="happy"><g>
+<path d="M80.4499 98.2766C82.9736 90.8279 93.1994 96.5056 101.62 93.515C112.597 89.5988 115.516 84.7412 120.823 87.0848C130.392 91.3002 125.957 111.472 107.996 115.471C93.8971 118.617 76.7212 109.257 80.4499 98.2766Z" fill="#262626" />
+<path d="M94.4756 114.808C95.2302 111.912 101.207 98.0308 113.507 100.305C125.791 102.589 112.715 113.596 112.715 113.596C107.082 116.442 100.994 116.473 94.4756 114.808Z" fill="#FB7185" />
+</g>
+</g><g xmlns="http://www.w3.org/2000/svg" transform="translate(0.3086 -0.3086)" data-mouth="cry"><path d="M83.5164 113.693C87.3718 118.544 93.1658 111.618 100.038 111.597C109.001 111.582 112.431 114.407 115.602 111.26C121.325 105.592 112.609 91.8189 98.6033 93.6275C87.6074 95.0428 77.827 106.546 83.5164 113.693Z" fill="#262626" />
+<path d="M90.8008 114.366C92.4726 109.35 96.6522 105.171 104.175 106.006C108.142 106.447 109.662 109.575 110.079 112.614C107.693 112.309 104.574 111.589 100.038 111.597C96.6973 111.607 93.6099 113.248 90.8775 114.375L90.8008 114.366Z" fill="#FB7185" />
+</g></g>
+<g id="tears"></g>
+<path xmlns="http://www.w3.org/2000/svg" d="M89.5486 25.8594C71.5432 40.5379 55.8616 57.7742 42.0357 76.3648C28.3101 94.9888 16.1059 114.917 8.19824 136.784C19.2322 94.8717 53.7384 49.9502 89.5486 25.8594Z" fill="#FEF08A" data-pts="" />
+<path xmlns="http://www.w3.org/2000/svg" d="M46.9162 82.6661C42.7533 105.888 37.437 129.895 34.1435 153.233C33.0736 141.196 34.829 129.109 36.9354 117.289C39.276 105.503 42.2017 93.7502 46.8994 82.6494L46.9162 82.6661Z" fill="#FEF08A" data-pts="" />
+<path xmlns="http://www.w3.org/2000/svg" d="M167.402 149.489C164.209 136.315 163.86 126.653 161.269 113.395C158.861 100.104 155.718 87.0809 152.408 73.9404C164.077 98.6164 166.282 122.472 167.402 149.489Z" fill="#262626" data-pts="" />
+
+</g>
+</g>
+<g id="fx"></g>
+</svg>
+<div class="hammer" id="hammer" aria-hidden="true"><svg id="hammerArt" viewBox="-1 -1 125 49" fill="none" xmlns="http://www.w3.org/2000/svg"><g xmlns="http://www.w3.org/2000/svg">
+<rect x="24.5" y="16.5" width="98" height="13" rx="6.5" fill="#744832" stroke="black" />
+<rect x="0.5" y="0.5" width="35" height="46" rx="12.5" fill="#696969" stroke="black" />
+</g>
+</svg></div>
+<p class="hint" id="hint">Bấm nút búa rồi gõ vào Navi · Esc để bỏ búa</p>
+</div>
+</script>
+<script type="text/plain" id="src-go-bua-css">
+html,body{margin:0;height:100%}
+body{background:#2A2A2E;overflow:hidden;font:500 13px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+.stage{position:fixed;inset:0;display:grid;place-items:center;user-select:none;-webkit-user-select:none;touch-action:none}
+.art{width:min(80vmin,560px);height:auto;overflow:visible}
+.art g{transform-box:view-box}
+
+/* toolbar: one hammer button at the top */
+.tool{position:absolute;top:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;
+  padding:8px 14px 8px 10px;border-radius:999px;border:1px solid #ffffff22;background:#3A3A40;color:#EDEDED;
+  font:inherit;cursor:pointer;transition:background .15s,border-color .15s}
+.tool svg{width:40px;height:16px}
+.tool:hover{background:#45454C}
+.tool[aria-pressed="true"]{background:#F05A22;border-color:#F05A22;color:#fff}
+.tool:focus-visible{outline:2px solid #FBBF24;outline-offset:2px}
+
+/* hammer that replaces the cursor; positioned and swung by script.js */
+.armed,.armed *{cursor:none!important}
+.hammer{position:fixed;left:0;top:0;pointer-events:none;display:none;z-index:5}
+.armed .hammer{display:block}
+.hammer svg{display:block;width:100%;height:100%;filter:drop-shadow(0 4px 3px #0005)}
+
+.hint{position:absolute;bottom:14px;left:0;right:0;margin:0;text-align:center;color:#ffffff70}
+</script>
+<script type="text/plain" id="src-go-bua-js">
+/* Gõ búa Navi: Navi follows the cursor with its face, curious and smiling.
+   The hammer button turns the cursor into a hammer; hitting Navi squashes it,
+   it cries for a moment, then laughs it off. Esc puts the hammer down. */
+(function () {
+  var svg = document.getElementById('art');
+  var NS = 'http://www.w3.org/2000/svg';
+  var $ = function (id) { return document.getElementById(id); };
+
+  // getBBox reads as empty while the page sits in a hidden frame, so wait for a real size
+  function measurable() {
+    try { return svg.querySelector('[data-eye]').getBBox().width > 0; } catch (e) { return false; }
+  }
+  (function boot() { if (measurable()) main(); else setTimeout(boot, 100); })();
+
+  function main() {
+
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function prog(t, a, b) { return clamp((t - a) / (b - a), 0, 1); }
+  function smooth(t) { return t * t * (3 - 2 * t); }
+  function sstep(a, b, v) { return smooth(clamp((v - a) / (b - a), 0, 1)); }
+  function easeIn(t) { return t * t; }
+  // damped spring from `from` to `to`, p in 0..1
+  function settle(from, to, p) { return to + (from - to) * Math.cos(p * Math.PI * 2.5) * Math.pow(1 - p, 2.2); }
+  // eases v toward target at `rate` per second, frame-rate independent
+  function follow(v, target, rate, dt) { return lerp(v, target, 1 - Math.exp(-rate * dt)); }
+
+  var stage = $('stage'), tool = $('tool'), hammer = $('hammer'), hint = $('hint');
+  var navi = $('navi'), shadow = $('shadow'), back = $('back'), screen = $('screen'),
+      faceG = $('face'), eyesG = $('eyes'), shut = $('shut'), tears = $('tears'), fx = $('fx');
+  // body parts used to decide whether the hammer landed on Navi
+  var hitParts = [navi.querySelector('#torso > path'), screen.firstElementChild].concat(
+    [].slice.call(navi.firstElementChild.querySelectorAll('path')));
+
+  function centre(els) {
+    var x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+    els.forEach(function (e) {
+      var b = e.getBBox();
+      x0 = Math.min(x0, b.x); y0 = Math.min(y0, b.y); x1 = Math.max(x1, b.x + b.width); y1 = Math.max(y1, b.y + b.height);
+    });
+    return { x: (x0 + x1) / 2, y: (y0 + y1) / 2 };
+  }
+
+  /* ---------- puppet: the torso outlines are bent point by point ----------
+     Feet stay planted. The side flaps (Navi's arms) swing on their shoulders,
+     the body turns toward where the face looks and bobs up and down,
+     squashing toward the hips. The spine bend is left at zero so the body
+     never sways sideways. */
+  var NUM = /-?(?:\d+\.?\d*|\.\d+)(?:e-?\d+)?/g;
+  var paths = [].map.call(svg.querySelectorAll('[data-pts]'), function (el) {
+    var d = el.getAttribute('d');
+    return { el: el, nums: d.match(NUM).map(Number), parts: d.split(NUM) };
+  });
+
+  var HIP = 156, SHOULDER_L = [54, 76], SHOULDER_R = [146, 76];
+  var rig = { bend: 0, bob: 0, armL: 0, armR: 0, turn: 0, nod: 0 };
+
+  /* the folder screen is a thick slab: its dark side is the screen outline
+     swept back along the depth direction, drawn as stacked copies */
+  var face0 = screen.firstElementChild, SLICES = 12, slices = [];
+  for (var i = 0; i < SLICES; i++) {
+    var sl = document.createElementNS(NS, 'path');
+    sl.setAttribute('fill', '#262626'); sl.setAttribute('stroke', '#262626'); sl.setAttribute('stroke-width', '.8');
+    back.appendChild(sl); slices.push(sl);
+  }
+  function extrude(ox, oy, dx, dy) {
+    var d = face0.getAttribute('d');
+    slices.forEach(function (sl, i) {
+      var t = (i + 1) / SLICES;
+      sl.setAttribute('d', d);
+      sl.setAttribute('transform', 'translate(' + (ox + dx * t) + ' ' + (oy + dy * t) + ')');
+    });
+  }
+
+  function rot(x, y, cx, cy, deg) {
+    var a = deg * Math.PI / 180, c = Math.cos(a), s = Math.sin(a), dx = x - cx, dy = y - cy;
+    return [cx + dx * c - dy * s, cy + dx * s + dy * c];
+  }
+  function warp(x, y) {
+    var h = clamp((HIP - y) / 136, 0, 1), p;
+    // arms first, as rigid flaps weighted toward their outer, lower edge
+    var wl = sstep(68, 24, x) * sstep(55, 115, y), wr = sstep(132, 176, x) * sstep(55, 115, y);
+    if (wl) { p = rot(x, y, SHOULDER_L[0], SHOULDER_L[1], rig.armL * wl); x = p[0]; y = p[1]; }
+    if (wr) { p = rot(x, y, SHOULDER_R[0], SHOULDER_R[1], -rig.armR * wr); x = p[0]; y = p[1]; }
+    // turning toward the cursor: treat the body as a round cone, so the front
+    // (middle) slides toward the look while the silhouette edges stay put and the
+    // near side bunches up; nodding tips the top forward a little
+    // perspective: the side Navi turns toward shrinks a touch, the far side swells a touch
+    var dx = x - 100;
+    x = 100 + dx * (1 - 0.06 * rig.turn * clamp(dx / 90, -1, 1));
+    var hw = lerp(10, 92, clamp((y - 20) / 130, 0, 1)), u = clamp((x - 100) / hw, -1, 1);
+    x += rig.turn * 6 * Math.cos(u * Math.PI / 2);
+    y += rig.nod * 3 * h * h;
+    // knee bob: shorter and a touch wider
+    y = HIP - (HIP - y) * (1 - rig.bob);
+    x = 100 + (x - 100) * (1 + rig.bob * 0.5);
+    // spine: the higher the point, the further it bends
+    return rot(x, y, 100, HIP, rig.bend * Math.pow(h, 1.4));
+  }
+  function deform() {
+    paths.forEach(function (p) {
+      var n = p.nums, out = p.parts[0];
+      for (var i = 0; i < n.length; i += 2) {
+        var q = warp(n[i], n[i + 1]);
+        out += q[0].toFixed(2) + p.parts[i + 1] + q[1].toFixed(2) + p.parts[i + 2];
+      }
+      p.el.setAttribute('d', out);
+    });
+  }
+
+  /* ---------- face: one pair of eyes that stays, the mouth changes ---------- */
+  var eyes = [].map.call(svg.querySelectorAll('[data-eye]'), function (e) {
+    var c = centre([e]);
+    return { el: e, x: c.x, y: c.y };
+  });
+  var mouths = {};
+  [].forEach.call(svg.querySelectorAll('[data-mouth]'), function (g) {
+    var c = centre([g]);
+    mouths[g.getAttribute('data-mouth')] = { el: g, x: c.x, y: c.y, w: 0, base: g.getAttribute('transform') || '' };
+  });
+  mouths.curious.w = 1;
+  var eye = { open: 1, lift: 0, shut: 0 }, eyesBase = eyesG.getAttribute('transform') || '';
+  var nextBlink = performance.now() + 2500, blinkAt = -1e9, blinks = 1;
+
+  // the old mouth closes toward its centre first, then the new one opens with a little pop
+  function mouthTo(name, dt) {
+    var others = 0;
+    for (var k in mouths) if (k !== name) others = Math.max(others, mouths[k].w);
+    for (k in mouths) {
+      var m = mouths[k];
+      m.w = k === name ? (others < 0.2 ? Math.min(1, m.w + dt / 0.17) : m.w)
+                       : Math.max(0, m.w - dt / 0.11);
+      var grow = k === name && m.w < 1, s;
+      if (!m.w) { m.el.style.visibility = 'hidden'; continue; }
+      s = grow ? 1 + Math.sin(m.w * Math.PI) * 0.12 - (1 - m.w) * 0.8 : 0.2 + 0.8 * m.w;
+      m.el.style.visibility = '';
+      m.el.style.opacity = Math.min(1, m.w * 2.5);
+      m.el.setAttribute('transform', m.base + ' translate(' + m.x + ' ' + m.y + ') scale(' + Math.max(0.05, s) + ') translate(' + -m.x + ' ' + -m.y + ')');
+    }
+  }
+
+  /* ---------- pointer & hammer ---------- */
+  var ptr = { x: innerWidth / 2, y: innerHeight / 2, in: false };
+  var look = { x: 0, y: 0 };
+  var armed = false, swingAt = -1e9, struck = true;
+  var REST = 30, SWING = 80, BACK = 260;
+
+  function arm(on) {
+    armed = on;
+    stage.classList.toggle('armed', on);
+    tool.setAttribute('aria-pressed', on ? 'true' : 'false');
+    hint.textContent = on ? 'Gõ vào Navi · Esc để bỏ búa' : 'Bấm nút búa rồi gõ vào Navi · Esc để bỏ búa';
+  }
+  tool.addEventListener('click', function (e) { e.stopPropagation(); arm(!armed); });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') arm(false); });
+
+  addEventListener('pointermove', function (e) { ptr.x = e.clientX; ptr.y = e.clientY; ptr.in = true; });
+  document.addEventListener('pointerleave', function () { ptr.in = false; });
+  stage.addEventListener('pointerdown', function (e) {
+    if (e.target.closest('.tool')) return;
+    ptr.x = e.clientX; ptr.y = e.clientY; ptr.in = true;
+    if (armed) { swingAt = performance.now(); struck = false; }
+    else {
+      var f = onFoot(e.clientX, e.clientY);
+      if (f) { kick(f, performance.now()); play('laugh', performance.now()); }   // a poke on a foot tickles: it jumps and giggles
+      else if (onNavi(e.clientX, e.clientY)) play('laugh', performance.now());   // a poke makes it giggle
+    }
+  });
+
+  /* feet: a poke makes that foot jerk up, curl its toes, hold, then rest it back on the ground */
+  var feetEls = { L: [], R: [] }, footAt = { L: -1e9, R: -1e9 };
+  [].forEach.call(svg.querySelectorAll('[data-foot]'), function (e) { feetEls[e.getAttribute('data-foot')].push(e); });
+  var FOOT_PIVOT = { L: [96, 160], R: [104, 160] };
+  function inFill(p, cx, cy) {
+    var m = p.getScreenCTM();
+    if (!m) return false;
+    var pt = new DOMPoint(cx, cy).matrixTransform(m.inverse());
+    return p.isPointInFill(pt) || p.isPointInStroke(pt);
+  }
+  function onFoot(cx, cy) {
+    for (var s in feetEls) if (feetEls[s].some(function (p) { return inFill(p, cx, cy); })) return s;
+    return null;
+  }
+  function kick(side, now) { footAt[side] = now; }
+  function footCurve(t) {
+    if (t < 0 || t > 650) return 0;
+    if (t < 90) return 1 - Math.pow(1 - t / 90, 3);               // jerks up fast
+    if (t < 320) return 1;                                        // holds it up
+    return 1 - smooth((t - 320) / 330);                           // lowers it and rests it on the ground
+  }
+
+  function onNavi(cx, cy) {
+    return hitParts.some(function (p) {
+      var m = p.getScreenCTM();
+      if (!m) return false;
+      var pt = new DOMPoint(cx, cy).matrixTransform(m.inverse());
+      return p.isPointInFill(pt) || (p.isPointInStroke && p.isPointInStroke(pt));
+    });
+  }
+  function toSvg(cx, cy) {
+    return new DOMPoint(cx, cy).matrixTransform(svg.getScreenCTM().inverse());
+  }
+
+  function placeHammer(now) {
+    var sc = svg.getBoundingClientRect().width / 200 * 0.95;
+    // hammer drawing: head bottom-centre (18,47), grip (112,23), viewBox starts at -1
+    var t = now - swingAt, a = REST;
+    if (t < SWING) a = lerp(REST, -6, easeIn(t / SWING));
+    else if (t < SWING + BACK) a = settle(-6, REST, (t - SWING) / BACK);
+    var s = hammer.style;
+    s.width = 125 * sc + 'px'; s.height = 49 * sc + 'px';
+    s.transformOrigin = 113 * sc + 'px ' + 24 * sc + 'px';
+    s.transform = 'translate(' + (ptr.x - 19 * sc) + 'px,' + (ptr.y - 48 * sc) + 'px) rotate(' + a + 'deg)';
+    if (!struck && t >= SWING) { struck = true; if (onNavi(ptr.x, ptr.y)) hit(ptr.x, ptr.y); }
+  }
+
+  /* ---------- moods ----------
+     Curious is home. Now and then Navi smiles or laughs for a moment; a hammer
+     blow makes it cry, and it laughs it off straight after. */
+  var mood = 'curious', moodAt = 0, moodLen = 0, nextMood = performance.now() + 6000;
+  var CRY = 1500, LEN = { smile: 2600, laugh: 1500, cry: CRY };
+  var hitAt = -1e9, power = 1;
+  var drops = [], lastDrop = 0;
+
+  function play(m, now) { mood = m; moodAt = now; moodLen = LEN[m]; }
+
+  function hit(cx, cy) {
+    var now = performance.now();
+    power = now - hitAt < CRY ? 0.75 : 1;     // a second blow while crying squashes a bit less
+    hitAt = now;
+    play('cry', now);
+    var f = onFoot(cx, cy);
+    if (f) kick(f, now);
+    var p = toSvg(cx, cy);
+    burst(p.x, p.y);
+  }
+
+  function burst(x, y) {
+    var g = document.createElementNS(NS, 'g');
+    for (var i = 0; i < 7; i++) {
+      var a = -Math.PI / 2 + (i - 3) * 0.42, l = document.createElementNS(NS, 'path');
+      l.setAttribute('d', 'M' + Math.cos(a) * 9 + ' ' + Math.sin(a) * 9 + 'L' + Math.cos(a) * 17 + ' ' + Math.sin(a) * 17);
+      l.setAttribute('stroke', i % 2 ? '#FBBF24' : '#FEF08A');
+      l.setAttribute('stroke-width', '2.4'); l.setAttribute('stroke-linecap', 'round');
+      g.appendChild(l);
+    }
+    var star = document.createElementNS(NS, 'path');
+    star.setAttribute('d', 'M0 -7L2 -2L7 -2L3 1.5L4.5 6.5L0 3.5L-4.5 6.5L-3 1.5L-7 -2L-2 -2Z');
+    star.setAttribute('fill', '#FEF08A'); star.setAttribute('stroke', '#0A0A0A'); star.setAttribute('stroke-width', '.8');
+    star.setAttribute('stroke-linejoin', 'round');
+    g.appendChild(star);
+    fx.appendChild(g);
+    g.animate([{ transform: 'translate(' + x + 'px,' + y + 'px) scale(.4)', opacity: 1 },
+               { transform: 'translate(' + x + 'px,' + y + 'px) scale(1.25)', opacity: 1, offset: .35 },
+               { transform: 'translate(' + x + 'px,' + y + 'px) scale(1.4)', opacity: 0 }],
+              { duration: 380, easing: 'ease-out' }).onfinish = function () { g.remove(); };
+  }
+
+  var last = performance.now();
+  function tick(now) {
+    var dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if (armed) placeHammer(now);
+
+    if (mood !== 'curious' && now - moodAt > moodLen) {
+      if (mood === 'cry') play('laugh', now);                        // laughs it off right away
+      else { mood = 'curious'; nextMood = now + 7000 + Math.random() * 6000; }
+    }
+    if (mood === 'curious' && now > nextMood) play(Math.random() < 0.6 ? 'smile' : 'laugh', now);
+    var t = now - moodAt, crying = mood === 'cry';
+
+    // where Navi looks: from the middle of its face screen toward the cursor (or the hammer head)
+    var r = screen.getBoundingClientRect(), w = svg.getBoundingClientRect().width;
+    var tx = 0, ty = 0;
+    if (ptr.in && !crying) {
+      var dx = ptr.x - (r.left + r.width / 2), dy = ptr.y - (r.top + r.height / 2);
+      var d = Math.hypot(dx, dy), k = Math.min(1, d / (w * 0.6)) / (d || 1);
+      tx = dx * k; ty = dy * k;
+    }
+    if (crying) ty = 0.3;                                            // head hangs a little
+    look.x = follow(look.x, tx, crying ? 10 : 5, dt); look.y = follow(look.y, ty, crying ? 10 : 5, dt);
+    var lx = look.x, ly = look.y;
+
+    /* body: only a soft up-and-down bob; the arms swing left-right very slightly */
+    var ph = now / 1600 * Math.PI * 2;                               // one bob every 1.6 s
+    var bend = 0;
+    var bob = 0.018 * (1 - Math.cos(ph)) / 2;
+    var swing = Math.sin(now / 3200 * Math.PI * 2 - 0.6) * 1.2;      // both arms the same way, slower than the bob
+    var armL = swing + bob * 20, armR = -swing + bob * 20;           // arms lift a touch as the body dips
+    if (mood === 'laugh') {                                          // arms flap with each chuckle
+      var e = Math.sin(prog(t, 0, moodLen) * Math.PI);
+      var flap = Math.abs(Math.sin(t / 1000 * Math.PI * 5)) * 4 * e;
+      armL += flap; armR += flap; bob += Math.abs(Math.sin(t / 1000 * Math.PI * 5)) * 0.025 * e;
+    } else if (mood === 'smile') {
+      var u = Math.sin(prog(t, 0, moodLen) * Math.PI);
+      armL += 2 * u; armR += 2 * u;
+    } else if (crying) {                                             // arms droop in and shiver
+      var c = prog(t, 0, 200) * (1 - prog(t, CRY - 300, CRY));
+      armL = lerp(armL, -4 + Math.sin(t / 55) * 1.2, c); armR = lerp(armR, -4 + Math.sin(t / 55 + 1) * 1.2, c);
+      bob = lerp(bob, 0.03 + Math.sin(t / 85) * 0.012, c);          // sobbing
+    }
+    var startle = 0;
+    for (var side in feetEls) {
+      var c = footCurve(now - footAt[side]), fp = FOOT_PIVOT[side];
+      startle = Math.max(startle, Math.max(0, c));
+      var tr = 'translate(0 ' + (-5 * c) + ') rotate(' + (side === 'L' ? 16 : -16) * c + ' ' + fp[0] + ' ' + fp[1] + ')';
+      feetEls[side].forEach(function (e) { e.setAttribute('transform', tr); });
+    }
+    bob -= 0.03 * startle;                                           // the body jolts up with it
+    rig.bend = follow(rig.bend, bend, 8, dt); rig.bob = bob; rig.turn = lx; rig.nod = ly;
+    rig.armL = follow(rig.armL, armL, 12, dt); rig.armR = follow(rig.armR, armR, 12, dt);
+    deform();
+
+    // the blow squashes the whole of Navi into the floor, then it springs back
+    var sx = 1, sy = 1, tHit = now - hitAt;
+    if (tHit < 900) {
+      var squash = 0.3 * power;
+      sy = tHit < 70 ? lerp(1, 1 - squash, tHit / 70) : settle(1 - squash, 1, prog(tHit, 70, 900));
+      sx = 1 + (1 - sy) * 0.7;
+    }
+    navi.setAttribute('transform', 'translate(100 178) scale(' + sx + ' ' + sy + ') translate(-100 -178)');
+    shadow.setAttribute('transform', 'translate(100 178) scale(' + sx + ' 1) translate(-100 -178)');
+
+    // the screen slides with parallax (screen < face, as drawn in Figma). Its depth
+    // points down-right at rest; turning toward the cursor swings the depth the
+    // other way, so looking down the thickness thins below and shows over the top
+    var sx0 = 3 * lx, sy0 = 5 * ly;                               // on top of the body's own turn
+    screen.setAttribute('transform', 'translate(' + sx0 + ' ' + sy0 + ')');
+    extrude(sx0, sy0, 2.5 - 5.5 * lx, 5.5 - 9 * ly);
+    // the face rides on the bent body like a pinned layer
+    var p0 = warp(100, 95), p1 = warp(112, 95), ang = Math.atan2(p1[1] - p0[1], p1[0] - p0[0]) * 180 / Math.PI;
+    faceG.setAttribute('transform', 'translate(' + p0[0] + ' ' + p0[1] + ') rotate(' + ang + ') translate(-100 -95) translate(' + 11 * lx + ' ' + 11 * ly + ')');
+    eyesG.setAttribute('transform', eyesBase + ' translate(' + 1.5 * lx + ' ' + 1.2 * ly + ')');   // pupils lead the face a hair
+
+    /* eyes: always the same pair; they blink, squint when smiling, squeeze shut when crying */
+    if (now > nextBlink) { blinkAt = now; blinks = Math.random() < 0.25 ? 2 : 1; nextBlink = now + 2800 + Math.random() * 2600; }
+    var bt = now - blinkAt, blink = 1;
+    if (bt < 150 * blinks) blink = 1 - Math.sin((bt % 150) / 150 * Math.PI) * 0.92;
+    var open = mood === 'laugh' ? 0.55 : mood === 'smile' ? 0.8 : crying ? 0.08 : 1;
+    var lift = mood === 'laugh' ? -1.2 : mood === 'smile' ? -0.6 : 0;
+    eye.open = follow(eye.open, open, crying ? 30 : 10, dt);
+    eye.lift = follow(eye.lift, lift, 10, dt);
+    eye.shut = follow(eye.shut, crying ? 1 : 0, crying ? 25 : 12, dt);
+    var b = Math.min(eye.open, blink) * (1 + 0.22 * startle);      // eyes pop wide when a foot jumps
+    eyes.forEach(function (e) {
+      e.el.setAttribute('transform', 'translate(' + e.x + ' ' + (e.y + eye.lift) + ') scale(1 ' + b + ') translate(' + -e.x + ' ' + -e.y + ')');
+    });
+    eyesG.style.opacity = 1 - eye.shut;
+    shut.style.opacity = eye.shut;
+    shut.style.visibility = eye.shut > 0.01 ? '' : 'hidden';
+
+    /* mouth: curious "o" breathes a little; other moods swap it */
+    mouthTo(mood === 'laugh' ? 'happy' : mood, dt);
+    var mc = mouths.curious;
+    if (mc.w === 1) {
+      var ms = 1 + Math.sin(now / 600) * 0.06;
+      mc.el.setAttribute('transform', mc.base + ' translate(' + mc.x + ' ' + mc.y + ') scale(' + (1.5 - ms / 2) + ' ' + ms + ') translate(' + -mc.x + ' ' + -mc.y + ')');
+    }
+
+    if (crying && now - lastDrop > 120 && t > 120) { lastDrop = now; dropTear(); }
+    updateTears(now, dt);
+    requestAnimationFrame(tick);
+  }
+
+  // tears roll from the outer corners of the shut eyes
+  var side = 0;
+  function dropTear() {
+    side ^= 1;
+    var x = (side ? 75 : 124) + (Math.random() - 0.5) * 2, y = 95;
+    var e = document.createElementNS(NS, 'path');
+    e.setAttribute('fill', '#BFDBFE'); e.setAttribute('stroke', '#0A0A0A'); e.setAttribute('stroke-width', '.5');
+    e.setAttribute('d', 'M0 -2.6C1.4 -0.6 1.9 0.4 1.9 1.1A1.9 1.9 0 0 1 -1.9 1.1C-1.9 0.4 -1.4 -0.6 0 -2.6Z');
+    tears.appendChild(e);
+    drops.push({ el: e, x: x, y: y, vx: (side ? -1 : 1) * (6 + Math.random() * 6), vy: -10, born: performance.now() });
+  }
+  function updateTears(now, dt) {
+    drops = drops.filter(function (d) {
+      d.vy += 160 * dt; d.x += d.vx * dt; d.y += d.vy * dt;
+      var age = (now - d.born) / 700;
+      if (age >= 1) { d.el.remove(); return false; }
+      d.el.setAttribute('transform', 'translate(' + d.x + ' ' + d.y + ')');
+      d.el.setAttribute('opacity', String(1 - age * age));
+      return true;
+    });
+  }
+
+  requestAnimationFrame(tick);
+  }
+})();
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 <script>
 /* ---------- demo data ---------- */
@@ -1651,6 +2139,16 @@ var DEMOS = [
   specs:[['Thời lượng','Vòng lặp 6s, có thể tua từng khung (window.__demo.seek)'],['Nhịp','Tò mò, hộp rung 3 lần ~1.5s → bật nắp 0.4s, quà bay ra 0.6s → vui ~2.4s → quà và luồng sáng thu về 0.46s → nắp đóng cùng lúc hộp nằm xuống 0.4s → nảy nhẹ'],['Nắp hộp','Vẽ bằng code thành tấm có độ dày, xoay quanh bản lề; hai đầu khớp đúng nắp đóng (trạng thái 1) và nắp mở (trạng thái 2), mặt ngoài và mặt trong đổi theo góc nhìn'],['Thân hộp','Đổi dáng từ nằm phẳng (trạng thái 1) sang nghiêng (trạng thái 2); ánh sáng bên trong đi theo hộp; bóng nằm yên trên sàn, nhạt và nhỏ lại khi hộp nhấc lên'],['Navi','Một hình cắt rời tay, chân, mắt, miệng; tay xoay cứng quanh vai, mắt chớp, miệng đổi từ chữ "o" sang há to'],['Thư viện','Không cần, SVG + JS thuần']],
   steps:['Copy thẻ <code>&lt;svg id="art"&gt;</code> vào trang, thêm style.css và script.js.','Muốn chạy khi người chơi nhận quà: gọi <code>window.__demo.seek(0)</code> rồi <code>window.__demo.play()</code>.','Quà là các nhóm <code>data-item</code>, thẻ là <code>data-card</code>: thay hình bên trong, vị trí bay tới lấy theo chỗ đặt trong SVG.'],
   html:src('mo-qua','html'), css:src('mo-qua','css'), js:src('mo-qua','js')
+},
+{
+  slug:'go-bua', title:'Gõ búa Navi', type:'Animation', project:'Test Draft',
+  desc:'Navi tò mò nhìn theo con trỏ, thân xoay người theo, thỉnh thoảng mỉm cười hay cười lớn. Cầm búa gõ vào Navi thì Navi bẹp xuống, khóc rồi cười lại ngay; chọc vào chân thì chân co lên và Navi cười vì nhột.',
+  interactive:'Demo tương tác (nhìn theo chuột, búa, chọc chân), không có dòng thời gian cố định để xuất video.',
+  lottie:{status:'no', notes:['Demo phản ứng theo chuột và cú click, Lottie chỉ phát được chuyển động định sẵn.']},
+  updated:'03/11/2026', loop:true,
+  specs:[['Tương tác','Rê chuột: Navi nhìn theo, thân xoay người (bên phía nhìn hẹp lại, bên kia phình ra một chút), màn hình folder có độ dày đổi theo hướng nhìn'],['Búa','Bấm nút Búa để cầm, click để gõ; Esc hoặc bấm lại nút để bỏ. Gõ trúng: Navi bẹp xuống, khóc ~1.5s rồi cười lại'],['Chân','Click vào chân: chân đó co lên rồi đặt xuống, Navi cười vì nhột'],['Biểu cảm','Một đôi mắt giữ nguyên (chớp, híp khi cười, nhắm chặt khi khóc); chỉ miệng đổi, khép lại rồi mở ra mượt'],['Kỹ thuật','Rig kiểu puppet: thân nhún lên xuống, hai tay đung đưa nhẹ quanh vai, chân đứng yên'],['Thư viện','Không cần, SVG + JS thuần'],['Nguồn','Figma V7tl node 13299:62358 (Navi Smile / Happy / Cry, búa)']],
+  steps:['Copy khối <code>.stage</code> (nút búa, <code>&lt;svg id="art"&gt;</code>, con trỏ búa) vào trang, thêm style.css và script.js.','Miệng là các nhóm <code>data-mouth</code>, mắt là <code>data-eye</code>, chân là <code>data-foot</code>: thay hình bên trong giữ nguyên thuộc tính.'],
+  html:src('go-bua','html'), css:src('go-bua','css'), js:src('go-bua','js')
 }
 ];
 
@@ -1658,7 +2156,8 @@ var DEMOS = [
 var SITE = 'https://ilong6.github.io/thu-vien-il';
 var share = load('tvcl-share') || {
   'navi-ket-ban': {on:true, token:'navi-ket-ban'},
-  'mo-qua': {on:true, token:'mo-qua'}
+  'mo-qua': {on:true, token:'mo-qua'},
+  'go-bua': {on:true, token:'go-bua'}
 };
 var ui = {type:'Tất cả', project:null, q:'', view:'gallery', slug:null, tab:'preview', file:'html', vp:'desktop', preview:false, editing:false};
 
