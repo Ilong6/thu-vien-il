@@ -127,6 +127,13 @@ main{min-width:0;padding-block:28px 64px;padding-left:max(16px,env(safe-area-ins
 .stage[data-vp="mobile"] .frame{width:375px;border-color:var(--line)}
 .stage iframe{width:100%;height:100%;border:0;display:block;background:var(--stage)}
 .vp-label{position:absolute;right:14px;bottom:10px;font:500 11px var(--font-code);color:var(--faint)}
+.full-ctl{display:none;position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));gap:8px;z-index:2}
+.full-ctl .btn{background:color-mix(in srgb,var(--surface) 82%,transparent);backdrop-filter:blur(8px)}
+.stage:fullscreen,.stage.full{height:100%;min-height:0;border:0;border-radius:0;padding:0}
+.stage.full{position:fixed;inset:0;z-index:60;height:auto}
+.stage:fullscreen .full-ctl,.stage.full .full-ctl{display:flex}
+.stage:fullscreen .vp-label,.stage.full .vp-label{display:none}
+body.no-scroll{overflow:hidden}
 
 .code{background:var(--stage);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;height:min(62vh,560px);min-height:340px;display:flex;flex-direction:column}
 .code-tabs{display:flex;align-items:center;gap:2px;border-bottom:1px solid var(--line);padding:6px 6px 0 10px}
@@ -2706,6 +2713,8 @@ var I = {
   pen:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16v4Z"/><path d="m13.5 6.5 4 4"/></svg>',
   film:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>',
   trash:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>',
+  full:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>',
+  shrink:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>',
   up:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 15 6-6 6 6"/></svg>',
   down:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>'
 };
@@ -2887,7 +2896,8 @@ function renderDetail(d){
         '<button type="button" data-vp="desktop" aria-pressed="'+(ui.vp==='desktop')+'" title="Desktop">'+I.desk+'</button>'+
         '<button type="button" data-vp="tablet" aria-pressed="'+(ui.vp==='tablet')+'" title="Tablet 768px">'+I.tab+'</button>'+
         '<button type="button" data-vp="mobile" aria-pressed="'+(ui.vp==='mobile')+'" title="Mobile 375px">'+I.mob+'</button></div>'+
-        '<button type="button" class="btn icon" data-replay title="Phát lại">'+I.replay+'</button>' : '')+
+        '<button type="button" class="btn" data-replay title="Chạy lại animation từ đầu">'+I.replay+'Phát lại</button>'+
+        '<button type="button" class="btn" data-full title="Xem toàn màn hình (Esc để thoát)">'+I.full+'Toàn màn hình</button>' : '')+
       '<span class="spacer"></span>'+
       '<div class="dd only-owner"><button type="button" class="btn" data-open="share">'+I.link+'Chia sẻ</button>'+
         '<div class="menu share-pop" data-menu="share" hidden>'+
@@ -2912,7 +2922,8 @@ function renderDetail(d){
         '</div></div>'+
     '</div>'+
     (ui.tab==='preview'
-      ? '<div class="stage" data-vp="'+ui.vp+'"><div class="frame"><iframe title="'+esc(d.title)+'"></iframe></div><span class="vp-label">'+({desktop:'Desktop',tablet:'Tablet · 768px',mobile:'Mobile · 375px'})[ui.vp]+'</span></div>'
+      ? '<div class="stage" data-vp="'+ui.vp+'"><div class="frame"><iframe title="'+esc(d.title)+'"></iframe></div><span class="vp-label">'+({desktop:'Desktop',tablet:'Tablet · 768px',mobile:'Mobile · 375px'})[ui.vp]+'</span>'+
+        '<div class="full-ctl"><button type="button" class="btn" data-replay2>'+I.replay+'Phát lại</button><button type="button" class="btn" data-unfull>'+I.shrink+'Thoát</button></div></div>'
       : '<div class="code"><div class="code-tabs">'+files(d).map(function(f){return '<button type="button" class="tab" data-file="'+f[0]+'" aria-pressed="'+(ui.file===f[0])+'">'+f[1]+'</button>';}).join('')+
         '<button type="button" class="btn" data-copyfile>'+I.copy+'Copy</button></div><pre><code id="codeEl"></code></pre></div>')+
     '<div class="below">'+
@@ -3095,7 +3106,20 @@ function bindDetail(d){
   bindExport(d);
   view.querySelectorAll('[data-tab]').forEach(function(b){ b.onclick=function(){ ui.tab=b.dataset.tab; renderDetail(d); }; });
   view.querySelectorAll('[data-vp]').forEach(function(b){ if(b.tagName==='BUTTON') b.onclick=function(){ ui.vp=b.dataset.vp; var st=view.querySelector('.stage'); st.dataset.vp=ui.vp; view.querySelectorAll('button[data-vp]').forEach(function(x){x.setAttribute('aria-pressed', x===b);}); st.querySelector('.vp-label').textContent=({desktop:'Desktop',tablet:'Tablet · 768px',mobile:'Mobile · 375px'})[ui.vp]; }; });
-  var rp=view.querySelector('[data-replay]'); if(rp) rp.onclick=function(){ view.querySelector('.stage iframe').srcdoc = srcdoc(d); };
+  function replay(){ view.querySelector('.stage iframe').srcdoc = srcdoc(d); }
+  view.querySelectorAll('[data-replay],[data-replay2]').forEach(function(b){ b.onclick=replay; });
+  // toàn màn hình: dùng Fullscreen API, máy nào không hỗ trợ (iPhone) thì phủ kín cửa sổ bằng CSS
+  var st=view.querySelector('.stage');
+  function isFull(){ return document.fullscreenElement===st || (st && st.classList.contains('full')); }
+  function exitFull(){ if(document.fullscreenElement) document.exitFullscreen(); if(st) st.classList.remove('full'); document.body.classList.remove('no-scroll'); }
+  var fb=view.querySelector('[data-full]');
+  if(fb) fb.onclick=function(){
+    if(isFull()) return exitFull();
+    if(st.requestFullscreen) st.requestFullscreen().then(replay, function(){ st.classList.add('full'); document.body.classList.add('no-scroll'); replay(); });
+    else { st.classList.add('full'); document.body.classList.add('no-scroll'); replay(); }
+  };
+  var uf=view.querySelector('[data-unfull]'); if(uf) uf.onclick=exitFull;
+  document.onkeydown=function(e){ if(e.key==='Escape' && st && st.classList.contains('full')) exitFull(); };
   view.querySelectorAll('[data-file]').forEach(function(b){ b.onclick=function(){ ui.file=b.dataset.file; renderDetail(d); }; });
   var cf=view.querySelector('[data-copyfile]'); if(cf) cf.onclick=function(){ var f=files(d).filter(function(f){return f[0]===ui.file;})[0]; copy(f[2], 'Đã copy '+f[1]); };
   view.querySelectorAll('[data-open]').forEach(function(b){ b.onclick=function(e){ e.stopPropagation(); var m=b.parentNode.querySelector('.menu'); closeMenus(m); m.hidden=!m.hidden; }; });
