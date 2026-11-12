@@ -66,20 +66,19 @@ body{background:#0B0B0C;display:grid;place-items:center;padding:16px;box-sizing:
   var PUNCH = [[0, 1], [0.35, 0.975], [CLICK, 1.045, snap], [0.72, 1], [P, 1]];
   // nền lục giác nhún khi chìa khoá bật trúng
   var HIT = [[0, 0], [0.46, 0], [0.54, 1, snap], [0.7, -0.25], [0.86, 0], [P, 0]];
-  var STRONG = 1.2;           // cứ 3 nhịp có 1 nhịp bật mạnh hơn
 
   // vệt sáng: mỗi nhịp một lần (2s), chạy ngay sau cú bật
   var SWEEP = 0.4, FIRE = 0.5;
   var keyG = document.getElementById("keyG"), hex = document.getElementById("hex"), sheen = document.getElementById("sheen");
 
   function frame(t) {
-    var u = t % P, amp = Math.floor(t / P) % 3 === 2 ? STRONG : 1;
+    var u = t % P;
     // thở nhẹ trong lúc nghỉ, tắt dần về 0 trước nhịp sau
     var env = clamp((u - 1.4) / 0.2, 0, 1) * clamp((P - 0.05 - u) / 0.3, 0, 1);
     var breath = Math.sin((u - 1.4) / 0.6 * TAU) * env;
-    var a = key(u, SWING) * amp + breath * 1.2, sc = 1 + (key(u, PUNCH) - 1) * amp, by = -breath * 1;
+    var a = key(u, SWING) + breath * 1.2, sc = key(u, PUNCH), by = -breath * 1;
     keyG.setAttribute("transform", "translate(" + PIVOT[0] + " " + (PIVOT[1] + by).toFixed(3) + ") rotate(" + a.toFixed(3) + ") scale(" + sc.toFixed(4) + ") translate(" + -PIVOT[0] + " " + -PIVOT[1] + ")");
-    var h = key(u, HIT) * amp;
+    var h = key(u, HIT);
     hex.setAttribute("transform", "translate(" + HEX_C[0] + " " + (HEX_C[1] + 1.2 * h).toFixed(3) + ") scale(" + (1 + 0.012 * h).toFixed(4) + " " + (1 - 0.022 * h).toFixed(4) + ") translate(" + -HEX_C[0] + " " + -HEX_C[1] + ")");
     var d = (u - FIRE + P) % P;
     if (d > SWEEP) { sheen.setAttribute("visibility", "hidden"); return; }
@@ -91,7 +90,7 @@ body{background:#0B0B0C;display:grid;place-items:center;padding:16px;box-sizing:
   function tick(now) { if (!paused) frame((now - start) / 1000); requestAnimationFrame(tick); }
   if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { paused = true; frame(1.2); }
   window.__demo = {
-    duration: 6000,
+    duration: 2000,
     seek: function (ms) { paused = true; pauseAt = performance.now(); start = pauseAt - ms; frame(ms / 1000); },
     play: function () { if (paused) { start += performance.now() - pauseAt; paused = false; } }
   };
