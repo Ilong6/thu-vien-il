@@ -112,6 +112,9 @@ main{min-width:0;padding-block:28px 64px;padding-left:max(16px,env(safe-area-ins
 .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .btn.primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
 .btn.icon{width:34px;padding:0;justify-content:center}
+.btn.replay{height:38px;padding:0 16px;font-weight:700;font-size:14px;box-shadow:0 4px 14px color-mix(in srgb,var(--accent) 40%,transparent)}
+.btn.replay.spin svg{animation:replaySpin .5s ease}
+@keyframes replaySpin{to{transform:rotate(-360deg)}}
 .dd{position:relative}
 .menu{position:absolute;right:0;top:calc(100% + 6px);z-index:15;min-width:260px;background:var(--surface-2);border:1px solid var(--line-2);border-radius:12px;padding:6px;box-shadow:0 18px 40px rgba(0,0,0,.45)}
 .menu > button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;width:100%;border:0;background:none;border-radius:8px;padding:8px 10px;cursor:pointer;text-align:left}
@@ -3395,7 +3398,7 @@ function renderDetail(d){
         '<button type="button" data-vp="desktop" aria-pressed="'+(ui.vp==='desktop')+'" title="Desktop">'+I.desk+'</button>'+
         '<button type="button" data-vp="tablet" aria-pressed="'+(ui.vp==='tablet')+'" title="Tablet 768px">'+I.tab+'</button>'+
         '<button type="button" data-vp="mobile" aria-pressed="'+(ui.vp==='mobile')+'" title="Mobile 375px">'+I.mob+'</button></div>'+
-        '<button type="button" class="btn" data-replay title="Chạy lại animation từ đầu">'+I.replay+'Phát lại</button>'+
+        '<button type="button" class="btn primary replay" data-replay title="Chạy lại animation từ đầu">'+I.replay+'Phát lại</button>'+
         '<button type="button" class="btn" data-full title="Xem toàn màn hình (Esc để thoát)">'+I.full+'Toàn màn hình</button>' : '')+
       '<span class="spacer"></span>'+
       '<div class="dd only-owner"><button type="button" class="btn" data-open="share">'+I.link+'Chia sẻ</button>'+
@@ -3422,7 +3425,7 @@ function renderDetail(d){
     '</div>'+
     (ui.tab==='preview'
       ? '<div class="stage" data-vp="'+ui.vp+'"><div class="frame"><iframe title="'+esc(d.title)+'"></iframe></div><span class="vp-label">'+({desktop:'Desktop',tablet:'Tablet · 768px',mobile:'Mobile · 375px'})[ui.vp]+'</span>'+
-        '<div class="full-ctl"><button type="button" class="btn" data-replay2>'+I.replay+'Phát lại</button><button type="button" class="btn" data-unfull>'+I.shrink+'Thoát</button></div></div>'
+        '<div class="full-ctl"><button type="button" class="btn primary replay" data-replay2>'+I.replay+'Phát lại</button><button type="button" class="btn" data-unfull>'+I.shrink+'Thoát</button></div></div>'
       : '<div class="code"><div class="code-tabs">'+files(d).map(function(f){return '<button type="button" class="tab" data-file="'+f[0]+'" aria-pressed="'+(ui.file===f[0])+'">'+f[1]+'</button>';}).join('')+
         '<button type="button" class="btn" data-copyfile>'+I.copy+'Copy</button></div><pre><code id="codeEl"></code></pre></div>')+
     '<div class="below">'+
@@ -3606,7 +3609,7 @@ function bindDetail(d){
   view.querySelectorAll('[data-tab]').forEach(function(b){ b.onclick=function(){ ui.tab=b.dataset.tab; renderDetail(d); }; });
   view.querySelectorAll('[data-vp]').forEach(function(b){ if(b.tagName==='BUTTON') b.onclick=function(){ ui.vp=b.dataset.vp; var st=view.querySelector('.stage'); st.dataset.vp=ui.vp; view.querySelectorAll('button[data-vp]').forEach(function(x){x.setAttribute('aria-pressed', x===b);}); st.querySelector('.vp-label').textContent=({desktop:'Desktop',tablet:'Tablet · 768px',mobile:'Mobile · 375px'})[ui.vp]; }; });
   function replay(){ view.querySelector('.stage iframe').srcdoc = srcdoc(d); }
-  view.querySelectorAll('[data-replay],[data-replay2]').forEach(function(b){ b.onclick=replay; });
+  view.querySelectorAll('[data-replay],[data-replay2]').forEach(function(b){ b.onclick=function(){ replay(); b.classList.remove('spin'); void b.offsetWidth; b.classList.add('spin'); setTimeout(function(){ b.classList.remove('spin'); },520); }; });
   // toàn màn hình: dùng Fullscreen API, máy nào không hỗ trợ (iPhone) thì phủ kín cửa sổ bằng CSS
   var st=view.querySelector('.stage');
   function isFull(){ return document.fullscreenElement===st || (st && st.classList.contains('full')); }
